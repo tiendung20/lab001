@@ -28,9 +28,9 @@
 #include "veins/modules/world/traci/trafficLight/TraCITrafficLightInterface.h"
 
 namespace veins {
-class TraCITrafficLightTestLogic : public TraCITrafficLightAbstractLogic {
+class TraCITrafficLightTestLogic: public TraCITrafficLightAbstractLogic {
 private:
-    cMessage* changeProgramm;
+    cMessage *changeProgramm;
     unsigned int currentIndex = 0;
 
 public:
@@ -39,20 +39,21 @@ public:
 
 protected:
     virtual void initialize();
-    virtual void handleMessage(cMessage* msg);
-    virtual void handleApplMsg(cMessage* msg);
-    virtual void handleTlIfMsg(TraCITrafficLightMessage* tlMsg);
+    virtual void handleMessage(cMessage *msg);
+    virtual void handleApplMsg(cMessage *msg);
+    virtual void handleTlIfMsg(TraCITrafficLightMessage *tlMsg);
     virtual void handlePossibleSwitch();
 };
 
 class TraCITrafficLightTestLogicAccess {
 public:
-    TraCITrafficLightTestLogic* get(cModule* host)
-    {
-        TraCITrafficLightTestLogic* traci = FindModule<TraCITrafficLightTestLogic*>::findSubModule(host);
+    TraCITrafficLightTestLogic* get(cModule *host) {
+        TraCITrafficLightTestLogic *traci = FindModule<
+                TraCITrafficLightTestLogic*>::findSubModule(host);
         ASSERT(traci);
         return traci;
-    };
+    }
+    ;
 };
 
 } // namespace veins

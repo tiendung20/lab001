@@ -27,22 +27,22 @@ using namespace omnetpp;
 
 namespace veins {
 
-class RSUControlApp : public TraCIDemoRSU11p {
+class RSUControlApp: public TraCIDemoRSU11p {
 public:
     void initialize(int stage) override;
     void finish() override;
 
 protected:
-    void onBSM(DemoSafetyMessage* bsm) override;
-    void onWSM(BaseFrame1609_4* wsm) override;
-    void onWSA(DemoServiceAdvertisment* wsa) override;
+    void onBSM(DemoSafetyMessage *bsm) override;
+    void onWSM(BaseFrame1609_4 *wsm) override;
+    void onWSA(DemoServiceAdvertisment *wsa) override;
 
-    void handleSelfMsg(cMessage* msg) override;
-    void handlePositionUpdate(cObject* obj) override;
+    void handleSelfMsg(cMessage *msg) override;
+    void handlePositionUpdate(cObject *obj) override;
 private:
     bool hasStopped = false;
     int subscribedServiceId = 0;
-    cMessage* sendBeacon;
+    cMessage *sendBeacon;
 
 };
 }

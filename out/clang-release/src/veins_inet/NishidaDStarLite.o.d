@@ -38,7 +38,16 @@
   /home/dung/Documents/veins/src/veins/modules/mobility/traci/TraCIRegionOfInterest.h \
   /home/dung/Documents/veins/src/veins/modules/mobility/traci/TraCICommandInterface.h \
   /home/dung/Documents/veins/src/veins/modules/world/traci/trafficLight/TraCITrafficLightProgram.h \
-  veins_inet/Graph.h veins_inet/Crossing.h veins_inet/CustomRectangle.h
+  lib/vecmath/vecmath.h lib/vecmath/AxisAngle4.h \
+  lib/vecmath/AxisAngle4_.h lib/vecmath/Matrix4_.h \
+  lib/vecmath/Matrix3_.h lib/vecmath/Point3.h lib/vecmath/Point4.h \
+  lib/vecmath/Tuple3.h lib/vecmath/VmUtil.h lib/vecmath/vm_conf.h \
+  lib/vecmath/Tuple4.h lib/vecmath/Vector3.h lib/vecmath/Vector4.h \
+  lib/vecmath/Quat4_.h lib/vecmath/Color3.h lib/vecmath/Color4.h \
+  lib/vecmath/Matrix3.h lib/vecmath/Matrix4.h lib/vecmath/Quat4.h \
+  lib/vecmath/Point2.h lib/vecmath/Tuple2.h lib/vecmath/TexCoord2.h \
+  lib/vecmath/Vector2.h veins_inet/Graph.h veins_inet/Crossing.h \
+  veins_inet/CustomRectangle.h
 
 veins_inet/NishidaDStarLite.h:
 
@@ -119,6 +128,52 @@ veins_inet/Constant.h:
 /home/dung/Documents/veins/src/veins/modules/mobility/traci/TraCICommandInterface.h:
 
 /home/dung/Documents/veins/src/veins/modules/world/traci/trafficLight/TraCITrafficLightProgram.h:
+
+lib/vecmath/vecmath.h:
+
+lib/vecmath/AxisAngle4.h:
+
+lib/vecmath/AxisAngle4_.h:
+
+lib/vecmath/Matrix4_.h:
+
+lib/vecmath/Matrix3_.h:
+
+lib/vecmath/Point3.h:
+
+lib/vecmath/Point4.h:
+
+lib/vecmath/Tuple3.h:
+
+lib/vecmath/VmUtil.h:
+
+lib/vecmath/vm_conf.h:
+
+lib/vecmath/Tuple4.h:
+
+lib/vecmath/Vector3.h:
+
+lib/vecmath/Vector4.h:
+
+lib/vecmath/Quat4_.h:
+
+lib/vecmath/Color3.h:
+
+lib/vecmath/Color4.h:
+
+lib/vecmath/Matrix3.h:
+
+lib/vecmath/Matrix4.h:
+
+lib/vecmath/Quat4.h:
+
+lib/vecmath/Point2.h:
+
+lib/vecmath/Tuple2.h:
+
+lib/vecmath/TexCoord2.h:
+
+lib/vecmath/Vector2.h:
 
 veins_inet/Graph.h:
 

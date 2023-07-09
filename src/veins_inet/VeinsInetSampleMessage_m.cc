@@ -37,8 +37,7 @@ namespace omnetpp {
 
 // Packing/unpacking an std::vector
 template<typename T, typename A>
-void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::vector<T,A>& v)
-{
+void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::vector<T, A> &v) {
     int n = v.size();
     doParsimPacking(buffer, n);
     for (int i = 0; i < n; i++)
@@ -46,8 +45,7 @@ void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::vector<T,A>& v)
 }
 
 template<typename T, typename A>
-void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::vector<T,A>& v)
-{
+void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::vector<T, A> &v) {
     int n;
     doParsimUnpacking(buffer, n);
     v.resize(n);
@@ -57,16 +55,15 @@ void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::vector<T,A>& v)
 
 // Packing/unpacking an std::list
 template<typename T, typename A>
-void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::list<T,A>& l)
-{
-    doParsimPacking(buffer, (int)l.size());
-    for (typename std::list<T,A>::const_iterator it = l.begin(); it != l.end(); ++it)
-        doParsimPacking(buffer, (T&)*it);
+void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::list<T, A> &l) {
+    doParsimPacking(buffer, (int) l.size());
+    for (typename std::list<T, A>::const_iterator it = l.begin(); it != l.end();
+            ++it)
+        doParsimPacking(buffer, (T&) *it);
 }
 
 template<typename T, typename A>
-void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::list<T,A>& l)
-{
+void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::list<T, A> &l) {
     int n;
     doParsimUnpacking(buffer, n);
     for (int i = 0; i < n; i++) {
@@ -77,16 +74,16 @@ void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::list<T,A>& l)
 
 // Packing/unpacking an std::set
 template<typename T, typename Tr, typename A>
-void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::set<T,Tr,A>& s)
-{
-    doParsimPacking(buffer, (int)s.size());
-    for (typename std::set<T,Tr,A>::const_iterator it = s.begin(); it != s.end(); ++it)
+void doParsimPacking(omnetpp::cCommBuffer *buffer,
+        const std::set<T, Tr, A> &s) {
+    doParsimPacking(buffer, (int) s.size());
+    for (typename std::set<T, Tr, A>::const_iterator it = s.begin();
+            it != s.end(); ++it)
         doParsimPacking(buffer, *it);
 }
 
 template<typename T, typename Tr, typename A>
-void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::set<T,Tr,A>& s)
-{
+void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::set<T, Tr, A> &s) {
     int n;
     doParsimUnpacking(buffer, n);
     for (int i = 0; i < n; i++) {
@@ -98,22 +95,23 @@ void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::set<T,Tr,A>& s)
 
 // Packing/unpacking an std::map
 template<typename K, typename V, typename Tr, typename A>
-void doParsimPacking(omnetpp::cCommBuffer *buffer, const std::map<K,V,Tr,A>& m)
-{
-    doParsimPacking(buffer, (int)m.size());
-    for (typename std::map<K,V,Tr,A>::const_iterator it = m.begin(); it != m.end(); ++it) {
+void doParsimPacking(omnetpp::cCommBuffer *buffer,
+        const std::map<K, V, Tr, A> &m) {
+    doParsimPacking(buffer, (int) m.size());
+    for (typename std::map<K, V, Tr, A>::const_iterator it = m.begin();
+            it != m.end(); ++it) {
         doParsimPacking(buffer, it->first);
         doParsimPacking(buffer, it->second);
     }
 }
 
 template<typename K, typename V, typename Tr, typename A>
-void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::map<K,V,Tr,A>& m)
-{
+void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::map<K, V, Tr, A> &m) {
     int n;
     doParsimUnpacking(buffer, n);
     for (int i = 0; i < n; i++) {
-        K k; V v;
+        K k;
+        V v;
         doParsimUnpacking(buffer, k);
         doParsimUnpacking(buffer, v);
         m[k] = v;
@@ -122,141 +120,146 @@ void doParsimUnpacking(omnetpp::cCommBuffer *buffer, std::map<K,V,Tr,A>& m)
 
 // Default pack/unpack function for arrays
 template<typename T>
-void doParsimArrayPacking(omnetpp::cCommBuffer *b, const T *t, int n)
-{
+void doParsimArrayPacking(omnetpp::cCommBuffer *b, const T *t, int n) {
     for (int i = 0; i < n; i++)
         doParsimPacking(b, t[i]);
 }
 
 template<typename T>
-void doParsimArrayUnpacking(omnetpp::cCommBuffer *b, T *t, int n)
-{
+void doParsimArrayUnpacking(omnetpp::cCommBuffer *b, T *t, int n) {
     for (int i = 0; i < n; i++)
         doParsimUnpacking(b, t[i]);
 }
 
 // Default rule to prevent compiler from choosing base class' doParsimPacking() function
 template<typename T>
-void doParsimPacking(omnetpp::cCommBuffer *, const T& t)
-{
-    throw omnetpp::cRuntimeError("Parsim error: No doParsimPacking() function for type %s", omnetpp::opp_typename(typeid(t)));
+void doParsimPacking(omnetpp::cCommBuffer*, const T &t) {
+    throw omnetpp::cRuntimeError(
+            "Parsim error: No doParsimPacking() function for type %s",
+            omnetpp::opp_typename(typeid(t)));
 }
 
 template<typename T>
-void doParsimUnpacking(omnetpp::cCommBuffer *, T& t)
-{
-    throw omnetpp::cRuntimeError("Parsim error: No doParsimUnpacking() function for type %s", omnetpp::opp_typename(typeid(t)));
+void doParsimUnpacking(omnetpp::cCommBuffer*, T &t) {
+    throw omnetpp::cRuntimeError(
+            "Parsim error: No doParsimUnpacking() function for type %s",
+            omnetpp::opp_typename(typeid(t)));
 }
 
 }  // namespace omnetpp
 
 Register_Class(VeinsInetSampleMessage)
 
-VeinsInetSampleMessage::VeinsInetSampleMessage() : ::inet::FieldsChunk()
-{
+VeinsInetSampleMessage::VeinsInetSampleMessage() :
+        ::inet::FieldsChunk() {
 }
 
-VeinsInetSampleMessage::VeinsInetSampleMessage(const VeinsInetSampleMessage& other) : ::inet::FieldsChunk(other)
-{
+VeinsInetSampleMessage::VeinsInetSampleMessage(
+        const VeinsInetSampleMessage &other) :
+        ::inet::FieldsChunk(other) {
     copy(other);
 }
 
-VeinsInetSampleMessage::~VeinsInetSampleMessage()
-{
+VeinsInetSampleMessage::~VeinsInetSampleMessage() {
 }
 
-VeinsInetSampleMessage& VeinsInetSampleMessage::operator=(const VeinsInetSampleMessage& other)
-{
-    if (this == &other) return *this;
+VeinsInetSampleMessage& VeinsInetSampleMessage::operator=(
+        const VeinsInetSampleMessage &other) {
+    if (this == &other)
+        return *this;
     ::inet::FieldsChunk::operator=(other);
     copy(other);
     return *this;
 }
 
-void VeinsInetSampleMessage::copy(const VeinsInetSampleMessage& other)
-{
+void VeinsInetSampleMessage::copy(const VeinsInetSampleMessage &other) {
     this->roadId = other.roadId;
 }
 
-void VeinsInetSampleMessage::parsimPack(omnetpp::cCommBuffer *b) const
-{
+void VeinsInetSampleMessage::parsimPack(omnetpp::cCommBuffer *b) const {
     ::inet::FieldsChunk::parsimPack(b);
-    doParsimPacking(b,this->roadId);
+    doParsimPacking(b, this->roadId);
 }
 
-void VeinsInetSampleMessage::parsimUnpack(omnetpp::cCommBuffer *b)
-{
+void VeinsInetSampleMessage::parsimUnpack(omnetpp::cCommBuffer *b) {
     ::inet::FieldsChunk::parsimUnpack(b);
-    doParsimUnpacking(b,this->roadId);
+    doParsimUnpacking(b, this->roadId);
 }
 
-const char * VeinsInetSampleMessage::getRoadId() const
-{
+const char* VeinsInetSampleMessage::getRoadId() const {
     return this->roadId.c_str();
 }
 
-void VeinsInetSampleMessage::setRoadId(const char * roadId)
-{
+void VeinsInetSampleMessage::setRoadId(const char *roadId) {
     handleChange();
     this->roadId = roadId;
 }
 
-class VeinsInetSampleMessageDescriptor : public omnetpp::cClassDescriptor
-{
-  private:
+class VeinsInetSampleMessageDescriptor: public omnetpp::cClassDescriptor {
+private:
     mutable const char **propertyNames;
     enum FieldConstants {
         FIELD_roadId,
     };
-  public:
+public:
     VeinsInetSampleMessageDescriptor();
     virtual ~VeinsInetSampleMessageDescriptor();
 
     virtual bool doesSupport(omnetpp::cObject *obj) const override;
-    virtual const char **getPropertyNames() const override;
-    virtual const char *getProperty(const char *propertyName) const override;
+    virtual const char** getPropertyNames() const override;
+    virtual const char* getProperty(const char *propertyName) const override;
     virtual int getFieldCount() const override;
-    virtual const char *getFieldName(int field) const override;
+    virtual const char* getFieldName(int field) const override;
     virtual int findField(const char *fieldName) const override;
     virtual unsigned int getFieldTypeFlags(int field) const override;
-    virtual const char *getFieldTypeString(int field) const override;
-    virtual const char **getFieldPropertyNames(int field) const override;
-    virtual const char *getFieldProperty(int field, const char *propertyName) const override;
-    virtual int getFieldArraySize(omnetpp::any_ptr object, int field) const override;
-    virtual void setFieldArraySize(omnetpp::any_ptr object, int field, int size) const override;
+    virtual const char* getFieldTypeString(int field) const override;
+    virtual const char** getFieldPropertyNames(int field) const override;
+    virtual const char* getFieldProperty(int field,
+            const char *propertyName) const override;
+    virtual int getFieldArraySize(omnetpp::any_ptr object, int field) const
+            override;
+    virtual void setFieldArraySize(omnetpp::any_ptr object, int field,
+            int size) const override;
 
-    virtual const char *getFieldDynamicTypeString(omnetpp::any_ptr object, int field, int i) const override;
-    virtual std::string getFieldValueAsString(omnetpp::any_ptr object, int field, int i) const override;
-    virtual void setFieldValueAsString(omnetpp::any_ptr object, int field, int i, const char *value) const override;
-    virtual omnetpp::cValue getFieldValue(omnetpp::any_ptr object, int field, int i) const override;
-    virtual void setFieldValue(omnetpp::any_ptr object, int field, int i, const omnetpp::cValue& value) const override;
+    virtual const char* getFieldDynamicTypeString(omnetpp::any_ptr object,
+            int field, int i) const override;
+    virtual std::string getFieldValueAsString(omnetpp::any_ptr object,
+            int field, int i) const override;
+    virtual void setFieldValueAsString(omnetpp::any_ptr object, int field,
+            int i, const char *value) const override;
+    virtual omnetpp::cValue getFieldValue(omnetpp::any_ptr object, int field,
+            int i) const override;
+    virtual void setFieldValue(omnetpp::any_ptr object, int field, int i,
+            const omnetpp::cValue &value) const override;
 
-    virtual const char *getFieldStructName(int field) const override;
-    virtual omnetpp::any_ptr getFieldStructValuePointer(omnetpp::any_ptr object, int field, int i) const override;
-    virtual void setFieldStructValuePointer(omnetpp::any_ptr object, int field, int i, omnetpp::any_ptr ptr) const override;
+    virtual const char* getFieldStructName(int field) const override;
+    virtual omnetpp::any_ptr getFieldStructValuePointer(omnetpp::any_ptr object,
+            int field, int i) const override;
+    virtual void setFieldStructValuePointer(omnetpp::any_ptr object, int field,
+            int i, omnetpp::any_ptr ptr) const override;
 };
 
 Register_ClassDescriptor(VeinsInetSampleMessageDescriptor)
 
-VeinsInetSampleMessageDescriptor::VeinsInetSampleMessageDescriptor() : omnetpp::cClassDescriptor(omnetpp::opp_typename(typeid(VeinsInetSampleMessage)), "inet::FieldsChunk")
-{
+VeinsInetSampleMessageDescriptor::VeinsInetSampleMessageDescriptor() :
+        omnetpp::cClassDescriptor(
+                omnetpp::opp_typename(typeid(VeinsInetSampleMessage)),
+                "inet::FieldsChunk") {
     propertyNames = nullptr;
 }
 
-VeinsInetSampleMessageDescriptor::~VeinsInetSampleMessageDescriptor()
-{
+VeinsInetSampleMessageDescriptor::~VeinsInetSampleMessageDescriptor() {
     delete[] propertyNames;
 }
 
-bool VeinsInetSampleMessageDescriptor::doesSupport(omnetpp::cObject *obj) const
-{
-    return dynamic_cast<VeinsInetSampleMessage *>(obj)!=nullptr;
+bool VeinsInetSampleMessageDescriptor::doesSupport(
+        omnetpp::cObject *obj) const {
+    return dynamic_cast<VeinsInetSampleMessage*>(obj) != nullptr;
 }
 
-const char **VeinsInetSampleMessageDescriptor::getPropertyNames() const
-{
+const char** VeinsInetSampleMessageDescriptor::getPropertyNames() const {
     if (!propertyNames) {
-        static const char *names[] = {  nullptr };
+        static const char *names[] = { nullptr };
         omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
         const char **baseNames = base ? base->getPropertyNames() : nullptr;
         propertyNames = mergeLists(baseNames, names);
@@ -264,70 +267,64 @@ const char **VeinsInetSampleMessageDescriptor::getPropertyNames() const
     return propertyNames;
 }
 
-const char *VeinsInetSampleMessageDescriptor::getProperty(const char *propertyName) const
-{
+const char* VeinsInetSampleMessageDescriptor::getProperty(
+        const char *propertyName) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     return base ? base->getProperty(propertyName) : nullptr;
 }
 
-int VeinsInetSampleMessageDescriptor::getFieldCount() const
-{
+int VeinsInetSampleMessageDescriptor::getFieldCount() const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
-    return base ? 1+base->getFieldCount() : 1;
+    return base ? 1 + base->getFieldCount() : 1;
 }
 
-unsigned int VeinsInetSampleMessageDescriptor::getFieldTypeFlags(int field) const
-{
+unsigned int VeinsInetSampleMessageDescriptor::getFieldTypeFlags(
+        int field) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
             return base->getFieldTypeFlags(field);
         field -= base->getFieldCount();
     }
-    static unsigned int fieldTypeFlags[] = {
-        FD_ISEDITABLE,    // FIELD_roadId
-    };
+    static unsigned int fieldTypeFlags[] = { FD_ISEDITABLE,    // FIELD_roadId
+            };
     return (field >= 0 && field < 1) ? fieldTypeFlags[field] : 0;
 }
 
-const char *VeinsInetSampleMessageDescriptor::getFieldName(int field) const
-{
+const char* VeinsInetSampleMessageDescriptor::getFieldName(int field) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
             return base->getFieldName(field);
         field -= base->getFieldCount();
     }
-    static const char *fieldNames[] = {
-        "roadId",
-    };
+    static const char *fieldNames[] = { "roadId", };
     return (field >= 0 && field < 1) ? fieldNames[field] : nullptr;
 }
 
-int VeinsInetSampleMessageDescriptor::findField(const char *fieldName) const
-{
+int VeinsInetSampleMessageDescriptor::findField(const char *fieldName) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     int baseIndex = base ? base->getFieldCount() : 0;
-    if (strcmp(fieldName, "roadId") == 0) return baseIndex + 0;
+    if (strcmp(fieldName, "roadId") == 0)
+        return baseIndex + 0;
     return base ? base->findField(fieldName) : -1;
 }
 
-const char *VeinsInetSampleMessageDescriptor::getFieldTypeString(int field) const
-{
+const char* VeinsInetSampleMessageDescriptor::getFieldTypeString(
+        int field) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
             return base->getFieldTypeString(field);
         field -= base->getFieldCount();
     }
-    static const char *fieldTypeStrings[] = {
-        "string",    // FIELD_roadId
-    };
+    static const char *fieldTypeStrings[] = { "string",    // FIELD_roadId
+            };
     return (field >= 0 && field < 1) ? fieldTypeStrings[field] : nullptr;
 }
 
-const char **VeinsInetSampleMessageDescriptor::getFieldPropertyNames(int field) const
-{
+const char** VeinsInetSampleMessageDescriptor::getFieldPropertyNames(
+        int field) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
@@ -335,12 +332,13 @@ const char **VeinsInetSampleMessageDescriptor::getFieldPropertyNames(int field) 
         field -= base->getFieldCount();
     }
     switch (field) {
-        default: return nullptr;
+    default:
+        return nullptr;
     }
 }
 
-const char *VeinsInetSampleMessageDescriptor::getFieldProperty(int field, const char *propertyName) const
-{
+const char* VeinsInetSampleMessageDescriptor::getFieldProperty(int field,
+        const char *propertyName) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
@@ -348,120 +346,154 @@ const char *VeinsInetSampleMessageDescriptor::getFieldProperty(int field, const 
         field -= base->getFieldCount();
     }
     switch (field) {
-        default: return nullptr;
+    default:
+        return nullptr;
     }
 }
 
-int VeinsInetSampleMessageDescriptor::getFieldArraySize(omnetpp::any_ptr object, int field) const
-{
+int VeinsInetSampleMessageDescriptor::getFieldArraySize(omnetpp::any_ptr object,
+        int field) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
             return base->getFieldArraySize(object, field);
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        default: return 0;
+    default:
+        return 0;
     }
 }
 
-void VeinsInetSampleMessageDescriptor::setFieldArraySize(omnetpp::any_ptr object, int field, int size) const
-{
+void VeinsInetSampleMessageDescriptor::setFieldArraySize(
+        omnetpp::any_ptr object, int field, int size) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
-        if (field < base->getFieldCount()){
+        if (field < base->getFieldCount()) {
             base->setFieldArraySize(object, field, size);
             return;
         }
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        default: throw omnetpp::cRuntimeError("Cannot set array size of field %d of class 'VeinsInetSampleMessage'", field);
+    default:
+        throw omnetpp::cRuntimeError(
+                "Cannot set array size of field %d of class 'VeinsInetSampleMessage'",
+                field);
     }
 }
 
-const char *VeinsInetSampleMessageDescriptor::getFieldDynamicTypeString(omnetpp::any_ptr object, int field, int i) const
-{
+const char* VeinsInetSampleMessageDescriptor::getFieldDynamicTypeString(
+        omnetpp::any_ptr object, int field, int i) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
-            return base->getFieldDynamicTypeString(object,field,i);
+            return base->getFieldDynamicTypeString(object, field, i);
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        default: return nullptr;
+    default:
+        return nullptr;
     }
 }
 
-std::string VeinsInetSampleMessageDescriptor::getFieldValueAsString(omnetpp::any_ptr object, int field, int i) const
-{
+std::string VeinsInetSampleMessageDescriptor::getFieldValueAsString(
+        omnetpp::any_ptr object, int field, int i) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
-            return base->getFieldValueAsString(object,field,i);
+            return base->getFieldValueAsString(object, field, i);
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        case FIELD_roadId: return oppstring2string(pp->getRoadId());
-        default: return "";
+    case FIELD_roadId:
+        return oppstring2string(pp->getRoadId());
+    default:
+        return "";
     }
 }
 
-void VeinsInetSampleMessageDescriptor::setFieldValueAsString(omnetpp::any_ptr object, int field, int i, const char *value) const
-{
+void VeinsInetSampleMessageDescriptor::setFieldValueAsString(
+        omnetpp::any_ptr object, int field, int i, const char *value) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
-        if (field < base->getFieldCount()){
+        if (field < base->getFieldCount()) {
             base->setFieldValueAsString(object, field, i, value);
             return;
         }
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        case FIELD_roadId: pp->setRoadId((value)); break;
-        default: throw omnetpp::cRuntimeError("Cannot set field %d of class 'VeinsInetSampleMessage'", field);
+    case FIELD_roadId:
+        pp->setRoadId((value));
+        break;
+    default:
+        throw omnetpp::cRuntimeError(
+                "Cannot set field %d of class 'VeinsInetSampleMessage'", field);
     }
 }
 
-omnetpp::cValue VeinsInetSampleMessageDescriptor::getFieldValue(omnetpp::any_ptr object, int field, int i) const
-{
+omnetpp::cValue VeinsInetSampleMessageDescriptor::getFieldValue(
+        omnetpp::any_ptr object, int field, int i) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
-            return base->getFieldValue(object,field,i);
+            return base->getFieldValue(object, field, i);
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        case FIELD_roadId: return pp->getRoadId();
-        default: throw omnetpp::cRuntimeError("Cannot return field %d of class 'VeinsInetSampleMessage' as cValue -- field index out of range?", field);
+    case FIELD_roadId:
+        return pp->getRoadId();
+    default:
+        throw omnetpp::cRuntimeError(
+                "Cannot return field %d of class 'VeinsInetSampleMessage' as cValue -- field index out of range?",
+                field);
     }
 }
 
-void VeinsInetSampleMessageDescriptor::setFieldValue(omnetpp::any_ptr object, int field, int i, const omnetpp::cValue& value) const
-{
+void VeinsInetSampleMessageDescriptor::setFieldValue(omnetpp::any_ptr object,
+        int field, int i, const omnetpp::cValue &value) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
-        if (field < base->getFieldCount()){
+        if (field < base->getFieldCount()) {
             base->setFieldValue(object, field, i, value);
             return;
         }
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        case FIELD_roadId: pp->setRoadId(value.stringValue()); break;
-        default: throw omnetpp::cRuntimeError("Cannot set field %d of class 'VeinsInetSampleMessage'", field);
+    case FIELD_roadId:
+        pp->setRoadId(value.stringValue());
+        break;
+    default:
+        throw omnetpp::cRuntimeError(
+                "Cannot set field %d of class 'VeinsInetSampleMessage'", field);
     }
 }
 
-const char *VeinsInetSampleMessageDescriptor::getFieldStructName(int field) const
-{
+const char* VeinsInetSampleMessageDescriptor::getFieldStructName(
+        int field) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
@@ -469,37 +501,45 @@ const char *VeinsInetSampleMessageDescriptor::getFieldStructName(int field) cons
         field -= base->getFieldCount();
     }
     switch (field) {
-        default: return nullptr;
+    default:
+        return nullptr;
     };
 }
 
-omnetpp::any_ptr VeinsInetSampleMessageDescriptor::getFieldStructValuePointer(omnetpp::any_ptr object, int field, int i) const
-{
+omnetpp::any_ptr VeinsInetSampleMessageDescriptor::getFieldStructValuePointer(
+        omnetpp::any_ptr object, int field, int i) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
         if (field < base->getFieldCount())
             return base->getFieldStructValuePointer(object, field, i);
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        default: return omnetpp::any_ptr(nullptr);
+    default:
+        return omnetpp::any_ptr(nullptr);
     }
 }
 
-void VeinsInetSampleMessageDescriptor::setFieldStructValuePointer(omnetpp::any_ptr object, int field, int i, omnetpp::any_ptr ptr) const
-{
+void VeinsInetSampleMessageDescriptor::setFieldStructValuePointer(
+        omnetpp::any_ptr object, int field, int i, omnetpp::any_ptr ptr) const {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
     if (base) {
-        if (field < base->getFieldCount()){
+        if (field < base->getFieldCount()) {
             base->setFieldStructValuePointer(object, field, i, ptr);
             return;
         }
         field -= base->getFieldCount();
     }
-    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(object); (void)pp;
+    VeinsInetSampleMessage *pp = omnetpp::fromAnyPtr<VeinsInetSampleMessage>(
+            object);
+    (void) pp;
     switch (field) {
-        default: throw omnetpp::cRuntimeError("Cannot set field %d of class 'VeinsInetSampleMessage'", field);
+    default:
+        throw omnetpp::cRuntimeError(
+                "Cannot set field %d of class 'VeinsInetSampleMessage'", field);
     }
 }
 

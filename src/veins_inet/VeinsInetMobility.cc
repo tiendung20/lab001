@@ -38,47 +38,47 @@ using namespace inet::units::values;
 Register_Class(VeinsInetMobility);
 //Define_Module(inet::units::values::VeinsInetMobility);
 
-VeinsInetMobility::VeinsInetMobility()
-{
-    EV<<"Keep moving"<<endl;
+VeinsInetMobility::VeinsInetMobility() {
+    EV << "Keep moving" << endl;
 }
 
-VeinsInetMobility::~VeinsInetMobility()
-{
+VeinsInetMobility::~VeinsInetMobility() {
     delete vehicleCommandInterface;
 }
 
-void VeinsInetMobility::preInitialize(std::string external_id, const inet::Coord& position, std::string road_id, double speed, double angle)
-{
+void VeinsInetMobility::preInitialize(std::string external_id,
+        const inet::Coord &position, std::string road_id, double speed,
+        double angle) {
     Enter_Method_Silent();
     this->external_id = external_id;
     lastPosition = position;
     lastVelocity = inet::Coord(cos(angle), -sin(angle)) * speed;
-    lastOrientation = inet::Quaternion(inet::EulerAngles(rad(-angle), rad(0.0), rad(0.0)));
+    lastOrientation = inet::Quaternion(
+            inet::EulerAngles(rad(-angle), rad(0.0), rad(0.0)));
 }
 
-void VeinsInetMobility::initialize(int stage)
-{
+void VeinsInetMobility::initialize(int stage) {
     MobilityBase::initialize(stage);
-    EV<<"Keep moving"<<endl;
+    EV << "Keep moving" << endl;
     // We patch the OMNeT++ Display String to set the initial position. Make sure this works.
     ASSERT(hasPar("initFromDisplayString") && par("initFromDisplayString"));
 }
 
-void VeinsInetMobility::nextPosition(const inet::Coord& position, std::string road_id, double speed, double angle)
-{
+void VeinsInetMobility::nextPosition(const inet::Coord &position,
+        std::string road_id, double speed, double angle) {
     Enter_Method_Silent();
 
     lastPosition = position;
     lastVelocity = inet::Coord(cos(angle), -sin(angle)) * speed;
-    lastOrientation = inet::Quaternion(inet::EulerAngles(rad(-angle), rad(0.0), rad(0.0)));
+    lastOrientation = inet::Quaternion(
+            inet::EulerAngles(rad(-angle), rad(0.0), rad(0.0)));
 
     // Update display string to show node is getting updates
     auto hostMod = getParentModule();
-    if (std::string(hostMod->getDisplayString().getTagArg("veins", 0)) == ". ") {
+    if (std::string(hostMod->getDisplayString().getTagArg("veins", 0))
+            == ". ") {
         hostMod->getDisplayString().setTagArg("veins", 0, " .");
-    }
-    else {
+    } else {
         hostMod->getDisplayString().setTagArg("veins", 0, ". ");
     }
 
@@ -86,33 +86,27 @@ void VeinsInetMobility::nextPosition(const inet::Coord& position, std::string ro
 }
 
 #if INET_VERSION >= 0x0403
-const inet::Coord& VeinsInetMobility::getCurrentPosition()
-{
+const inet::Coord& VeinsInetMobility::getCurrentPosition() {
     return lastPosition;
 }
 
-const inet::Coord& VeinsInetMobility::getCurrentVelocity()
-{
+const inet::Coord& VeinsInetMobility::getCurrentVelocity() {
     return lastVelocity;
 }
 
-const inet::Coord& VeinsInetMobility::getCurrentAcceleration()
-{
+const inet::Coord& VeinsInetMobility::getCurrentAcceleration() {
     throw cRuntimeError("Invalid operation");
 }
 
-const inet::Quaternion& VeinsInetMobility::getCurrentAngularPosition()
-{
+const inet::Quaternion& VeinsInetMobility::getCurrentAngularPosition() {
     return lastOrientation;
 }
 
-const inet::Quaternion& VeinsInetMobility::getCurrentAngularVelocity()
-{
+const inet::Quaternion& VeinsInetMobility::getCurrentAngularVelocity() {
     return lastAngularVelocity;
 }
 
-const inet::Quaternion& VeinsInetMobility::getCurrentAngularAcceleration()
-{
+const inet::Quaternion& VeinsInetMobility::getCurrentAngularAcceleration() {
     throw cRuntimeError("Invalid operation");
 }
 #else
@@ -147,38 +141,38 @@ inet::Quaternion VeinsInetMobility::getCurrentAngularAcceleration()
     throw cRuntimeError("Invalid operation");
 }
 #endif
-void VeinsInetMobility::setInitialPosition()
-{
+void VeinsInetMobility::setInitialPosition() {
     subjectModule->getDisplayString().setTagArg("p", 0, lastPosition.x);
     subjectModule->getDisplayString().setTagArg("p", 1, lastPosition.y);
     MobilityBase::setInitialPosition();
 }
 
-void VeinsInetMobility::handleSelfMessage(cMessage* message)
-{
+void VeinsInetMobility::handleSelfMessage(cMessage *message) {
 }
 
-std::string VeinsInetMobility::getExternalId() const
-{
-    if (external_id == "") throw cRuntimeError("TraCIMobility::getExternalId called with no external_id set yet");
+std::string VeinsInetMobility::getExternalId() const {
+    if (external_id == "")
+        throw cRuntimeError(
+                "TraCIMobility::getExternalId called with no external_id set yet");
     return external_id;
 }
 
-TraCIScenarioManager* VeinsInetMobility::getManager() const
-{
-    if (!manager) manager = TraCIScenarioManagerAccess().get();
+TraCIScenarioManager* VeinsInetMobility::getManager() const {
+    if (!manager)
+        manager = TraCIScenarioManagerAccess().get();
     return manager;
 }
 
-TraCICommandInterface* VeinsInetMobility::getCommandInterface() const
-{
-    if (!commandInterface) commandInterface = getManager()->getCommandInterface();
+TraCICommandInterface* VeinsInetMobility::getCommandInterface() const {
+    if (!commandInterface)
+        commandInterface = getManager()->getCommandInterface();
     return commandInterface;
 }
 
-TraCICommandInterface::Vehicle* VeinsInetMobility::getVehicleCommandInterface() const
-{
-    if (!vehicleCommandInterface) vehicleCommandInterface = new TraCICommandInterface::Vehicle(getCommandInterface()->vehicle(getExternalId()));
+TraCICommandInterface::Vehicle* VeinsInetMobility::getVehicleCommandInterface() const {
+    if (!vehicleCommandInterface)
+        vehicleCommandInterface = new TraCICommandInterface::Vehicle(
+                getCommandInterface()->vehicle(getExternalId()));
     return vehicleCommandInterface;
 }
 

@@ -36,12 +36,10 @@ using namespace inet;
 
 Define_Module(VeinsInetSampleApplication);
 
-VeinsInetSampleApplication::VeinsInetSampleApplication()
-{
+VeinsInetSampleApplication::VeinsInetSampleApplication() {
 }
 
-bool VeinsInetSampleApplication::startApplication()
-{
+bool VeinsInetSampleApplication::startApplication() {
     // host[0] should stop at t=20s
     if (getParentModule()->getIndex() == 0) {
         auto callback = [this]() {
@@ -58,36 +56,36 @@ bool VeinsInetSampleApplication::startApplication()
             packet->insertAtBack(payload);
             sendPacket(std::move(packet));
         };
-        timerManager.create(veins::TimerSpecification(callback).oneshotAt(SimTime(20, SIMTIME_S)));
+        timerManager.create(
+                veins::TimerSpecification(callback).oneshotAt(
+                        SimTime(20, SIMTIME_S)));
     }
 
     return true;
 }
 
-bool VeinsInetSampleApplication::stopApplication()
-{
+bool VeinsInetSampleApplication::stopApplication() {
     return true;
 }
 
-VeinsInetSampleApplication::~VeinsInetSampleApplication()
-{
+VeinsInetSampleApplication::~VeinsInetSampleApplication() {
 }
 
-void VeinsInetSampleApplication::processPacket(std::shared_ptr<inet::Packet> pk)
-{
+void VeinsInetSampleApplication::processPacket(
+        std::shared_ptr<inet::Packet> pk) {
     auto payload = pk->peekAtFront<VeinsInetSampleMessage>();
 
     //EV_INFO << "Received packet: " << payload << endl;
 
-
     getParentModule()->getDisplayString().setTagArg("i", 1, "green");
 
-    EV_INFO <<"Change roadID: "<<payload->getRoadId()<<endl;
+    EV_INFO << "Change roadID: " << payload->getRoadId() << endl;
     traciVehicle->changeRoute(payload->getRoadId(), 999.9);
     //traciVehicle->changeRoute(payload->getRoadId(), 0.9);
     //traciVehicle->setRouteID(getParentModule()->getIndex(), payload->getRoadId(), 0.9);
 
-    if (haveForwarded) return;
+    if (haveForwarded)
+        return;
 
     auto packet = createPacket("relay");
     packet->insertAtBack(payload);

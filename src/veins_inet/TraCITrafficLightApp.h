@@ -33,16 +33,16 @@ using veins::TraCIMobility;
 
 namespace veins {
 
-class TraCITrafficLightApp : public DemoBaseApplLayer {
+class TraCITrafficLightApp: public DemoBaseApplLayer {
 protected:
     /** @brief this function is called upon receiving a BasicSafetyMessage, also referred to as a beacon  */
-    virtual void onBSM(DemoSafetyMessage* bsm);
+    virtual void onBSM(DemoSafetyMessage *bsm);
 
     /** @brief handle messages from below and calls the onWSM, onBSM, and onWSA functions accordingly */
-    virtual void handleLowerMsg(cMessage* msg);
+    virtual void handleLowerMsg(cMessage *msg);
 
     /** @brief Called every time a message arrives*/
-    virtual void handleMessage(cMessage* msg);
+    virtual void handleMessage(cMessage *msg);
 };
 
 } // namespace veins

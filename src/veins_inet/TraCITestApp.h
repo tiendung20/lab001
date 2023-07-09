@@ -36,10 +36,9 @@ using veins::TraCIMobility;
 
 namespace veins {
 
-class TraCITestApp : public BaseApplLayer {
+class TraCITestApp: public BaseApplLayer {
 public:
-    int numInitStages() const
-    {
+    int numInitStages() const {
         return std::max(BaseApplLayer::numInitStages(), 1);
     }
     void initialize(int stage);
@@ -49,9 +48,9 @@ protected:
     // module parameters
     int testNumber;
 
-    TraCIMobility* mobility;
-    TraCICommandInterface* traci;
-    TraCICommandInterface::Vehicle* traciVehicle;
+    TraCIMobility *mobility;
+    TraCICommandInterface *traci;
+    TraCICommandInterface::Vehicle *traciVehicle;
     std::set<std::string> visitedEdges; /**< set of edges this vehicle visited */
     bool hasStopped; /**< true if at some point in time this vehicle travelled at negligible speed */
 
@@ -59,7 +58,8 @@ protected:
     void handleSelfMsg(cMessage*);
     void handleLowerMsg(cMessage*);
 
-    void receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details);
+    void receiveSignal(cComponent *source, simsignal_t signalID, cObject *obj,
+            cObject *details);
 
     void handlePositionUpdate();
 

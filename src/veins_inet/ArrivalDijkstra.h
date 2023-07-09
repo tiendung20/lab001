@@ -26,7 +26,8 @@ public:
     void getItineraries(std::string itineraryFile) override;
     std::string getJSONStation(std::string station) override;
     double firstValue(std::string currLane, std::string veryNextVertex);
-    void planOut(int source, int target, std::string currLane, AGV* cur) override;
+    void planOut(int source, int target, std::string currLane, AGV *cur)
+            override;
     std::string getName() override;
     AllStations allSs;
 private:

@@ -29,17 +29,14 @@ using veins::TraCITrafficLightApp;
 
 Define_Module(TraCITrafficLightApp);
 
-void TraCITrafficLightApp::onBSM(DemoSafetyMessage* bsm)
-{
+void TraCITrafficLightApp::onBSM(DemoSafetyMessage *bsm) {
     delete bsm;
 }
 
-void TraCITrafficLightApp::handleLowerMsg(cMessage* msg)
-{
+void TraCITrafficLightApp::handleLowerMsg(cMessage *msg) {
     delete msg;
 }
 
-void TraCITrafficLightApp::handleMessage(cMessage* msg)
-{
+void TraCITrafficLightApp::handleMessage(cMessage *msg) {
     delete msg;
 }

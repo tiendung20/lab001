@@ -32,16 +32,16 @@ class IPerson: public veins::TraCIDemo11p {
 public:
     void initialize(int stage) override;
     void finish() override;
-    cMessage* sendBeacon;
+    cMessage *sendBeacon;
 
 protected:
-    void onBSM(DemoSafetyMessage* bsm) override;
-    void onWSM(BaseFrame1609_4* wsm) override;
-    void onWSA(DemoServiceAdvertisment* wsa) override;
+    void onBSM(DemoSafetyMessage *bsm) override;
+    void onWSM(BaseFrame1609_4 *wsm) override;
+    void onWSA(DemoServiceAdvertisment *wsa) override;
 
-    void handleSelfMsg(cMessage* msg) override;
-    void handlePositionUpdate(cObject* obj) override;
-    void handleLowerMsg(cMessage* msg) override;
+    void handleSelfMsg(cMessage *msg) override;
+    void handlePositionUpdate(cObject *obj) override;
+    void handleLowerMsg(cMessage *msg) override;
 private:
     //bool sentFirstMessage = false;
 };

@@ -3,19 +3,23 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+//
 
 #ifndef VEINS_GRAPH_H_
 #define VEINS_GRAPH_H_
 
+#include <tuple>
+#include <list>
+#include <utility>
+#include <math.h>
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -26,54 +30,51 @@
 #include <string.h>
 #include <vector>
 #include <algorithm>
-#include <queue> // To set up priority queue
+#include <queue>      // To set up priority queue
 #include <functional> // To use std::greater<T> -> This will prove to be useful in picking the minimum weight
 
-//typedef std::tuple<double, std::string, int, std::string> Quad;
+// typedef std::tuple<double, std::string, int, std::string> Quad;
 typedef std::tuple<double, double, int, std::string> Quad;
 
-static void extractTraceAndTime(std::string* trace, double* time){
+static void extractTraceAndTime(std::string *trace, double *time) {
     int i = 0;
     std::string tempTime = "";
     bool foundSpace = false;
-    for(i = (*trace).length() - 1; i > 0; i--){
-        if(((*trace).at(i) >= '0' && (*trace).at(i) <= '9') || (*trace).at(i) == '.'){
+    for (i = (*trace).length() - 1; i > 0; i--) {
+        if (((*trace).at(i) >= '0' && (*trace).at(i) <= '9')
+                || (*trace).at(i) == '.') {
             tempTime = (*trace).at(i) + tempTime;
-        }
-        else{
+        } else {
             foundSpace = (*trace).at(i) == ' ';
-            if(foundSpace){
+            if (foundSpace) {
                 break;
             }
         }
     }
-    if(i == 0 && !foundSpace){
+    if (i == 0 && !foundSpace) {
         foundSpace = (*trace).at(0) == ' ';
     }
-    if(tempTime.length() > 0 && foundSpace){
+    if (tempTime.length() > 0 && foundSpace) {
         (*trace) = (i > 0) ? (*trace).substr(0, i - 1) : "";
-        if(time != NULL){
+        if (time != NULL) {
             (*time) = std::stod(tempTime);
         }
-    }
-    else{
-        if(time != NULL)
+    } else {
+        if (time != NULL)
             *time = 0;
     }
 }
 
-class Comparison{
+class Comparison {
 public:
-    bool operator()(Quad q1, Quad q2){
+    bool operator()(Quad q1, Quad q2) {
         double x1 = std::get<0>(q1);
         double x2 = std::get<0>(q2);
-        if(x1 < x2){
+        if (x1 < x2) {
             return true;
-        }
-        else if(x1 > x2){
+        } else if (x1 > x2) {
             return false;
-        }
-        else{
+        } else {
             std::string trace1 = std::get<3>(q1);
             std::string trace2 = std::get<3>(q2);
             double t1 = 0, t2 = 0;
@@ -84,7 +85,7 @@ public:
     }
 };
 
-class ItineraryRecord {// Ban ghi hanh trinh cua xe
+class ItineraryRecord { // Ban ghi hanh trinh cua xe
 public:
     std::string laneId, prevLane = "";
     std::string prevEdge = "";
@@ -92,35 +93,36 @@ public:
     std::string station = "";
     int exit = -1;
     int indexStation = -1;
-    //int stopTime;
+    // int stopTime;
     int localWait;
 };
 
-class Station{
+class Station {
 public:
-    Station(std::string name, std::string bestTime, std::string amplitude, std::string period){
+    Station(std::string name, std::string bestTime, std::string amplitude,
+            std::string period) {
         this->isNotChanged = false;
         this->setAttributes(name, bestTime, amplitude, period);
     }
 
-    Station(){
+    Station() {
         this->name = "";
         this->isNotChanged = false;
     }
 
-    std::string getName(){
+    std::string getName() {
         return this->name;
     }
 
-    void setDest(std::string dest){
+    void setDest(std::string dest) {
         this->dest = dest;
     }
 
-    std::string getDest(){
+    std::string getDest() {
         return this->dest;
     }
 
-    void getStation(std::string routeId){
+    void getStation(std::string routeId) {
         std::ifstream file("itinerary.txt");
         std::string line;
         std::string nameRoute;
@@ -129,10 +131,10 @@ public:
         int source, indexOfStation, dst;
 
         while (getline(file, line)) {
-            if(line[0] != '#'){
+            if (line[0] != '#') {
                 std::stringstream ss(line);
                 getline(ss, nameRoute, ' ');
-                if(nameRoute.compare(routeId) == 0){
+                if (nameRoute.compare(routeId) == 0) {
                     getline(ss, nameSrc, ' ');
                     getline(ss, nameStation, ' ');
                     getline(ss, nameJunc, ' ');
@@ -149,67 +151,68 @@ public:
         file.close();
     }
 
-    void setAttributes(std::string name, std::string bestTime, std::string amplitude, std::string period){
-        //if(this->isNotChanged)
-        //    return;
+    void setAttributes(std::string name, std::string bestTime,
+            std::string amplitude, std::string period) {
+        // if(this->isNotChanged)
+        //     return;
 
-        if(!name.empty()){
-                this->name = name;
+        if (!name.empty()) {
+            this->name = name;
         }
-        if(!bestTime.empty()){
-                this->bestTime = std::stod(bestTime);
+        if (!bestTime.empty()) {
+            this->bestTime = std::stod(bestTime);
         }
-        if(!amplitude.empty()){
-                this->amplitude = std::stod(amplitude);
+        if (!amplitude.empty()) {
+            this->amplitude = std::stod(amplitude);
         }
-        if(!period.empty()){
-                this->period = std::stod(period);
+        if (!period.empty()) {
+            this->period = std::stod(period);
         }
     }
 
-    std::string toJSON(){
-        return "\"station\" : { \"name\" : \"" + this->name + "\", " +
-                                "\"period\": \"" + std::to_string(this->period) + "\", " +
-                                "\"bestTime\" : \"" + std::to_string(this->bestTime) + "\", " +
-                                "\"amplitude\" : \"" + std::to_string(this->amplitude) + "\"}";
+    std::string toJSON() {
+        return "\"station\" : { \"name\" : \"" + this->name + "\", "
+                + "\"period\": \"" + std::to_string(this->period) + "\", "
+                + "\"bestTime\" : \"" + std::to_string(this->bestTime) + "\", "
+                + "\"amplitude\" : \"" + std::to_string(this->amplitude) + "\"}";
     }
 
-    double getHarmfulness(double reachedTime, int count, double *sooner, double *later){
+    double getHarmfulness(double reachedTime, int count, double *sooner,
+            double *later) {
         *sooner = 0;
         *later = 0;
-        if(count < 0)
+        if (count < 0)
             return DBL_MAX;
-        if(bestTime + count*period - amplitude <= reachedTime &&
-                bestTime + count*period + amplitude >= reachedTime
-        ){
+        if (bestTime + count * period - amplitude <= reachedTime
+                && bestTime + count * period + amplitude >= reachedTime) {
             return 0;
         }
-        if(bestTime + count*period - amplitude > reachedTime){
-            *sooner = bestTime + count*period - amplitude - reachedTime;
+        if (bestTime + count * period - amplitude > reachedTime) {
+            *sooner = bestTime + count * period - amplitude - reachedTime;
             *sooner /= 60;
-            return ((*sooner)*0.1 + 4);
-        }
-        else{
-            *later = reachedTime - (bestTime + count*period + amplitude);
+            return ((*sooner) * 0.1 + 4);
+        } else {
+            *later = reachedTime - (bestTime + count * period + amplitude);
             *later /= 60;
             double delta = *later;
-            return (delta*delta + 2*delta + 1);
+            return (delta * delta + 2 * delta + 1);
         }
     }
-    void setProtected(bool isNotChanged){
+    void setProtected(bool isNotChanged) {
         this->isNotChanged = isNotChanged;
     }
     double bestTime = -1;
     double amplitude = -1;
     double period = -1;
+
 private:
     std::string name;
 
     std::string dest = "";
     bool isNotChanged = false;
-    //std::string allRequests = "";
+    // std::string allRequests = "";
 };
-///usr/include/c++/9/bits/stl_function.h:386:20: error: no match for ‘operator<’ (operand types are ‘const Quad’ and ‘const Quad’)
+/// usr/include/c++/9/bits/stl_function.h:386:20: error: no match for ‘operator<’ (operand types are ‘const Quad’ and ‘const Quad’)
 
 class AGV {
 public:
@@ -220,6 +223,11 @@ public:
     double atStation = 0;
     double ratio = 1.1;
     double now = 0;
+    double travellingTime = 0;
+    bool allowMovement = true;
+    double speed = 0;
+    double waitingTimeEdge = 0;
+    int liveUpdateWaitingTimeEdge = 1;
     int indexOfRoute = -1;
     double *ShortestPath;
     double expectedTimeAtStation = -1;
@@ -227,17 +235,17 @@ public:
     double MIN_EMERGENCY = DBL_MAX;
     double createdTime = -1;
     std::vector<std::string> traces;
-    std::vector <bool> visitedVertex;
-    std::vector <bool> visitedEmergencyVertex;
-    std::priority_queue<Quad, std::vector<Quad>, std::greater<Quad> > PQ; // Set up priority queue
-    //std::priority_queue<Quad, std::vector<Quad>, Comparison > PQ1; // Set up priority queue
-    //std::priority_queue<Quad, std::vector<Quad>, std::greater<Quad> > PQ_MIN; // Set up priority queue for min cost
-    std::vector<Quad> allMinOptions;//Set up paths within min cost
-    //std::priority_queue<Quad> PQ;
-    void memset(int numVertices, double initSource = DBL_MAX){
-        if(!initialized){
-            ShortestPath = (double *)malloc(numVertices*sizeof(double));
-            for(int i = 0; i < numVertices; i++){
+    std::vector<bool> visitedVertex;
+    std::vector<bool> visitedEmergencyVertex;
+    std::priority_queue<Quad, std::vector<Quad>, std::greater<Quad>> PQ; // Set up priority queue
+    // std::priority_queue<Quad, std::vector<Quad>, Comparison > PQ1; // Set up priority queue
+    // std::priority_queue<Quad, std::vector<Quad>, std::greater<Quad> > PQ_MIN; // Set up priority queue for min cost
+    std::vector<Quad> allMinOptions; // Set up paths within min cost
+    // std::priority_queue<Quad> PQ;
+    void memset(int numVertices, double initSource = DBL_MAX) {
+        if (!initialized) {
+            ShortestPath = (double*) malloc(numVertices * sizeof(double));
+            for (int i = 0; i < numVertices; i++) {
                 ShortestPath[i] = initSource;
                 traces.push_back("");
                 visitedVertex.push_back(false);
@@ -247,26 +255,26 @@ public:
             return;
         }
     }
-    void init(int numVertices, double initSource = DBL_MAX){
+    void init(int numVertices, double initSource = DBL_MAX) {
         memset(numVertices, initSource);
 
         MIN_LATENCY = DBL_MAX;
         MIN_EMERGENCY = DBL_MAX;
 
-        for(int i = 0; i < numVertices; i++){
+        for (int i = 0; i < numVertices; i++) {
             ShortestPath[i] = initSource;
             traces[i].clear();
             visitedVertex[i] = false;
             visitedEmergencyVertex[i] = false;
         }
     }
-    bool isInitialized(){
+    bool isInitialized() {
         return initialized;
     }
     int count = 0;
+
 private:
     bool initialized = false;
-
 };
 
 class Edge {
@@ -404,7 +412,7 @@ public:
     }
 };
 
-//class ExitBuffer: public Vertex {
+// class ExitBuffer: public Vertex {
 ////public:
 ////    void setW(double w) {
 ////    }
@@ -683,6 +691,7 @@ private:
         MyReadFile.close();
         inorder(&vertices);
     }
+
 public:
     Graph() {
         readFile();
@@ -724,7 +733,41 @@ public:
         }
         return cur;
     }
-//    virtual ~Graph();
+    //    virtual ~Graph();
+};
+
+typedef std::pair<double, double> Point;
+typedef std::tuple<Point, Point, double> Shape;
+typedef std::pair<int, int> Index;
+typedef std::tuple<std::string, int, Shape, std::vector<Index>,
+        std::vector<Index>, int> TimeSpace;
+typedef std::pair<int, int> Node;
+typedef std::vector<Node> AllUpdateNode;
+
+typedef struct Objective {
+    std::string name;
+    double earliness;
+    double tardiness;
+    double alpha;
+    double beta;
+    double gamma;
+} Objective;
+
+void assignNeighbors(std::vector<TimeSpace> *all, int index);
+std::vector<TimeSpace>* readAllParts(std::string fileName, double lengthPath);
+bool checkValid(std::vector<TimeSpace> *all, double lengthPath, double epsilon);
+
+class TimeSpaceGraph {
+private:
+    std::vector<std::vector<TimeSpace>> *graph;
+    double lengthPath, H, dt, V;
+
+public:
+    TimeSpaceGraph(double lengthPath, double H, double V);
+    void setGraph(std::vector<TimeSpace> *init);
+    std::vector<std::vector<TimeSpace>>* getGraph();
+    double getDt();
+    AllUpdateNode updateEdge(std::string name, double waitingTime);
 };
 
 #endif /* VEINS_GRAPH_H_ */

@@ -21,16 +21,17 @@ class HarmfulnessDijkstra: public ArrivalDijkstra {
 public:
     HarmfulnessDijkstra();
     virtual ~HarmfulnessDijkstra();
-    void planOut(int source, int target, std::string currLane, AGV* cur) override;
-    virtual double getHarmfulnessArrival(AGV* cur, double time);
+    void planOut(int source, int target, std::string currLane, AGV *cur)
+            override;
+    virtual double getHarmfulnessArrival(AGV *cur, double time);
     std::string getName() override;
 private:
     double *s;
     double *l;
     /*void generateEmergencyEdges();
-    void generateEmergencyVertices();
-    std::vector<std::string> emergencyVertices;
-    std::vector<std::vector<Quad>> emergencyAdjList;*/
+     void generateEmergencyVertices();
+     std::vector<std::string> emergencyVertices;
+     std::vector<std::vector<Quad>> emergencyAdjList;*/
     //std::vector<double> weightVertices;
 };
 

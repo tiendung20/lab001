@@ -32,5 +32,4 @@ private:
     double total;
 };
 
-
 #endif /* VEINS_INET_STATEOFAGV_H_ */

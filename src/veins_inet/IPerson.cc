@@ -17,58 +17,49 @@
 #include "Constant.h"
 #include "veins/modules/application/traci/TraCIDemo11pMessage_m.h"
 
-
 using namespace veins;
 
 Register_Class(IPerson);
 
-void IPerson::initialize(int stage)
-{
+void IPerson::initialize(int stage) {
     TraCIDemo11p::initialize(stage);
-    EV<<"SDfsdfsdfsdfsdfs"<<endl;
+    EV << "SDfsdfsdfsdfsdfs" << endl;
 
 }
 
-void IPerson::finish()
-{
+void IPerson::finish() {
     TraCIDemo11p::finish();
     //EV<<"AGV["<<myId<<"] reaches destination over here"<<endl;
     // statistics recording goes here
 }
 
-void IPerson::onBSM(DemoSafetyMessage* bsm)
-{
+void IPerson::onBSM(DemoSafetyMessage *bsm) {
     //for my own simulation circle
 }
 
-void IPerson::onWSM(BaseFrame1609_4* wsm)
-{
+void IPerson::onWSM(BaseFrame1609_4 *wsm) {
     // Your application has received a data message from another car or RSU
     // code for handling the message goes here, see TraciDemo11p.cc for examples
 }
 
-void IPerson::onWSA(DemoServiceAdvertisment* wsa)
-{
+void IPerson::onWSA(DemoServiceAdvertisment *wsa) {
     // Your application has received a service advertisement from another car or RSU
     // code for handling the message goes here, see TraciDemo11p.cc for examples
 }
 
-void IPerson::handleSelfMsg(cMessage* msg)
-{
+void IPerson::handleSelfMsg(cMessage *msg) {
     TraCIDemo11p::handleSelfMsg(msg);
     // this method is for self messages (mostly timers)
     // it is important to call the DemoBaseApplLayer function for BSM and WSM transmission
 }
 
-void IPerson::handlePositionUpdate(cObject* obj)
-{
+void IPerson::handlePositionUpdate(cObject *obj) {
     TraCIDemo11p::handlePositionUpdate(obj);
     // the vehicle has moved. Code that reacts to new positions goes here.
     // member variables such as currentPosition and currentSpeed are updated in the parent class
 
 }
 
-void IPerson::handleLowerMsg(cMessage* msg)
-{
+void IPerson::handleLowerMsg(cMessage *msg) {
 
 }

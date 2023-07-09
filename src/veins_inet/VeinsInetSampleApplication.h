@@ -26,7 +26,7 @@
 
 #include "veins_inet/VeinsInetApplicationBase.h"
 
-class VEINS_INET_API VeinsInetSampleApplication : public veins::VeinsInetApplicationBase {
+class VEINS_INET_API VeinsInetSampleApplication: public veins::VeinsInetApplicationBase {
 protected:
     bool haveForwarded = false;
 

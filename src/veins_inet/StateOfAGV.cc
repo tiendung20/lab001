@@ -30,23 +30,22 @@ StateOfAGV::~StateOfAGV() {
     // TODO Auto-generated destructor stub
 }
 
-double StateOfAGV::totalEmergencyTime(){
+double StateOfAGV::totalEmergencyTime() {
     return total;
 }
 
-void StateOfAGV::startEmergencyMode(){
-    if(start == -1){
+void StateOfAGV::startEmergencyMode() {
+    if (start == -1) {
         start = simTime().dbl();
-    }
-    else{
+    } else {
         double temp = simTime().dbl();
         total += temp - start;
         start = temp;
     }
 }
 
-void StateOfAGV::stopEmergencyMode(){
-    if(start != -1){
+void StateOfAGV::stopEmergencyMode() {
+    if (start != -1) {
         double temp = simTime().dbl();
         total += temp - start;
         start = -1;

@@ -40,19 +40,22 @@ using namespace omnetpp;
 
 namespace veins {
 
-class VEINS_INET_API VeinsInetMobility : public inet::MobilityBase {
+class VEINS_INET_API VeinsInetMobility: public inet::MobilityBase {
 public:
     VeinsInetMobility();
 
     virtual ~VeinsInetMobility();
 
     /** @brief called by class VeinsInetManager */
-    virtual void preInitialize(std::string external_id, const inet::Coord& position, std::string road_id, double speed, double angle);
+    virtual void preInitialize(std::string external_id,
+            const inet::Coord &position, std::string road_id, double speed,
+            double angle);
 
     virtual void initialize(int stage) override;
 
     /** @brief called by class VeinsInetManager */
-    virtual void nextPosition(const inet::Coord& position, std::string road_id, double speed, double angle);
+    virtual void nextPosition(const inet::Coord &position, std::string road_id,
+            double speed, double angle);
 
 //#if INET_VERSION >= 0x0402
 #if INET_VERSION >= 0x0403
@@ -85,16 +88,16 @@ protected:
     /** @brief The last angular velocity that was set by nextPosition(). */
     inet::Quaternion lastAngularVelocity;
 
-    mutable TraCIScenarioManager* manager = nullptr; /**< cached value */
-    mutable TraCICommandInterface* commandInterface = nullptr; /**< cached value */
-    mutable TraCICommandInterface::Vehicle* vehicleCommandInterface = nullptr; /**< cached value */
+    mutable TraCIScenarioManager *manager = nullptr; /**< cached value */
+    mutable TraCICommandInterface *commandInterface = nullptr; /**< cached value */
+    mutable TraCICommandInterface::Vehicle *vehicleCommandInterface = nullptr; /**< cached value */
 
     std::string external_id; /**< identifier used by TraCI server to refer to this node */
 
 protected:
     virtual void setInitialPosition() override;
 
-    virtual void handleSelfMessage(cMessage* message) override;
+    virtual void handleSelfMessage(cMessage *message) override;
 };
 
 } // namespace veins
@@ -102,11 +105,12 @@ protected:
 namespace veins {
 class VEINS_INET_API VeinsInetMobilityAccess {
 public:
-    VeinsInetMobility* get(cModule* host)
-    {
-        VeinsInetMobility* m = FindModule<VeinsInetMobility*>::findSubModule(host);
+    VeinsInetMobility* get(cModule *host) {
+        VeinsInetMobility *m = FindModule<VeinsInetMobility*>::findSubModule(
+                host);
         ASSERT(m);
         return m;
-    };
+    }
+    ;
 };
 } // namespace veins

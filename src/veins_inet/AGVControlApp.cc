@@ -3,15 +3,15 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-//
+// 
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-//
+// 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
+// 
 
 #include "AGVControlApp.h"
 // #include "HospitalControlApp.h"
@@ -60,7 +60,7 @@ void AGVControlApp::initialize(int stage)
             Constant::activation = mobility;
         }
         this->indexInRoute = getIndexInFlow(std::to_string(myId),
-                                            originalRoute);
+                originalRoute);
         this->station->getStation(originalRoute);
         traciVehicle->setSpeedMode(0x1f);
         this->state = new StateOfAGV();
@@ -98,7 +98,7 @@ void AGVControlApp::initialize(int stage)
     {
         // The object is not an array
         std::cout << "The object is not an array.\n";
-    }
+}
 
     // Read cyclicalData file
     ifstream file("cyclicalData.txt");
@@ -150,7 +150,7 @@ void AGVControlApp::finish()
     EV << myId << endl;
     this->travellingTime = // traciVehicle->getWaitingTime();
                            //                     traciVehicle->getAccumulatedWaitingTime();
-        simTime().dbl() - this->travellingTime;
+            simTime().dbl() - this->travellingTime;
     // EV<<"This AGV spends "<<this->travellingTime<<" for travelling"<<endl;
     Constant::TOTAL_TRAVELLING_TIME += this->travellingTime;
     Constant::TOTAL_WAITING_TIME += this->waitingIntervals;
@@ -560,18 +560,26 @@ void AGVControlApp::handleSelfMsg(cMessage *msg)
                 }
             }
 
-            content = content + "\"lanePos\" : " + /*"L.P"*/ "\"" + std::to_string(traciVehicle->getLanePosition()) + "\", ";
+            content = content + "\"travellingTime\" : \""
+                    + std::to_string(simTime().dbl() - this->travellingTime)
+                    + "\", ";
+
+            content = content + "\"lanePos\" : " + /*"L.P"*/"\""
+                    + std::to_string(traciVehicle->getLanePosition()) + "\", ";
             this->exponentialSmooth(traciVehicle->getLaneId(), simTime().dbl());
             content = content + "\"speed\" : " + "\""
-                      /*"velo:"*/
-                      + std::to_string(speed) + "\", ";
-            content = content + "\"ratio\" : \"" + std::to_string(predictRatio) + "\", ";
+            /*"velo:"*/+ std::to_string(speed) + "\", ";
+            content = content + "\"ratio\" : \"" + std::to_string(predictRatio)
+                    + "\", ";
 
-            content = content + "\"now\" : \"" + std::to_string(simTime().dbl()) + "\", ";
+            content = content + "\"now\" : \"" + std::to_string(simTime().dbl())
+                    + "\", ";
 
-            content = content + "\"indexInRoute\" : \"" + std::to_string(this->indexInRoute) + "\", ";
+            content = content + "\"indexInRoute\" : \""
+                    + std::to_string(this->indexInRoute) + "\", ";
 
-            content = content + "\"originalRouteId\" : " + "\"" + originalRoute + "\"}";
+            content = content + "\"originalRouteId\" : " + "\"" + originalRoute
+                    + "\"}";
             carBeacon->setDemoData(content.c_str());
             carBeacon->setSenderAddress(myId);
             BaseFrame1609_4 *WSM = new BaseFrame1609_4();
@@ -1078,7 +1086,7 @@ void AGVControlApp::exponentialSmooth(std::string key, double realTime)
         APE += abs(realTime - weight) / realTime;
         T++;
         this->harmfulness = this->station->getHarmfulness(realTime,
-                                                          this->indexInRoute, &(this->sooner), &(this->later));
+                this->indexInRoute, &(this->sooner), &(this->later));
     }
     Qt = Constant::GAMMA * error - (1 - Constant::GAMMA) * Qt;
     Dt = Constant::GAMMA * abs(error) - (1 - Constant::GAMMA) * Dt;

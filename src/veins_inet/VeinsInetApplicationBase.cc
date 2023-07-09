@@ -42,25 +42,22 @@ using namespace inet;
 
 Define_Module(VeinsInetApplicationBase);
 
-VeinsInetApplicationBase::VeinsInetApplicationBase()
-{
+VeinsInetApplicationBase::VeinsInetApplicationBase() {
 }
 
-int VeinsInetApplicationBase::numInitStages() const
-{
+int VeinsInetApplicationBase::numInitStages() const {
     return inet::NUM_INIT_STAGES;
 }
 
-void VeinsInetApplicationBase::initialize(int stage)
-{
+void VeinsInetApplicationBase::initialize(int stage) {
     ApplicationBase::initialize(stage);
 
     if (stage == INITSTAGE_LOCAL) {
     }
 }
 
-void VeinsInetApplicationBase::handleStartOperation(LifecycleOperation* operation)
-{
+void VeinsInetApplicationBase::handleStartOperation(
+        LifecycleOperation *operation) {
     mobility = veins::VeinsInetMobilityAccess().get(getParentModule());
     traci = mobility->getCommandInterface();
     traciVehicle = mobility->getVehicleCommandInterface();
@@ -71,15 +68,16 @@ void VeinsInetApplicationBase::handleStartOperation(LifecycleOperation* operatio
     socket.setOutputGate(gate("socketOut"));
     socket.bind(L3Address(), portNumber);
 
-    const char* interface = par("interface");
+    const char *interface = par("interface");
     ASSERT(interface[0]);
-    IInterfaceTable* ift = getModuleFromPar<IInterfaceTable>(par("interfaceTableModule"), this);
+    IInterfaceTable *ift = getModuleFromPar<IInterfaceTable>(
+            par("interfaceTableModule"), this);
 #if INET_VERSION >= 0x0408
     InterfaceEntry* ie = ift->findInterfaceByName(interface);
     //NetworkInterface* ie = ift->findInterfaceByName(interface);
 #else
     //InterfaceEntry* ie = ift->getInterfaceByName(interface);
-    NetworkInterface* ie = ift->findInterfaceByName(interface);
+    NetworkInterface *ie = ift->findInterfaceByName(interface);
 #endif
     ASSERT(ie);
     socket.setMulticastOutputInterface(ie->getInterfaceId());
@@ -93,40 +91,35 @@ void VeinsInetApplicationBase::handleStartOperation(LifecycleOperation* operatio
     ASSERT(ok);
 }
 
-bool VeinsInetApplicationBase::startApplication()
-{
+bool VeinsInetApplicationBase::startApplication() {
     return true;
 }
 
-bool VeinsInetApplicationBase::stopApplication()
-{
+bool VeinsInetApplicationBase::stopApplication() {
     return true;
 }
 
-void VeinsInetApplicationBase::handleStopOperation(LifecycleOperation* operation)
-{
+void VeinsInetApplicationBase::handleStopOperation(
+        LifecycleOperation *operation) {
     bool ok = stopApplication();
     ASSERT(ok);
 
     socket.close();
 }
 
-void VeinsInetApplicationBase::handleCrashOperation(LifecycleOperation* operation)
-{
+void VeinsInetApplicationBase::handleCrashOperation(
+        LifecycleOperation *operation) {
     socket.destroy();
 }
 
-void VeinsInetApplicationBase::finish()
-{
+void VeinsInetApplicationBase::finish() {
     ApplicationBase::finish();
 }
 
-VeinsInetApplicationBase::~VeinsInetApplicationBase()
-{
+VeinsInetApplicationBase::~VeinsInetApplicationBase() {
 }
 
-void VeinsInetApplicationBase::refreshDisplay() const
-{
+void VeinsInetApplicationBase::refreshDisplay() const {
     ApplicationBase::refreshDisplay();
 
     char buf[100];
@@ -134,9 +127,9 @@ void VeinsInetApplicationBase::refreshDisplay() const
     getDisplayString().setTagArg("t", 0, buf);
 }
 
-void VeinsInetApplicationBase::handleMessageWhenUp(cMessage* msg)
-{
-    if (timerManager.handleMessage(msg)) return;
+void VeinsInetApplicationBase::handleMessageWhenUp(cMessage *msg) {
+    if (timerManager.handleMessage(msg))
+        return;
 
     if (msg->isSelfMessage()) {
         throw cRuntimeError("This module does not use custom self messages");
@@ -146,8 +139,8 @@ void VeinsInetApplicationBase::handleMessageWhenUp(cMessage* msg)
     socket.processMessage(msg);
 }
 
-void VeinsInetApplicationBase::socketDataArrived(UdpSocket* socket, Packet* packet)
-{
+void VeinsInetApplicationBase::socketDataArrived(UdpSocket *socket,
+        Packet *packet) {
     auto pk = std::shared_ptr<inet::Packet>(packet);
 
     // ignore local echoes
@@ -164,39 +157,36 @@ void VeinsInetApplicationBase::socketDataArrived(UdpSocket* socket, Packet* pack
     processPacket(pk);
 }
 
-void VeinsInetApplicationBase::socketErrorArrived(UdpSocket* socket, Indication* indication)
-{
+void VeinsInetApplicationBase::socketErrorArrived(UdpSocket *socket,
+        Indication *indication) {
     EV_WARN << "Ignoring UDP error report " << indication->getName() << endl;
     delete indication;
 }
 
-void VeinsInetApplicationBase::socketClosed(UdpSocket* socket)
-{
+void VeinsInetApplicationBase::socketClosed(UdpSocket *socket) {
     if (operationalState == State::STOPPING_OPERATION) {
         startActiveOperationExtraTimeOrFinish(-1);
     }
 }
 
-void VeinsInetApplicationBase::timestampPayload(inet::Ptr<inet::Chunk> payload)
-{
+void VeinsInetApplicationBase::timestampPayload(
+        inet::Ptr<inet::Chunk> payload) {
     payload->removeTagIfPresent<CreationTimeTag>(b(0), b(-1));
     auto creationTimeTag = payload->addTag<CreationTimeTag>();
     creationTimeTag->setCreationTime(simTime());
 }
 
-void VeinsInetApplicationBase::sendPacket(std::unique_ptr<inet::Packet> pk)
-{
+void VeinsInetApplicationBase::sendPacket(std::unique_ptr<inet::Packet> pk) {
     emit(packetSentSignal, pk.get());
     socket.sendTo(pk.release(), destAddress, portNumber);
 }
 
-std::unique_ptr<inet::Packet> VeinsInetApplicationBase::createPacket(std::string name)
-{
+std::unique_ptr<inet::Packet> VeinsInetApplicationBase::createPacket(
+        std::string name) {
     return std::unique_ptr<Packet>(new Packet(name.c_str()));
 }
 
-void VeinsInetApplicationBase::processPacket(std::shared_ptr<inet::Packet> pk)
-{
+void VeinsInetApplicationBase::processPacket(std::shared_ptr<inet::Packet> pk) {
 }
 
 } // namespace veins

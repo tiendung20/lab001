@@ -28,46 +28,43 @@ using veins::TraCITrafficLightTestLogic;
 
 Define_Module(veins::TraCITrafficLightTestLogic);
 
-void TraCITrafficLightTestLogic::initialize()
-{
+void TraCITrafficLightTestLogic::initialize() {
     TraCITrafficLightAbstractLogic::initialize();
 }
 
-void TraCITrafficLightTestLogic::startChangingProgramAt(simtime_t t)
-{
+void TraCITrafficLightTestLogic::startChangingProgramAt(simtime_t t) {
     Enter_Method_Silent();
     changeProgramm = new cMessage();
     scheduleAt(t, changeProgramm);
 }
 
-void TraCITrafficLightTestLogic::handleApplMsg(cMessage* msg)
-{
+void TraCITrafficLightTestLogic::handleApplMsg(cMessage *msg) {
     delete msg; // just drop it
 }
 
-void TraCITrafficLightTestLogic::handleTlIfMsg(TraCITrafficLightMessage* tlMsg)
-{
+void TraCITrafficLightTestLogic::handleTlIfMsg(
+        TraCITrafficLightMessage *tlMsg) {
     delete tlMsg; // just drop it
 }
-void TraCITrafficLightTestLogic::handleMessage(cMessage* msg)
-{
+void TraCITrafficLightTestLogic::handleMessage(cMessage *msg) {
     if (msg == changeProgramm) {
         auto phaseDuration = 10;
 
-        TraCITrafficLightMessage* pStateMsg = new TraCITrafficLightMessage("TrafficLightChangeMessage");
+        TraCITrafficLightMessage *pStateMsg = new TraCITrafficLightMessage(
+                "TrafficLightChangeMessage");
         pStateMsg->setChangedAttribute(TrafficLightAtrributeType::STATE);
         pStateMsg->setChangeSource(TrafficLightChangeSource::LOGIC);
         if (currentIndex == 0) {
             pStateMsg->setNewValue("rrrrrrrrrrrr");
             currentIndex = 1;
-        }
-        else {
+        } else {
             pStateMsg->setNewValue("GGGGGGGGGGGG");
             currentIndex = 0;
         }
         send(pStateMsg, "interface$o");
         // send new signal duration
-        TraCITrafficLightMessage* pDurMsg = new TraCITrafficLightMessage("TrafficLightChangeMessage");
+        TraCITrafficLightMessage *pDurMsg = new TraCITrafficLightMessage(
+                "TrafficLightChangeMessage");
         pDurMsg->setChangedAttribute(TrafficLightAtrributeType::SWITCHTIME);
         pDurMsg->setChangeSource(TrafficLightChangeSource::LOGIC);
         auto theTime = (simTime() + phaseDuration).inUnit(SIMTIME_MS);
@@ -76,12 +73,10 @@ void TraCITrafficLightTestLogic::handleMessage(cMessage* msg)
         pDurMsg->setNewValue(theTimeCharPtr);
         send(pDurMsg, "interface$o");
         scheduleAt(simTime() + phaseDuration, changeProgramm);
-    }
-    else {
+    } else {
         delete msg;
     }
 }
 
-void TraCITrafficLightTestLogic::handlePossibleSwitch()
-{
+void TraCITrafficLightTestLogic::handlePossibleSwitch() {
 }

@@ -27,26 +27,26 @@ RouteDirection::~RouteDirection() {
     // TODO Auto-generated destructor stub
 }
 
-void RouteDirection::readFile(){
+void RouteDirection::readFile() {
     std::fstream newfile;
 
     newfile.open("input.txt", std::ios::in);
-    if (newfile.is_open()){   //checking whether the file is open
+    if (newfile.is_open()) {   //checking whether the file is open
         std::string tp;
         getline(newfile, tp);
         getline(newfile, tp);
 
-        while(getline(newfile, tp)){ //read data from file object and put it into string.
-            update(/*allLanes,*/ tp /*, &total*/);
+        while (getline(newfile, tp)) { //read data from file object and put it into string.
+            update(/*allLanes,*/tp /*, &total*/);
         }
         newfile.close(); //close the file object.
     }
 }
 
-void RouteDirection::update(std::string tp){
+void RouteDirection::update(std::string tp) {
     int i = 0;
-    for(i = 0; i < tp.length(); i++){
-        if(tp.at(i) == '_')
+    for (i = 0; i < tp.length(); i++) {
+        if (tp.at(i) == '_')
             break;
     }
     std::string nameOfLane = tp.substr(0, i - 1);

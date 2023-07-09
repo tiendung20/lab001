@@ -17,14 +17,16 @@
 #define VEINS_INET_LATENCYEMERGENCYTIME_H_
 #include "DecisionDijkstra.h"
 
-class LatencyEmergencyTime : public DecisionDijkstra{
+class LatencyEmergencyTime: public DecisionDijkstra {
 public:
     LatencyEmergencyTime();
     virtual ~LatencyEmergencyTime();
-    double getHarmfulnessArrival(AGV* cur, double time) override;
+    double getHarmfulnessArrival(AGV *cur, double time) override;
     std::string getName() override;
-    void planOut(int source, int target, std::string currLane, AGV* cur) override;
-    void checkActiveEdges(double firstCost, Quad* info, bool activeEdges) override;
+    void planOut(int source, int target, std::string currLane, AGV *cur)
+            override;
+    void checkActiveEdges(double firstCost, Quad *info, bool activeEdges)
+            override;
 private:
     int getBestChoise();
 };

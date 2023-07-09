@@ -22,12 +22,14 @@ class DecisionDijkstra: public HarmfulnessDijkstra {
 public:
     DecisionDijkstra();
     virtual ~DecisionDijkstra();
-    void planOut(int source, int target, std::string currLane, AGV* cur) override;
+    void planOut(int source, int target, std::string currLane, AGV *cur)
+            override;
     bool isValidTrace(std::string currLane, std::string trace) override;
     std::string getName() override;
-    virtual void checkActiveEdges(double firstCost, Quad* info, bool activeEdges);
+    virtual void checkActiveEdges(double firstCost, Quad *info,
+            bool activeEdges);
     //void generateAdj() override;
-    AGV* cur;
+    AGV *cur;
     std::string currLane;
     std::vector<std::vector<Quad>> emergencyAdjList;
     std::vector<double> timeW_E_Vertices;
@@ -40,7 +42,6 @@ private:
     void getBeneficialAndNeutral();
     std::string beneficialLanes;
     std::string neutralLanes;
-
 
 };
 

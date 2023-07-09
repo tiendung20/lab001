@@ -15,7 +15,7 @@
 
 #include "Constant.h"
 
-TraCIMobility* Constant::activation = NULL;
+TraCIMobility *Constant::activation = NULL;
 long Constant::TOTAL_WAITING_TIME = 0;
 double Constant::TOTAL_TRAVELLING_TIME = 0;
 double Constant::TOTAL_APE = 0;
@@ -25,7 +25,7 @@ double Constant::GLOBAL_SONNER = 0;
 double Constant::GLOBAL_LATER = 0;
 double Constant::EMERGENCY_TIME = 0;
 int Constant::edgeIdCnt = 0;
-std::map<std::string, std::string> Constant::routeDict = {{"route_0", ""}};
+std::map<std::string, std::string> Constant::routeDict = { { "route_0", "" } };
 //std::string Constant::SUPPLY_DISPOSAL = "$";
 Constant::Constant() {
     // TODO Auto-generated constructor stub
@@ -35,5 +35,4 @@ Constant::Constant() {
 Constant::~Constant() {
     // TODO Auto-generated destructor stub
 }
-
 

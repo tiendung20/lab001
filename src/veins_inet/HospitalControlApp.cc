@@ -218,10 +218,11 @@ void HospitalControlApp::initialize(int stage)
         graph = new Graph();
         djisktra = // new LatencyEmergencyTime();
             //                new AntShortestPathSystem();
-            // new DecisionDijkstra();
-            // new HarmfulnessDijkstra();
-            // new ArrivalDijkstra();
-            new Djisktra();
+                     new DecisionDijkstra();
+                    // new HarmfulnessDijkstra();
+                    // new ArrivalDijkstra();
+                    // new Djisktra();
+//                new NishidaDStarLite();
         this->readCrossing();
     }
     else if (stage == 1)
@@ -301,66 +302,66 @@ void HospitalControlApp::finish()
     EV << "#calling traci->getPersonIds(): " << count << endl;
     EV << "1) As 10 AGVs => T: 3022(3796), W: 241(1811), %: 8(48)%" << endl;
     EV
-        << "2) As 10 + 1(flow 11) AGVs => T: 3177(4521), W: 463(2334), %: 15(52)%"
-        << endl;
+              << "2) As 10 + 1(flow 11) AGVs => T: 3177(4521), W: 463(2334), %: 15(52)%"
+              << endl;
     EV
-        << "3) As 10 + 1(flow 10) + 1(flow11) AGVs => T: 2982(4793), W: 76(2416), %: 3(50)%"
-        << endl;
+              << "3) As 10 + 1(flow 10) + 1(flow11) AGVs => T: 2982(4793), W: 76(2416), %: 3(50)%"
+              << endl;
     EV
-        << "4) As 10 + 1(flow 11) + 1(flow 2) AGVs => T: 3020(5175), W: 119(2782), %: 4(54)%"
-        << endl;
+              << "4) As 10 + 1(flow 11) + 1(flow 2) AGVs => T: 3020(5175), W: 119(2782), %: 4(54)%"
+              << endl;
     EV
-        << "5) As 10 + 1(flow10) + 1(flow 11) + 1(flow 2) AGVs => T: 3220(5455), W: 76(2871), %: 2.3(53)%"
-        << endl;
+              << "5) As 10 + 1(flow10) + 1(flow 11) + 1(flow 2) AGVs => T: 3220(5455), W: 76(2871), %: 2.3(53)%"
+              << endl;
     EV
-        << "6) As 10 + 2(flow10) + 1(flow 11) + 1(flow 2) AGVs => T: 3409(6846), W: 81(3616), %: 2.4(53)%"
-        << endl;
+              << "6) As 10 + 2(flow10) + 1(flow 11) + 1(flow 2) AGVs => T: 3409(6846), W: 81(3616), %: 2.4(53)%"
+              << endl;
     EV
-        << "7) As 10 + 2(flow10) + 2(flow 11) + 1(flow 2) AGVs => T: 3988(5863), W: 133(2850), %: 3.3(49)%"
-        << endl;
+              << "7) As 10 + 2(flow10) + 2(flow 11) + 1(flow 2) AGVs => T: 3988(5863), W: 133(2850), %: 3.3(49)%"
+              << endl;
     EV
-        << "8) As 10 + 2(flow10) + 2(flow 11) + 1(flow 2) + 1(flow0) AGVs => T: 4096(6734), W: 83.1(3517), %: 2(52)%"
-        << endl;
+              << "8) As 10 + 2(flow10) + 2(flow 11) + 1(flow 2) + 1(flow0) AGVs => T: 4096(6734), W: 83.1(3517), %: 2(52)%"
+              << endl;
     EV
-        << "9) As 10 + 2(flow10) + 2(flow 11) + 3(flow0-2) AGVs => T: 4271(7649), W: 87(4202), %: 2(55)%"
-        << endl;
+              << "9) As 10 + 2(flow10) + 2(flow 11) + 3(flow0-2) AGVs => T: 4271(7649), W: 87(4202), %: 2(55)%"
+              << endl;
     EV
-        << "10) As 10 + 2(flow10) + 2(flow 11) + 4(flow0-3) AGVs => T: 5214(7261), W: 492(3621), %: 9.5(50)%"
-        << endl;
+              << "10) As 10 + 2(flow10) + 2(flow 11) + 4(flow0-3) AGVs => T: 5214(7261), W: 492(3621), %: 9.5(50)%"
+              << endl;
     EV
-        << "11) As 10 + 2(flow10) + 2(flow 11) + 5(flow0-4) AGVs => T: 4900(6488), W: 203(2644), %: 4(41)%"
-        << endl;
+              << "11) As 10 + 2(flow10) + 2(flow 11) + 5(flow0-4) AGVs => T: 4900(6488), W: 203(2644), %: 4(41)%"
+              << endl;
     EV
-        << "12) As 10 + 2(flow10) + 2(flow 11) + 6(flow0-5) AGVs => T: 5255(8027), W: 270(3973), %: 5(49.5)%"
-        << endl;
+              << "12) As 10 + 2(flow10) + 2(flow 11) + 6(flow0-5) AGVs => T: 5255(8027), W: 270(3973), %: 5(49.5)%"
+              << endl;
     EV
-        << "13) As 10 + 2(flow10) + 2(flow 11) + 7(flow0-6) AGVs => T: 5808(9578), W: 583(5289), %: 10(55)%"
-        << endl;
+              << "13) As 10 + 2(flow10) + 2(flow 11) + 7(flow0-6) AGVs => T: 5808(9578), W: 583(5289), %: 10(55)%"
+              << endl;
     EV
-        << "14) As 10 + 2(flow10) + 2(flow 11) + 8(flow0-7) AGVs => T: 6569(10471), W: 1049(5970), %: 16(57)%"
-        << endl;
+              << "14) As 10 + 2(flow10) + 2(flow 11) + 8(flow0-7) AGVs => T: 6569(10471), W: 1049(5970), %: 16(57)%"
+              << endl;
     EV
-        << "15) As 10 + 2(flow10) + 2(flow 11) + 9(flow0-8) AGVs => T: 6439(9538), W: 694(4830), %: 11(51)%"
-        << endl;
+              << "15) As 10 + 2(flow10) + 2(flow 11) + 9(flow0-8) AGVs => T: 6439(9538), W: 694(4830), %: 11(51)%"
+              << endl;
     EV
-        << "16) As 10 + 2(flow10) + 2(flow 11) + 10(flow0-9) AGVs => T: 11155(12158), W: 3914(5910), %: 35(49)%"
-        << endl;
+              << "16) As 10 + 2(flow10) + 2(flow 11) + 10(flow0-9) AGVs => T: 11155(12158), W: 3914(5910), %: 35(49)%"
+              << endl;
     EV
-        << "17) As case 16 + 24(flow 12) AGVs => T: 7168(10482), W: 622(5369), %: 9(51)%"
-        << endl;
+              << "17) As case 16 + 24(flow 12) AGVs => T: 7168(10482), W: 622(5369), %: 9(51)%"
+              << endl;
     EV << "As 10 + 1(flow 8) AGVs => T: 2709, W: 547, %: 20%" << endl;
     EV << "As 10 + 1(flow 2) AGVs => T: 3045.7, W: 875, %: 29%" << endl;
     // EV<<"As 11 AGVs => T: 2720.8, W: 547, %: 20%"<<endl;
     EV << "As 11 AGVs + 1(10) => T: 3239.9, W: 887.7, %: 27.4%" << endl;
 
     EV << "Reproduce case " << 17 << ") Total waiting time: "
-       << Constant::TOTAL_WAITING_TIME * 0.1 << "(s)" << endl;
+              << Constant::TOTAL_WAITING_TIME * 0.1 << "(s)" << endl;
     EV << "Total travelling time: " << Constant::TOTAL_TRAVELLING_TIME << "(s)"
-       << endl;
+              << endl;
     double percentage = Constant::TOTAL_WAITING_TIME * 10 / Constant::TOTAL_TRAVELLING_TIME;
     EV << "% of waiting time: " << percentage << endl;
     EV << "Average Mean Absolute Percentage Error: "
-       << 100 * Constant::TOTAL_APE / Constant::TOTAL_AGV << endl;
+              << 100 * Constant::TOTAL_APE / Constant::TOTAL_AGV << endl;
     if (Constant::SHORTEST_PATH)
     {
         EV << "Shortest Path: " << endl;
@@ -371,7 +372,7 @@ void HospitalControlApp::finish()
     }
     EV << "\t Global harmfulness: " << Constant::GLOBAL_HARMFULNESS << ". ";
     EV << "Sooner: " << Constant::GLOBAL_SONNER << ". Later "
-       << Constant::GLOBAL_LATER << endl;
+              << Constant::GLOBAL_LATER << endl;
     // statistics recording goes here
 
     std::string cmdFindTravelingInfo =
@@ -403,7 +404,7 @@ void HospitalControlApp::finish()
             }
         }
         std::cout << srcJunc << " - " << dstJunc << " - Longest time:  " << max << " - Shortest time: " << min << std::endl;
-    }
+}
 
     std::string cmdRemoveFile = "rm traveling_time/*";
     std::system(cmdRemoveFile.c_str());
@@ -463,9 +464,9 @@ void HospitalControlApp::onWSM(BaseFrame1609_4 *wsm)
                     {
                         std::string personId = elem;
                         Coord peoplePosition = traci->getPersonPosition(
-                            personId);
+                                personId);
                         std::pair<double, double> coordTraCI =
-                            traci->getTraCIXY(peoplePosition);
+                                traci->getTraCIXY(peoplePosition);
                         x = coordTraCI.first;
                         y = coordTraCI.second;
                         // newCoord.z = 0;
@@ -629,10 +630,10 @@ void HospitalControlApp::readLane(AGV *cur, std::string str)
             if (cur->itinerary->prevVertex != -1)
             {
                 this->djisktra->expSmoothing->exponentialSmooth(
-                    cur->itinerary->prevVertex,
-                    this->djisktra->timeWeightVertices[cur->itinerary->prevVertex]);
+                        cur->itinerary->prevVertex,
+                        this->djisktra->timeWeightVertices[cur->itinerary->prevVertex]);
                 this->djisktra->expSmoothing->addWait(
-                    cur->itinerary->prevVertex, -localWait);
+                        cur->itinerary->prevVertex, -localWait);
             }
             cur->itinerary->localWait = 0;
             cur->itinerary->prevVertex = idVertex;
@@ -673,33 +674,33 @@ std::string HospitalControlApp::readMessage(TraCIDemo11pMessage *bc)
         str += tmp;
     jute::jValue v = jute::parser::parse(str);
     std::string speed = v["speed"].as_string();
+    cur->speed = std::stod(speed);
     std::string laneId = v["laneId"].as_string();
     std::string originalRouteId = v["originalRouteId"].as_string();
-    if (cur->indexOfRoute == -1)
-    {
+    if (cur->indexOfRoute == -1) {
         cur->indexOfRoute = getIndexInFlow(cur->id, originalRouteId);
     }
+    double travellingTime = std::stod(v["travellingTime"].as_string());
+    cur->travellingTime = travellingTime;
     double ratio = std::stod(v["ratio"].as_string());
     cur->ratio = ratio;
     double now = std::stod(v["now"].as_string());
     cur->now = now;
     std::string idMess = v["idMess"].as_string();
     std::string timeAtStation = v["atStation"].as_string();
-    if (cur->atStation == 0 && timeAtStation.length() > 0)
-    {
+    if (cur->atStation == 0 && timeAtStation.length() > 0) {
         cur->atStation = std::stod(timeAtStation);
         cur->passedStation = true;
     }
     readLane(cur, laneId);
-    if (std::stod(speed) == 0)
-    {
+    if (std::stod(speed) == 0) {
         cur->itinerary->localWait++;
         int currentIndex = cur->itinerary->prevVertex;
         this->djisktra->expSmoothing->addWait(currentIndex, 0.1);
-        if (this->djisktra->expSmoothing->getWait(currentIndex) > this->djisktra->timeWeightVertices[currentIndex])
-        {
+        if (this->djisktra->expSmoothing->getWait(currentIndex)
+                > this->djisktra->timeWeightVertices[currentIndex]) {
             this->djisktra->expSmoothing->exponentialSmooth(currentIndex,
-                                                            this->djisktra->timeWeightVertices[currentIndex]);
+                    this->djisktra->timeWeightVertices[currentIndex]);
         }
     }
     newRoute = reRoute(cur, originalRouteId);
@@ -750,12 +751,12 @@ std::string HospitalControlApp::reRoute(AGV *cur,
     if (cur->itinerary->laneId[0] == ':')
     {
         idOfI_Vertex = this->djisktra->findI_Vertex(cur->itinerary->prevEdge,
-                                                    false);
+                false);
     }
     else
     {
         idOfI_Vertex = this->djisktra->findI_Vertex(cur->itinerary->laneId,
-                                                    false);
+                false);
     }
 
     int src = -1, station = -1, exit = -1;
@@ -808,14 +809,14 @@ std::string HospitalControlApp::reRoute(AGV *cur,
         if (stop)
         {
             return "{\"id\" : \"" + cur->id +
-                   //"\", \"station\" : \"" + cur->itinerary->station +
-                   "\", \"newRoute\" : \"0\"}";
+            //"\", \"station\" : \"" + cur->itinerary->station +
+                    "\", \"newRoute\" : \"0\"}";
         }
         else
         {
             return "{\"id\" : \"" + cur->id +
-                   //"\", \"station\" : \"" + cur->itinerary->station +
-                   "\", \"newRoute\" : \"" + Constant::CARRY_ON + "\"}";
+            //"\", \"station\" : \"" + cur->itinerary->station +
+                    "\", \"newRoute\" : \"" + Constant::CARRY_ON + "\"}";
         }
     }
 
@@ -827,11 +828,11 @@ std::string HospitalControlApp::reRoute(AGV *cur,
             return "";
         }
         this->djisktra->planOut(idOfI_Vertex, nextDst, cur->itinerary->laneId,
-                                cur);
+                cur);
 
         std::string newRoute = this->djisktra->getRoute(
             /*this->djisktra*/ cur->traces[nextDst], cur->itinerary->laneId,
-            idOfI_Vertex, nextDst, exit);
+                idOfI_Vertex, nextDst, exit);
         if (checkInvalidRoute(newRoute))
         {
             EV << "TRACE" << endl;
@@ -892,16 +893,14 @@ std::string HospitalControlApp::reRoute(AGV *cur,
             weights = ", \"weights\" : " + weights;
         }
 
-        //     updateAGVSFMInfo(cur->id, cur->itinerary->prevLane);
-        //    std::cout << agvInfo.dump() << std::endl;
+        if (!cur->allowMovement) {
+            return "{\"id\" : \"" + cur->id +
+            //"\", \"station\" : \"" + cur->itinerary->station +
+                    "\", \"newRoute\" : \"0\"}";
+        }
 
-        newRoute = "{\"id\" : \"" + cur->id + "\", \"newRoute\" : \"" + newRoute + "\"" + weights + "}";
-        // string agvInfoString = agvInfo.dump();
-        // std::replace(agvInfoString.begin(), agvInfoString.end(), '"', '@');
-        // newRoute = "{\"id\" : \"" + cur->id +
-        //           "\", \"agvInfo\" : \"" + agvInfoString +
-        //           "\", \"newRoute\" : \"" + newRoute + "\"" + weights + "}";
-
+        newRoute = "{\"id\" : \"" + cur->id + "\", \"newRoute\" : \"" + newRoute
+                + "\"" + weights + "}";
         return newRoute;
     }
     return "";
@@ -973,7 +972,7 @@ std::string HospitalControlApp::excludeDuplication(std::string futureLane,
         emergencyLastPath = true;
     }
     if (lastPath.find(futureLane + " ") != std::string::npos
-        //&& newRoute.find(" " + futureLane) != std::string::npos
+    //&& newRoute.find(" " + futureLane) != std::string::npos
     )
     {
         if (!emergencyLastPath)

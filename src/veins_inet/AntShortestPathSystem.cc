@@ -30,16 +30,14 @@
  * @param ants Number of ants to unlease in each iteration
  * @param iterations Number of iterations
  */
-AntShortestPathSystem::AntShortestPathSystem(const std::string& filename, int ants, int iterations)
-{
-    try
-    {
+AntShortestPathSystem::AntShortestPathSystem(const std::string &filename,
+        int ants, int iterations) {
+    try {
         //initTopo(filename);
-        for(auto& edge : adaptiveEdges)
-            edge2phero.insert(std::make_pair(edge, static_cast<double>(PHERO_QUANTITY)));
-    }
-    catch(std::exception& e)
-    {
+        for (auto &edge : adaptiveEdges)
+            edge2phero.insert(
+                    std::make_pair(edge, static_cast<double>(PHERO_QUANTITY)));
+    } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 
@@ -50,17 +48,14 @@ AntShortestPathSystem::AntShortestPathSystem(const std::string& filename, int an
  * Constructor initialising the topology from external graph.
  *
  */
-AntShortestPathSystem::AntShortestPathSystem()
-{
-    try
-    {
+AntShortestPathSystem::AntShortestPathSystem() {
+    try {
         //create a clone of adjList from updated graph
         initAdaptiveEdges(adjList, vertices, timeWeightVertices, &countEdges);
-        for(auto& edge : adaptiveEdges)
-            edge2phero.insert(std::make_pair(edge, static_cast<double>(PHERO_QUANTITY)));
-    }
-    catch(std::exception& e)
-    {
+        for (auto &edge : adaptiveEdges)
+            edge2phero.insert(
+                    std::make_pair(edge, static_cast<double>(PHERO_QUANTITY)));
+    } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 
@@ -73,15 +68,15 @@ AntShortestPathSystem::AntShortestPathSystem()
  * @param ants Number of ants to unlease in each iteration
  * @param iterations Number of iterations
  */
-AntShortestPathSystem::AntShortestPathSystem(int ants, int iterations)
-{
+AntShortestPathSystem::AntShortestPathSystem(int ants, int iterations) {
     init(ants, iterations);
 }
 
 /**
  * Empty destructor.
  */
-AntShortestPathSystem::~AntShortestPathSystem() { }
+AntShortestPathSystem::~AntShortestPathSystem() {
+}
 
 /**
  * Initialiser for ants, iterations and random numner generator.
@@ -89,15 +84,11 @@ AntShortestPathSystem::~AntShortestPathSystem() { }
  * @param ants Number of ants to unlease in each iteration
  * @param iterations Number of iterations
  */
-void AntShortestPathSystem::init(int ants, int iterations)
-{
-    if(ants > 0 && iterations > 0)
-    {
+void AntShortestPathSystem::init(int ants, int iterations) {
+    if (ants > 0 && iterations > 0) {
         this->ants = ants;
         this->iterations = iterations;
-    }
-    else
-    {
+    } else {
         this->ants = ANTS;
         this->iterations = ITERATIONS;
     }
@@ -113,38 +104,31 @@ void AntShortestPathSystem::init(int ants, int iterations)
  * @param end Path's end point
  * @return std::vector<int> The best path
  */
-std::vector<int> AntShortestPathSystem::path(int start, int end)
-{
+std::vector<int> AntShortestPathSystem::path(int start, int end) {
     std::vector<int> bestPath;
     double shortest = std::numeric_limits<double>::max();
     // For the predefined number of iterations
 
-    for(int i = 0; i < iterations; ++i)
-    {
+    for (int i = 0; i < iterations; ++i) {
         std::map<int, std::vector<int> > antTraces;
         std::map<int, double> tourLengths;
         // Release ants from source node and let them traverse the graph
         // structure to reach a destination
-        for(int j = 1; j <= ants; ++j)
-        {
+        for (int j = 1; j <= ants; ++j) {
             // This trace will be used by this ant to store its node sequence
             std::vector<int> antTrace;
             goAnt(start, end, antTrace);
 
-            if(antTrace.size() > 1 && antTrace.front() == start
-                    && antTrace.back() == end)
-            {
+            if (antTrace.size() > 1 && antTrace.front() == start
+                    && antTrace.back() == end) {
                 // Destination reached, so calculate tour length and keep the shortest one
                 antTraces.insert(std::make_pair(j, antTrace));
                 tourLengths[j] = calcTourLength(antTrace);
-                if(tourLengths[j] > 0 && tourLengths[j] < shortest)
-                {
+                if (tourLengths[j] > 0 && tourLengths[j] < shortest) {
                     shortest = tourLengths[j];
                     bestPath = antTrace;
                 }
-            }
-            else
-            {
+            } else {
                 // Well, this ant failed to reach its destination
                 antTraces.insert(std::make_pair(j, std::vector<int>()));
                 tourLengths[j] = 0;
@@ -155,8 +139,8 @@ std::vector<int> AntShortestPathSystem::path(int start, int end)
         updateTrails(antTraces, tourLengths);
     }
 
-    if(bestPath.size() > 0){
-        EV<<"found something!!!"<<endl;
+    if (bestPath.size() > 0) {
+        EV << "found something!!!" << endl;
     }
 
     return bestPath;
@@ -169,38 +153,43 @@ std::vector<int> AntShortestPathSystem::path(int start, int end)
  * @param end Path's end point
  * @return std::vector<int> The best path
  */
-void AntShortestPathSystem::planOut(//std::vector <Quad> adjList[],
-        int source, int target, std::string currLane, AGV* cur){
+void AntShortestPathSystem::planOut(        //std::vector <Quad> adjList[],
+        int source, int target, std::string currLane, AGV *cur) {
     cur->memset(numVertices);
-    double tempW; int tempIndex; std::string tempTrace;
-    for (std::vector<Quad>::iterator it = adjList[source].begin(); it != adjList[source].end(); it++){
+    double tempW;
+    int tempIndex;
+    std::string tempTrace;
+    for (std::vector<Quad>::iterator it = adjList[source].begin();
+            it != adjList[source].end(); it++) {
         tempW = std::get<0>(*it);
         tempTrace = std::get<3>(*it);
         tempIndex = std::get<2>(*it);
-        if(!Constant::SHORTEST_PATH){
-            timeWeightVertices[tempIndex] = this->expSmoothing->getDampingValue(tempIndex, timeWeightVertices[tempIndex], vertices[tempIndex]);
+        if (!Constant::SHORTEST_PATH) {
+            timeWeightVertices[tempIndex] = this->expSmoothing->getDampingValue(
+                    tempIndex, timeWeightVertices[tempIndex],
+                    vertices[tempIndex]);
         }
     }
-    if(!isWorking()){
+    if (!isWorking()) {
         cur->ShortestPath[source] = 0;
     }
     this->insertRequest(source, target, cur->id);
-    if(target != cur->itinerary->exit){
+    if (target != cur->itinerary->exit) {
         this->insertRequest(target, cur->itinerary->exit, cur->id);
     }
     assert(!(this->hasIdenticalReq()));
-    if(this->canExecuteReqs()){
-        EV<<"prepare for parallelization ACO";
+    if (this->canExecuteReqs()) {
+        EV << "prepare for parallelization ACO";
         this->updateWeights(this->timeWeightVertices);
         std::vector<Request> work = this->kickOff();
         int N = work.size();
         Request jobs[N];
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             jobs[i] = work[i];
         }
         int src, dst;
         //std::vector<int> r;
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             src = std::get<0>(jobs[i]);
             dst = std::get<1>(jobs[i]);
             this->path(src, dst);
@@ -215,11 +204,12 @@ void AntShortestPathSystem::planOut(//std::vector <Quad> adjList[],
  * @pre: the kick off must collect all non-expired WAITING_FOR_PROCESSING reqs
  * as well as remove all expired WAITING_FOR_PROCESSING reqs
  */
-void AntShortestPathSystem::markFinishedReqs(){
+void AntShortestPathSystem::markFinishedReqs() {
     double t = simTime().dbl();
-    for(std::vector<Request>::iterator it = allRequests.begin(); it != allRequests.end(); it++){
+    for (std::vector<Request>::iterator it = allRequests.begin();
+            it != allRequests.end(); it++) {
         STATE_OF_REQUEST state = std::get<4>(*it);
-        if(state == WAITING_FOR_PROCESSING){
+        if (state == WAITING_FOR_PROCESSING) {
             std::get<4>(*it) = FINISHED;
             std::get<3>(*it) = t;
         }
@@ -231,21 +221,21 @@ void AntShortestPathSystem::markFinishedReqs(){
  * @pre: the requests are not being worked, and there is already several waiting requests
  * @post: calling the path of AntShortestPathSystem and all expired reqs disappear
  */
-std::vector<Request> AntShortestPathSystem::kickOff(){
+std::vector<Request> AntShortestPathSystem::kickOff() {
     double t = simTime().dbl();
     std::vector<Request> result;
     std::vector<int> expiredReqs;
     int i = 0;
-    for(std::vector<Request>::iterator it = allRequests.begin(); it != allRequests.end(); it++){
+    for (std::vector<Request>::iterator it = allRequests.begin();
+            it != allRequests.end(); it++) {
         STATE_OF_REQUEST state = std::get<4>(*it);
         double createdTime = std::get<3>(*it);
-        if(state == WAITING_FOR_PROCESSING){
-            if(t - createdTime < Constant::DELAY){
+        if (state == WAITING_FOR_PROCESSING) {
+            if (t - createdTime < Constant::DELAY) {
                 std::get<4>(*it) = BEING_PROCESSED;
                 std::get<3>(*it) = t;
                 result.push_back(*it);
-            }
-            else{
+            } else {
                 expiredReqs.push_back(i);
             }
         }
@@ -255,15 +245,16 @@ std::vector<Request> AntShortestPathSystem::kickOff(){
     return result;
 }
 
-std::string AntShortestPathSystem::getRoute(std::string trace, std::string currentLane, int currentVertex, int nextVertex, int exitVertex){
+std::string AntShortestPathSystem::getRoute(std::string trace,
+        std::string currentLane, int currentVertex, int nextVertex,
+        int exitVertex) {
     return "";
 }
 
 /**
  * Clears instance's state
  */
-void AntShortestPathSystem::clear()
-{
+void AntShortestPathSystem::clear() {
     edge2phero.clear();
     adaptiveEdges.clear();
 }
@@ -274,8 +265,7 @@ void AntShortestPathSystem::clear()
  * @param length Tour's length produced by an ant
  * @return double Amount of pheromone
  */
-double AntShortestPathSystem::diffPheromone(double length)
-{
+double AntShortestPathSystem::diffPheromone(double length) {
     return PHERO_QUANTITY / length;
 }
 
@@ -285,34 +275,32 @@ double AntShortestPathSystem::diffPheromone(double length)
  * @param antTraces Created traces by ants
  * @param tourLengths The length of traces
  */
-void AntShortestPathSystem::updateTrails(std::map<int, std::vector<int>>& antTraces,
-                             std::map<int, double>& tourLengths)
-{
+void AntShortestPathSystem::updateTrails(
+        std::map<int, std::vector<int>> &antTraces,
+        std::map<int, double> &tourLengths) {
     // First, evaporate all existing pheromone levels
-    for(auto& pair : edge2phero)
+    for (auto &pair : edge2phero)
         pair.second *= (1 - EVAPO_RATE);
 
     // Then, increase pheromone level upon correct paths
-    for(auto& pair : edge2phero)
-    {
+    for (auto &pair : edge2phero) {
         int edgeStart = pair.first.edgeStart;
         int edgeEnd = pair.first.edgeEnd;
         std::map<int, std::vector<int>>::iterator ait = antTraces.begin();
-        while(ait != antTraces.end())
-        {
+        while (ait != antTraces.end()) {
             // For every ant trace
             std::vector<int> trace = (*ait).second;
-            if(trace.size() <= 1)
-            {
+            if (trace.size() <= 1) {
                 ait++;
                 continue;
             }
 
             // In case it's valid, add an amount of pheromone that depends on
             // each tour length
-            for(unsigned int i = 0; i < trace.size() - 1; ++i)
-                if(trace.at(i) == edgeStart && trace.at(i + 1) == edgeEnd)
-                    edge2phero[pair.first] += diffPheromone(tourLengths[(*ait).first]);
+            for (unsigned int i = 0; i < trace.size() - 1; ++i)
+                if (trace.at(i) == edgeStart && trace.at(i + 1) == edgeEnd)
+                    edge2phero[pair.first] += diffPheromone(
+                            tourLengths[(*ait).first]);
             ait++;
         }
     }
@@ -326,17 +314,14 @@ void AntShortestPathSystem::updateTrails(std::map<int, std::vector<int>>& antTra
  * @param end Path's destination
  * @param trace Container where path's nodes will be stored
  */
-void AntShortestPathSystem::goAnt(int start, int end, std::vector<int>& trace)
-{
+void AntShortestPathSystem::goAnt(int start, int end, std::vector<int> &trace) {
     // Detect cycles and give up this attempt
-    if(isCyclic(start, trace))
-    {
+    if (isCyclic(start, trace)) {
         trace.clear();
         return;
     }
     // Destination reached
-    if(start == end && trace.size() > 0)
-    {
+    if (start == end && trace.size() > 0) {
         trace.push_back(start);
         return;
     }
@@ -346,25 +331,24 @@ void AntShortestPathSystem::goAnt(int start, int end, std::vector<int>& trace)
     double probs[neighs.size()];
     int index = 0;
     // Produce a transition probability to each one
-    for(int neigh : neighs)
+    for (int neigh : neighs)
         probs[index++] = prob(start, neigh, neighs);
 
     std::uniform_real_distribution<> distro(0, 1);
     double value = distro(gen);
     // Sort probabilities in range [0, 1] and use a uniform dice to
     // pick up an index domain
-    index = 0; double sum = 0;
-    for(; index < (int)neighs.size(); ++index)
-    {
+    index = 0;
+    double sum = 0;
+    for (; index < (int) neighs.size(); ++index) {
         sum += probs[index];
-        if(value <= sum)
+        if (value <= sum)
             break;
     }
 
     // This index belongs to the chosen neighbour
     int chosenNeighbour = (neighs.size() > 0) ? neighs[index] : -1;
-    if(chosenNeighbour == -1)
-    {
+    if (chosenNeighbour == -1) {
         // No available neighbour found, so give up
         trace.clear();
         return;
@@ -381,23 +365,20 @@ void AntShortestPathSystem::goAnt(int start, int end, std::vector<int>& trace)
  * @param tour Container with path's nodes
  * @return double Tour's length
  */
-double AntShortestPathSystem::calcTourLength(std::vector<int>& tour)
-{
-    if(tour.size() <= 1)
+double AntShortestPathSystem::calcTourLength(std::vector<int> &tour) {
+    if (tour.size() <= 1)
         return 0;
 
     double weightSum = 0;
-    for(unsigned int i = 0; i < tour.size() - 1; ++i)
-    {
+    for (unsigned int i = 0; i < tour.size() - 1; ++i) {
         // Find the edge that starts with current trace node
         auto it = std::find_if(edge2phero.cbegin(), edge2phero.cend(),
-                [&tour, i](std::pair<Edge, double> pair)
-                {
+                [&tour, i](std::pair<Edge, double> pair) {
                     return pair.first.edgeStart == tour[i]
                             && pair.first.edgeEnd == tour[i + 1];
                 });
 
-        if(it != edge2phero.cend()){
+        if (it != edge2phero.cend()) {
             //ThanhNT 12th Nov
             weightSum += (*it).first.weightSrc;
             //Endof ThanhNT 12th Nov
@@ -416,14 +397,14 @@ double AntShortestPathSystem::calcTourLength(std::vector<int>& tour)
  * @param edgeEnd The edge's end point
  * @return double The probability
  */
-double AntShortestPathSystem::prob(int edgeStart, int edgeEnd, std::vector<int>& neighs)
-{
+double AntShortestPathSystem::prob(int edgeStart, int edgeEnd,
+        std::vector<int> &neighs) {
     double numerator = std::pow(pheromone(edgeStart, edgeEnd), A_PAR)
             * std::pow(heuInfo(edgeStart, edgeEnd), B_PAR);
 
     double denumerator = 0;
     //std::vector<int> neighs = availNeighbours(edgeStart);
-    for(int neigh : neighs)
+    for (int neigh : neighs)
         denumerator += std::pow(pheromone(edgeStart, neigh), A_PAR)
                 * std::pow(heuInfo(edgeStart, neigh), B_PAR);
 
@@ -438,12 +419,10 @@ double AntShortestPathSystem::prob(int edgeStart, int edgeEnd, std::vector<int>&
  * @param edgeEnd The edge's end point
  * @return double The amount of heuristic information
  */
-double AntShortestPathSystem::heuInfo(int edgeStart, int edgeEnd)
-{
+double AntShortestPathSystem::heuInfo(int edgeStart, int edgeEnd) {
     // Find the edge with this lambda function and use its weight
     auto it = std::find_if(edge2phero.cbegin(), edge2phero.cend(),
-            [edgeStart, edgeEnd](std::pair<Edge, double> pair)
-            {
+            [edgeStart, edgeEnd](std::pair<Edge, double> pair) {
                 return pair.first.edgeStart == edgeStart
                         && pair.first.edgeEnd == edgeEnd;
             });
@@ -464,12 +443,10 @@ double AntShortestPathSystem::heuInfo(int edgeStart, int edgeEnd)
  * @param edgeEnd The edge's end point
  * @return double The amount of pheromone
  */
-double AntShortestPathSystem::pheromone(int edgeStart, int edgeEnd)
-{
+double AntShortestPathSystem::pheromone(int edgeStart, int edgeEnd) {
     // Find the edge with this lambda function and return its pheromone level
     auto it = std::find_if(edge2phero.cbegin(), edge2phero.cend(),
-            [edgeStart, edgeEnd](std::pair<Edge, double> pair)
-            {
+            [edgeStart, edgeEnd](std::pair<Edge, double> pair) {
                 return pair.first.edgeStart == edgeStart
                         && pair.first.edgeEnd == edgeEnd;
             });
@@ -483,22 +460,19 @@ double AntShortestPathSystem::pheromone(int edgeStart, int edgeEnd)
  * @param node The input node
  * @return std::vector<int> Container with nodes
  */
-std::vector<int> AntShortestPathSystem::availNeighbours(int node)
-{
+std::vector<int> AntShortestPathSystem::availNeighbours(int node) {
     std::vector<int> neighbours;
     //std::vector<std::string> traces;
 
     // Find all edges that start from the input node and return its
     // other endpoints
-    std::for_each(edge2phero.cbegin(), edge2phero.cend(),
-            [&neighbours, //&traces,
-                 node](std::pair<Edge, double> pair)
-            {
-                if(pair.first.edgeStart == node){
-                    neighbours.push_back(pair.first.edgeEnd);
-                    //traces.push_back(pair.first.dst);
-                }
-            });
+    std::for_each(edge2phero.cbegin(), edge2phero.cend(), [&neighbours, //&traces,
+            node](std::pair<Edge, double> pair) {
+        if (pair.first.edgeStart == node) {
+            neighbours.push_back(pair.first.edgeEnd);
+            //traces.push_back(pair.first.dst);
+        }
+    });
 
     return neighbours;
 }
@@ -509,11 +483,10 @@ std::vector<int> AntShortestPathSystem::availNeighbours(int node)
  * @param nodes The sequence of nodes
  * @return bool The indication of a cyclic sequence
  */
-bool AntShortestPathSystem::isCyclic(int nd, const std::vector<int>& nodes)
-{
+bool AntShortestPathSystem::isCyclic(int nd, const std::vector<int> &nodes) {
     std::set<int> uniqueNodes;
     uniqueNodes.insert(nd);
-    for(int node : nodes)
+    for (int node : nodes)
         uniqueNodes.insert(node);
 
     return nodes.size() + 1 != uniqueNodes.size();
@@ -527,9 +500,9 @@ bool AntShortestPathSystem::isCyclic(int nd, const std::vector<int>& nodes)
  * @param weight Weight for the edge
  */
 /*void AntShortestPathSystem::insertEdge(int src, int dest, double weight)
-{
-    AdaptiveSystem::insertEdge(src, dest, weight);
-    edge2phero.clear();
-    for(auto& edge : adaptiveEdges)
-        edge2phero.insert({edge, static_cast<double>(PHERO_QUANTITY)});
-}*/
+ {
+ AdaptiveSystem::insertEdge(src, dest, weight);
+ edge2phero.clear();
+ for(auto& edge : adaptiveEdges)
+ edge2phero.insert({edge, static_cast<double>(PHERO_QUANTITY)});
+ }*/

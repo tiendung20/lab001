@@ -29,7 +29,6 @@
 using namespace omnetpp;
 namespace veins {
 
-
 class RouteDirection {
 public:
     RouteDirection();

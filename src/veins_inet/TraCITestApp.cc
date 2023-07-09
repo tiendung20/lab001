@@ -38,8 +38,7 @@ using veins::TraCITestApp;
 
 Define_Module(veins::TraCITestApp);
 
-void TraCITestApp::initialize(int stage)
-{
+void TraCITestApp::initialize(int stage) {
     BaseApplLayer::initialize(stage);
     if (stage == 0) {
         testNumber = par("testNumber");
@@ -51,41 +50,37 @@ void TraCITestApp::initialize(int stage)
         visitedEdges.clear();
         hasStopped = false;
 
-        EV_DEBUG << "TraCITestApp initialized with testNumber=" << testNumber << std::endl;
+        EV_DEBUG << "TraCITestApp initialized with testNumber=" << testNumber
+                        << std::endl;
 
         performTest(0);
     }
 }
 
-void TraCITestApp::finish()
-{
+void TraCITestApp::finish() {
     performTest(999);
 }
 
-void TraCITestApp::handleSelfMsg(cMessage* msg)
-{
+void TraCITestApp::handleSelfMsg(cMessage *msg) {
 }
 
-void TraCITestApp::handleLowerMsg(cMessage* msg)
-{
+void TraCITestApp::handleLowerMsg(cMessage *msg) {
     delete msg;
 }
 
-void TraCITestApp::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details)
-{
+void TraCITestApp::receiveSignal(cComponent *source, simsignal_t signalID,
+        cObject *obj, cObject *details) {
     if (signalID == BaseMobility::mobilityStateChangedSignal) {
         handlePositionUpdate();
     }
 }
 
-void TraCITestApp::handlePositionUpdate()
-{
+void TraCITestApp::handlePositionUpdate() {
     const simtime_t t = simTime();
     performTest(t);
 }
 
-void TraCITestApp::performTest(const simtime_t t)
-{
+void TraCITestApp::performTest(const simtime_t t) {
     const std::string roadId = mobility->getRoadId();
     visitedEdges.insert(roadId);
 
@@ -148,12 +143,16 @@ void TraCITestApp::performTest(const simtime_t t)
             //assertTrue("(TraCICommandInterface::addVehicle) command reports success", r);
         }
         if (t == 30) {
-            std::map<std::string, cModule*>::const_iterator i = mobility->getManager()->getManagedHosts().find("testVehicle0");
+            std::map<std::string, cModule*>::const_iterator i =
+                    mobility->getManager()->getManagedHosts().find(
+                            "testVehicle0");
             bool r = (i != mobility->getManager()->getManagedHosts().end());
             //assertTrue("(TraCICommandInterface::addVehicle) vehicle now driving", r);
             if (r) {
-                const cModule* mod = i->second;
-                const TraCIMobility* traci2 = FindModule<TraCIMobility*>::findSubModule(const_cast<cModule*>(mod));
+                const cModule *mod = i->second;
+                const TraCIMobility *traci2 =
+                        FindModule<TraCIMobility*>::findSubModule(
+                                const_cast<cModule*>(mod));
                 //assertTrue("(TraCICommandInterface::addVehicle) vehicle driving at speed", traci2->getSpeed() > 25);
             }
         }
@@ -181,7 +180,8 @@ void TraCITestApp::performTest(const simtime_t t)
             points.push_back(Coord(200, 100));
             points.push_back(Coord(200, 200));
             points.push_back(Coord(100, 200));
-            traci->addPolygon("testPoly", "testType", TraCIColor::fromTkColor("red"), true, 1, points);
+            traci->addPolygon("testPoly", "testType",
+                    TraCIColor::fromTkColor("red"), true, 1, points);
         }
         if (t == 31) {
             std::list<std::string> polys = traci->getPolygonIds();
@@ -252,7 +252,8 @@ void TraCITestApp::performTest(const simtime_t t)
             //assertEqual("(TraCICommandInterface::getPoiIds) number is 0", size_t(0), o.size());
         }
         if (t == 2) {
-            traci->addPoi("poi0", "building", TraCIColor::fromTkColor("red"), 0, Coord(1234.5, 6789.0));
+            traci->addPoi("poi0", "building", TraCIColor::fromTkColor("red"), 0,
+                    Coord(1234.5, 6789.0));
         }
         if (t == 3) {
             std::list<std::string> o = traci->getPoiIds();
@@ -336,7 +337,8 @@ void TraCITestApp::performTest(const simtime_t t)
 
     if (testNumber == testCounter++) {
         if (t == 1) {
-            traci->vehicle(mobility->getExternalId()).stopAt("43", 20, 0, 10, 30);
+            traci->vehicle(mobility->getExternalId()).stopAt("43", 20, 0, 10,
+                    30);
         }
         if (t == 30) {
             //assertTrue("(TraCICommandInterface::Vehicle::stopAt) vehicle is at 43", roadId == "43");
@@ -346,7 +348,8 @@ void TraCITestApp::performTest(const simtime_t t)
 
     if (testNumber == testCounter++) {
         if (t == 1) {
-            traci->vehicle(mobility->getExternalId()).stopAt("43", 20, 0, 10, 30);
+            traci->vehicle(mobility->getExternalId()).stopAt("43", 20, 0, 10,
+                    30);
         }
         if (t == 2) {
             //assertFalse("(TraCICommandInterface::Vehicle::isStopReached) vehicle is not stopped", traci->vehicle(mobility->getExternalId()).isStopReached());
@@ -366,11 +369,9 @@ void TraCITestApp::performTest(const simtime_t t)
             //assertEqual("((TraCICommandInterface::Vehicle::getLeader, 0.0) vehicle 1 leaderID", "flow0.0", pair1.first);
             if (traci->getApiVersion() <= 17) {
                 //assertClose("((TraCICommandInterface::Vehicle::getLeader, 0.0) vehicle 1 distance", 128.9441851, pair1.second);
-            }
-            else if (traci->getApiVersion() <= 19) {
-               // assertClose("((TraCICommandInterface::Vehicle::getLeader, 0.0) vehicle 1 distance", 145.09933985, pair1.second);
-            }
-            else {
+            } else if (traci->getApiVersion() <= 19) {
+                // assertClose("((TraCICommandInterface::Vehicle::getLeader, 0.0) vehicle 1 distance", 145.09933985, pair1.second);
+            } else {
                 //assertClose("((TraCICommandInterface::Vehicle::getLeader, 0.0) vehicle 1 distance", 146.4500273, pair1.second);
             }
         }
@@ -430,9 +431,9 @@ void TraCITestApp::performTest(const simtime_t t)
         }
         if (t == 999) {
             /*assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle avoided 42", visitedEdges.find("42") == visitedEdges.end());
-            assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle avoided 43", visitedEdges.find("43") == visitedEdges.end());
-            assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle took 44", visitedEdges.find("44") != visitedEdges.end());
-            */
+             assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle avoided 43", visitedEdges.find("43") == visitedEdges.end());
+             assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle took 44", visitedEdges.find("44") != visitedEdges.end());
+             */
         }
     }
 
@@ -491,8 +492,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getSpeed)", 27.78, traciVehicle->getSpeed());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getSpeed)", 31.0110309, traciVehicle->getSpeed());
             }
         }
@@ -507,8 +507,7 @@ void TraCITestApp::performTest(const simtime_t t)
     if (testNumber == testCounter++) {
         if (traci->getApiVersion() <= 17) {
             //skip("(TraCICommandInterface::Vehicle::getAcceleration) skipped (requires SUMO 1.0.0 or newer)");
-        }
-        else {
+        } else {
             if (t == 1) {
                 traciVehicle->setSpeed(0);
                 //assertEqual("(TraCICommandInterface::Vehicle::getAcceleration) at t=1 should be 0", 0.0, traciVehicle->getAcceleration());
@@ -526,11 +525,9 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 10) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getDistanceTravelled) at t=10", 240.9146627, traciVehicle->getDistanceTravelled());
-            }
-            else if (traci->getApiVersion() <= 19) {
+            } else if (traci->getApiVersion() <= 19) {
                 //assertClose("(TraCICommandInterface::Vehicle::getDistanceTravelled) at t=10", 269.960445623, traciVehicle->getDistanceTravelled());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getDistanceTravelled) at t=10", 272.5853340, traciVehicle->getDistanceTravelled());
             }
         }
@@ -538,15 +535,15 @@ void TraCITestApp::performTest(const simtime_t t)
 
     if (testNumber == testCounter++) {
         int id = getParentModule()->getIndex();
-        if (/*(t >= 1) &&*/ (t <= 9) /*&& (id % 2 == 0)*/) {
-            EV<<"t = "<<t<<". Prepare to change: "<<id;
+        if (/*(t >= 1) &&*/(t <= 9) /*&& (id % 2 == 0)*/) {
+            EV << "t = " << t << ". Prepare to change: " << id;
             std::string compared = " == ";
-            bool succeed = traciVehicle->changeVehicleRoute({"25", "28", "31", "34", "37", "40", "13", "44"});
-            if(succeed){
-                EV<<" successfully. Reason: ";
-            }
-            else{
-                EV<<" FAILED. Reason: ";
+            bool succeed = traciVehicle->changeVehicleRoute( { "25", "28", "31",
+                    "34", "37", "40", "13", "44" });
+            if (succeed) {
+                EV << " successfully. Reason: ";
+            } else {
+                EV << " FAILED. Reason: ";
                 compared = " != ";
             }
             std::list<std::string> edges;
@@ -558,25 +555,26 @@ void TraCITestApp::performTest(const simtime_t t)
             edges.push_back("40");
             edges.push_back("13");
             edges.push_back("44");
-            EV<<"Compare: "<<edges.front()<<compared<<traciVehicle->getRoadId()<<endl;
+            EV << "Compare: " << edges.front() << compared
+                      << traciVehicle->getRoadId() << endl;
 
         }
         if (t == 999) {
             /*assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle avoided 42", visitedEdges.find("42") == visitedEdges.end());
-            assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle avoided 43", visitedEdges.find("43") == visitedEdges.end());
-            assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle took 44", visitedEdges.find("44") != visitedEdges.end());
-            */
+             assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle avoided 43", visitedEdges.find("43") == visitedEdges.end());
+             assertTrue("(TraCICommandInterface::Vehicle::newRoute) vehicle took 44", visitedEdges.find("44") != visitedEdges.end());
+             */
         }
     }
 
     if (testNumber == testCounter++) {
         if (t == 1) {
             /*assertClose("(TraCICommandInterface::Vehicle::getLength)", 2.5, traciVehicle->getLength());
-            assertClose("(TraCICommandInterface::Vehicle::getWidth)", 1.8, traciVehicle->getWidth());
-            assertClose("(TraCICommandInterface::Vehicle::getHeight)", 1.5, traciVehicle->getHeight());
-            assertClose("(TraCICommandInterface::Vehicle::getAccel)", 3.0, traciVehicle->getAccel());
-            assertClose("(TraCICommandInterface::Vehicle::getDeccel)", 9.81, traciVehicle->getDeccel());
-            */
+             assertClose("(TraCICommandInterface::Vehicle::getWidth)", 1.8, traciVehicle->getWidth());
+             assertClose("(TraCICommandInterface::Vehicle::getHeight)", 1.5, traciVehicle->getHeight());
+             assertClose("(TraCICommandInterface::Vehicle::getAccel)", 3.0, traciVehicle->getAccel());
+             assertClose("(TraCICommandInterface::Vehicle::getDeccel)", 9.81, traciVehicle->getDeccel());
+             */
         }
     }
 
@@ -584,8 +582,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getCO2Emissions)", 5078.335162222222607, traciVehicle->getCO2Emissions());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getCO2Emissions)", 6150.260674767667297, traciVehicle->getCO2Emissions());
             }
         }
@@ -595,8 +592,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getCOEmissions)", 46.7056784444444375, traciVehicle->getCOEmissions());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getCOEmissions)", 91.03191431262455069, traciVehicle->getCOEmissions());
             }
         }
@@ -606,8 +602,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getHCEmissions)", 0.3419191911111110205, traciVehicle->getHCEmissions());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getHCEmissions)", 0.574484705658927175, traciVehicle->getHCEmissions());
             }
         }
@@ -617,9 +612,8 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getPMxEmissions)", 0.09914231388888891661, traciVehicle->getPMxEmissions());
-            }
-            else {
-               // assertClose("(TraCICommandInterface::Vehicle::getPMxEmissions)", 0.1398785382084307971, traciVehicle->getPMxEmissions());
+            } else {
+                // assertClose("(TraCICommandInterface::Vehicle::getPMxEmissions)", 0.1398785382084307971, traciVehicle->getPMxEmissions());
             }
         }
     }
@@ -628,8 +622,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getNOxEmissions)", 1.671023434444445011, traciVehicle->getNOxEmissions());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getNOxEmissions)", 2.106876077669999958, traciVehicle->getNOxEmissions());
             }
         }
@@ -639,8 +632,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getFuelConsumption)", 2.182966381251871368, traciVehicle->getFuelConsumption());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getFuelConsumption)", 2.643746754251547593, traciVehicle->getFuelConsumption());
             }
         }
@@ -650,8 +642,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 17) {
                 //assertClose("(TraCICommandInterface::Vehicle::getNoiseEmission)", 72.80790111906661366, traciVehicle->getNoiseEmission());
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getNoiseEmission)", 74.36439646827733441, traciVehicle->getNoiseEmission());
             }
         }
@@ -673,8 +664,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->getApiVersion() <= 15) {
                 //skip("(TraCICommandInterface::Vehicle::getAccumulatedWaitingTime) skipped (requires SUMO 0.31.0 or newer)");
-            }
-            else {
+            } else {
                 //assertClose("(TraCICommandInterface::Vehicle::getAccumulatedWaitingTime)", 0.0, traciVehicle->getAccumulatedWaitingTime());
             }
         }
@@ -794,7 +784,7 @@ void TraCITestApp::performTest(const simtime_t t)
             auto routes_before = traci->getRouteIds();
             //assertEqual("(TraCICommandInterface::addRoute) number of routes is 1 before adding", size_t(1), routes_before.size());
 
-            traci->addRoute("route1", {"2", "27", "30"});
+            traci->addRoute("route1", { "2", "27", "30" });
 
             auto routes_after = traci->getRouteIds();
             //assertEqual("(TraCICommandInterface::addRoute) number of routes is 2 after adding", size_t(2), routes_after.size());
@@ -813,8 +803,7 @@ void TraCITestApp::performTest(const simtime_t t)
     if (testNumber == testCounter++) {
         if (traci->getApiVersion() <= 18) {
             //skip("(TraCICommandInterface::Road::getName) skipped (requires SUMO 1.1.0 or newer)");
-        }
-        else if (t == 30) {
+        } else if (t == 30) {
             //assertEqual("(TraCICommandInterface::Road::getName)", "25th street", traci->road("25").getName());
         }
     }
@@ -861,7 +850,7 @@ void TraCITestApp::performTest(const simtime_t t)
 
     if (testNumber == testCounter++) {
         if (t == 1) {
-            traci->lane("44_0").setDisallowed({"passenger"});
+            traci->lane("44_0").setDisallowed( { "passenger" });
             traciVehicle->changeRoute("42", 9999);
             traciVehicle->changeRoute("43", 9999);
         }
@@ -980,7 +969,7 @@ void TraCITestApp::performTest(const simtime_t t)
             auto logic = TraCITrafficLightProgram::Logic();
             logic.id = "logic0";
             logic.currentPhase = 0;
-            logic.phases = {phase};
+            logic.phases = { phase };
             logic.type = 0;
             logic.parameter = 0;
             traci->trafficlight("10").setProgramDefinition(logic, 0);
@@ -1016,8 +1005,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::getGuiViewIds) skipped");
-            }
-            else {
+            } else {
                 std::list<std::string> o = traci->getGuiViewIds();
                 //assertEqual("(TraCICommandInterface::getGuiViewIds) number is correct", size_t(1), o.size());
                 //assertEqual("(TraCICommandInterface::getGuiViewIds) id is correct", "View #0", *o.begin());
@@ -1029,8 +1017,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setScheme) skipped");
-            }
-            else {
+            } else {
                 auto o = traci->guiView("View #0").getScheme();
                 //assertNotEqual("(TraCICommandInterface::setScheme) scheme is not real world", "real world", o);
             }
@@ -1038,16 +1025,14 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 2) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setScheme) skipped");
-            }
-            else {
+            } else {
                 traci->guiView("View #0").setScheme("real world");
             }
         }
         if (t == 3) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setScheme) skipped");
-            }
-            else {
+            } else {
                 auto o = traci->guiView("View #0").getScheme();
                 //assertEqual("(TraCICommandInterface::setScheme) scheme is real world", "real world", o);
             }
@@ -1058,8 +1043,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setZoom) skipped");
-            }
-            else {
+            } else {
                 auto o = traci->guiView("View #0").getZoom();
                 //assertNotEqual("(TraCICommandInterface::setZoom) zoom is not 200", 200, o);
             }
@@ -1067,16 +1051,14 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 2) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setZoom) skipped");
-            }
-            else {
+            } else {
                 traci->guiView("View #0").setZoom(200);
             }
         }
         if (t == 3) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setZoom) skipped");
-            }
-            else {
+            } else {
                 auto o = traci->guiView("View #0").getZoom();
                 //assertEqual("(TraCICommandInterface::setZoom) zoom is 200", 200, o);
             }
@@ -1087,8 +1069,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::setBoundary) skipped");
-            }
-            else {
+            } else {
                 //skip("(TraCICommandInterface::GuiView::setBoundary) skipped (no programmatic feedback available)");
                 // traci->guiView("View #0").setBoundary(Coord(10, 10), Coord(20, 20));
             }
@@ -1099,8 +1080,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::takeScreenshot) skipped");
-            }
-            else {
+            } else {
                 //skip("(TraCICommandInterface::GuiView::takeScreenshot) skipped (no programmatic feedback available)");
                 // traci->guiView("View #0").takeScreenshot();
             }
@@ -1111,8 +1091,7 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             if (traci->isIgnoringGuiCommands()) {
                 //skip("(TraCICommandInterface::GuiView::trackVehicle) skipped");
-            }
-            else {
+            } else {
                 //skip("(TraCICommandInterface::GuiView::trackVehicle) skipped (no programmatic feedback available)");
                 // traci->guiView("View #0").trackVehicle("flow0.0");
             }
@@ -1127,7 +1106,9 @@ void TraCITestApp::performTest(const simtime_t t)
         if (t == 1) {
             traci->trafficlight("10").setState("rrrrrrrrr");
             traci->trafficlight("10").setPhaseDuration(999);
-            auto* logic = FindModule<TraCITrafficLightTestLogic*>::findSubModule(getSimulation()->getSystemModule());
+            auto *logic =
+                    FindModule<TraCITrafficLightTestLogic*>::findSubModule(
+                            getSimulation()->getSystemModule());
             ASSERT(logic);
             logic->startChangingProgramAt(simTime() + 12);
         }

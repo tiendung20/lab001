@@ -33,37 +33,45 @@ class VeinsInetSampleMessage;
  * }
  * </pre>
  */
-class VeinsInetSampleMessage : public ::inet::FieldsChunk
-{
-  protected:
+class VeinsInetSampleMessage: public ::inet::FieldsChunk {
+protected:
     omnetpp::opp_string roadId;
 
-  private:
-    void copy(const VeinsInetSampleMessage& other);
+private:
+    void copy(const VeinsInetSampleMessage &other);
 
-  protected:
+protected:
     bool operator==(const VeinsInetSampleMessage&) = delete;
 
-  public:
+public:
     VeinsInetSampleMessage();
-    VeinsInetSampleMessage(const VeinsInetSampleMessage& other);
+    VeinsInetSampleMessage(const VeinsInetSampleMessage &other);
     virtual ~VeinsInetSampleMessage();
-    VeinsInetSampleMessage& operator=(const VeinsInetSampleMessage& other);
-    virtual VeinsInetSampleMessage *dup() const override {return new VeinsInetSampleMessage(*this);}
+    VeinsInetSampleMessage& operator=(const VeinsInetSampleMessage &other);
+    virtual VeinsInetSampleMessage* dup() const override {
+        return new VeinsInetSampleMessage(*this);
+    }
     virtual void parsimPack(omnetpp::cCommBuffer *b) const override;
     virtual void parsimUnpack(omnetpp::cCommBuffer *b) override;
 
-    virtual const char * getRoadId() const;
-    virtual void setRoadId(const char * roadId);
+    virtual const char* getRoadId() const;
+    virtual void setRoadId(const char *roadId);
 };
 
-inline void doParsimPacking(omnetpp::cCommBuffer *b, const VeinsInetSampleMessage& obj) {obj.parsimPack(b);}
-inline void doParsimUnpacking(omnetpp::cCommBuffer *b, VeinsInetSampleMessage& obj) {obj.parsimUnpack(b);}
-
+inline void doParsimPacking(omnetpp::cCommBuffer *b,
+        const VeinsInetSampleMessage &obj) {
+    obj.parsimPack(b);
+}
+inline void doParsimUnpacking(omnetpp::cCommBuffer *b,
+        VeinsInetSampleMessage &obj) {
+    obj.parsimUnpack(b);
+}
 
 namespace omnetpp {
 
-template<> inline VeinsInetSampleMessage *fromAnyPtr(any_ptr ptr) { return check_and_cast<VeinsInetSampleMessage*>(ptr.get<cObject>()); }
+template<> inline VeinsInetSampleMessage* fromAnyPtr(any_ptr ptr) {
+    return check_and_cast<VeinsInetSampleMessage*>(ptr.get<cObject>());
+}
 
 }  // namespace omnetpp
 

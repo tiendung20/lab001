@@ -64,8 +64,9 @@
   lib/vecmath/Quat4.h lib/vecmath/Point2.h lib/vecmath/Tuple2.h \
   lib/vecmath/TexCoord2.h lib/vecmath/Vector2.h \
   /home/dung/Documents/veins/src/veins/modules/application/traci/TraCIDemo11pMessage_m.h \
-  veins_inet/AntShortestPathSystem.h veins_inet/Djisktra.h \
-  veins_inet/Graph.h veins_inet/Crossing.h veins_inet/CustomRectangle.h \
+  veins_inet/DecisionDijkstra.h veins_inet/HarmfulnessDijkstra.h \
+  veins_inet/ArrivalDijkstra.h veins_inet/Djisktra.h veins_inet/Graph.h \
+  veins_inet/Crossing.h veins_inet/CustomRectangle.h \
   veins_inet/Utility.h lib/nlohmann/json.hpp veins_inet/SFMAGV.h \
   veins_inet/MovingObject.h veins_inet/jute.h
 
@@ -231,7 +232,11 @@ lib/vecmath/Vector2.h:
 
 /home/dung/Documents/veins/src/veins/modules/application/traci/TraCIDemo11pMessage_m.h:
 
-veins_inet/AntShortestPathSystem.h:
+veins_inet/DecisionDijkstra.h:
+
+veins_inet/HarmfulnessDijkstra.h:
+
+veins_inet/ArrivalDijkstra.h:
 
 veins_inet/Djisktra.h:
 
