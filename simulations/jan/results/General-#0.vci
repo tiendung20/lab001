@@ -1,0 +1,119 @@
+file 460919 1688913277                                          
+version 3
+run General-0-20230709-21:30:42-13847
+attr configname General
+attr datetime 20230709-21:30:42
+attr datetimef 20230709-213042
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network myHospitalNetwork
+attr processid 13847
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../../../Documents/inet/images:../../../../../Documents/veins/images
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 0.1s
+config **.cmdenv-log-level info
+config ned-path .
+config image-path ../../images
+config network myHospitalNetwork
+config debug-on-errors true
+config print-undisposed false
+config sim-time-limit 3600s
+config **.scalar-recording true
+config **.vector-recording true
+config *.playgroundSizeX 2500m
+config *.playgroundSizeY 2500m
+config *.playgroundSizeZ 50m
+config *.annotations.draw true
+config *.manager.updateInterval 0.1s
+config *.manager.host "\"localhost\""
+config *.manager.port 9999
+config *.manager.autoShutdown true
+config *.manager.launchConfig "xmldoc(\"vd013.launchd.xml\")"
+config *.manager.moduleType "\"agv=org.car2x.veins.nodes.Car pedestrian=lab001.veins_inet.IPerson\""
+config *.manager.moduleName "\"agv=node pedestrian=personNode\""
+config *.manager.moduleDisplayString "\"agv='i=veins/node/car;is=vs' pedestrian='i=veins/node/pedestrian;is=vs'\""
+config *.rsu[0].mobility.x 300
+config *.rsu[0].mobility.y 300
+config *.rsu[0].mobility.z 3
+config *.rsu[*].applType "\"HospitalControlApp\""
+config *.rsu[*].appl.headerLength "80 bit"
+config *.rsu[*].appl.sendBeacons false
+config *.rsu[*].appl.dataOnSch false
+config *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel true
+config *.**.nic.mac1609_4.txPower 20mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.phy80211p.minPowerLevel -110dBm
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -98dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+config *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+config *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+config *.node[*].applType "\"AGVControlApp\""
+config *.node[*].appl.headerLength "80 bit"
+config *.node[*].appl.sendBeacons false
+config *.node[*].appl.dataOnSch true
+config *.node[*].appl.beaconInterval 0.1s
+config *.node[*].veinsmobility.x 0
+config *.node[*].veinsmobility.y 0
+config *.node[*].veinsmobility.z 0
+config *.node[*].veinsmobility.setHostSpeed false
+config *.node[*0].veinsmobility.accidentCount 0
+
+vector 0 myHospitalNetwork.node[0].veinsmobility posx ETV
+vector 1 myHospitalNetwork.node[0].veinsmobility posy ETV
+vector 2 myHospitalNetwork.node[0].veinsmobility speed ETV
+vector 3 myHospitalNetwork.node[0].veinsmobility acceleration ETV
+vector 4 myHospitalNetwork.node[0].veinsmobility co2emission ETV
+vector 5 myHospitalNetwork.node[1].veinsmobility posx ETV
+vector 6 myHospitalNetwork.node[1].veinsmobility posy ETV
+vector 7 myHospitalNetwork.node[1].veinsmobility speed ETV
+vector 8 myHospitalNetwork.node[1].veinsmobility acceleration ETV
+vector 9 myHospitalNetwork.node[1].veinsmobility co2emission ETV
+0	3592 1268 3 7921 0.1 6 60 514.1 548.755 31515.773505028 16563709.0567
+1	4860 1245 3 7921 0.1 6 60 184.33888537 210.9 12330.108575732 2537919.9658011
+2	6105 1181 8 7921 0.2 6 59 1.9 15.505407 594.17509412866 6677.2637228597
+3	7286 867 70 7921 0.3 6 58 -10 10 56.05407 3869.6414767518
+4	8153 1346 70 7921 0.3 6 58 0.973 38.464562214087 647.39204712931 16976.358218761
+5	9499 1256 434 7921 0.9 6 52 514.1 548.79 27543.592105715 14596728.497547
+6	10755 1015 434 7921 0.9 6 52 204.3632811324 210.9 10929.94428082 2297510.9581209
+7	11770 1112 515 7921 1 6 51 1.4 11.4 393.96412318454 3245.0429299715
+8	12882 987 647 7921 1.1 6 50 -10 10 66.25084 1667.6111483279
+9	13869 1135 647 7921 1.1 6 50 0.973 29.270799375391 298.85095117356 5021.8103083495
+0	15004 2467 8045 25779 6.1 19.4 134 514.1 514.1 68889.4 35416040.54
+1	17471 3405 8045 25779 6.1 19.4 134 179.07483012 183.64334467 24327.45548323 4416625.2171225
+2	20876 1988 8045 25779 6.1 19.4 134 0 7 52.537849 254.01514764954
+3	22864 1967 8045 25779 6.1 19.4 134 -10 10 -5.0540700000004 1425.5436235649
+4	24831 2524 8045 25779 6.1 19.4 134 0.973 18.34936595584 200.24414504192 1129.9617284955
+5	27355 2467 8045 25779 6.1 19.4 134 514.1 514.1 68889.4 35416040.54
+6	29822 3800 8045 25779 6.1 19.4 134 192.11495406828 203.5057727324 25821.153167371 4976149.8818941
+7	33622 2164 8045 25779 6.1 19.4 134 0 10.782166227536 119.79145930565 990.7454647194
+8	35786 2097 8045 25779 6.1 19.4 134 -10 10 -80.25084 1134.6333706353
+9	37883 2497 8045 25779 6.1 19.4 134 0.973 25.847138286929 198.09259387885 1796.7217473851
+9	40380 46363 25972 293309 19.5 192.1 1727 0.973 18.34936595584 2443.4195669299 5393.9410764288
+8	86743 27912 25972 293309 19.5 192.1 1727 -10 10 40 3203.9970617454
+7	114655 41745 25972 293309 19.5 192.1 1727 0 7.024367624522 8157.6924784989 55883.19579427
+6	156400 43963 25972 293309 19.5 192.1 1727 23.4 210.9 191277.95537379 30457445.874392
+5	200363 45351 25972 293309 19.5 192.1 1727 25.371806954698 514.1 467882.42481477 184111160.8825
+4	245714 51604 25972 301532 19.5 207 1876 0.973 38.29537872 3168.5568104586 17695.014482083
+3	297318 31934 25972 301532 19.5 207 1876 -10 10 -30 9733.1120740167
+2	329252 35298 25972 301532 19.5 207 1876 0 15.505407 8866.7739030616 58347.459583654
+1	364550 47027 25972 301532 19.5 207 1876 23.4 185.9 176407.71775739 21700713.597494
+0	411577 49341 25972 301532 19.5 207 1876 25.199940222371 514.1 444253.30712346 142697988.34046
+

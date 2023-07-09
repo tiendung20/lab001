@@ -1,0 +1,2354 @@
+[
+  {
+    "src": ":J99",
+    "dest": ":J102",
+    "startingEdge": "E98",
+    "laneIds": "E98 E99 E100",
+    "length": "32.19"
+  },
+  {
+    "src": ":J277",
+    "dest": ":J102",
+    "startingEdge": "E579",
+    "laneIds": "E579 E580 E581 E582",
+    "length": "40.73"
+  },
+  {
+    "src": ":J2",
+    "dest": ":J102",
+    "startingEdge": "-E1",
+    "laneIds": "-E1 -E0 -E101",
+    "length": "32.57"
+  },
+  {
+    "src": ":J109",
+    "dest": ":J103",
+    "startingEdge": "E129",
+    "laneIds": "E129 E130",
+    "length": "19.8"
+  },
+  {
+    "src": ":J113",
+    "dest": ":J103",
+    "startingEdge": "-E112",
+    "laneIds": "-E112 -E111 -E110",
+    "length": "27.03"
+  },
+  {
+    "src": ":J187",
+    "dest": ":J103",
+    "startingEdge": "E191",
+    "laneIds": "E191 E192 E193",
+    "length": "32.4"
+  },
+  {
+    "src": ":J179",
+    "dest": ":J103",
+    "startingEdge": "-E105",
+    "laneIds": "-E105 -E4",
+    "length": "14.43"
+  },
+  {
+    "src": ":J146",
+    "dest": ":J107",
+    "startingEdge": "E147",
+    "laneIds": "E147 E148 E149",
+    "length": "32.4"
+  },
+  {
+    "src": ":J179",
+    "dest": ":J107",
+    "startingEdge": "E106",
+    "laneIds": "E106 E107",
+    "length": "19.59"
+  },
+  {
+    "src": ":J151",
+    "dest": ":J107",
+    "startingEdge": "-E152",
+    "laneIds": "-E152 -E151 -E150",
+    "length": "32.4"
+  },
+  {
+    "src": ":J109",
+    "dest": ":J107",
+    "startingEdge": "-E109",
+    "laneIds": "-E109 -E108",
+    "length": "14.43"
+  },
+  {
+    "src": ":J107",
+    "dest": ":J109",
+    "startingEdge": "E108",
+    "laneIds": "E108 E109",
+    "length": "19.8"
+  },
+  {
+    "src": ":J172",
+    "dest": ":J109",
+    "startingEdge": "-E174",
+    "laneIds": "-E174 -E173 -E172",
+    "length": "27.03"
+  },
+  {
+    "src": ":J167",
+    "dest": ":J109",
+    "startingEdge": "E169",
+    "laneIds": "E169 E170 E171",
+    "length": "32.19"
+  },
+  {
+    "src": ":J103",
+    "dest": ":J109",
+    "startingEdge": "-E130",
+    "laneIds": "-E130 -E129",
+    "length": "19.59"
+  },
+  {
+    "src": ":J119",
+    "dest": ":J113",
+    "startingEdge": "-E118",
+    "laneIds": "-E118 -E117 -E116 -E115 -E114 -E113",
+    "length": "70.2"
+  },
+  {
+    "src": ":J103",
+    "dest": ":J113",
+    "startingEdge": "E110",
+    "laneIds": "E110 E111 E112",
+    "length": "32.4"
+  },
+  {
+    "src": ":J191",
+    "dest": ":J113",
+    "startingEdge": "E196",
+    "laneIds": "E196 E197 E198 E199",
+    "length": "40.87"
+  },
+  {
+    "src": ":J113",
+    "dest": ":J119",
+    "startingEdge": "E113",
+    "laneIds": "E113 E114 E115 E116 E117 E118",
+    "length": "70.2"
+  },
+  {
+    "src": ":J2",
+    "dest": ":J119",
+    "startingEdge": "E627",
+    "laneIds": "E627 E628",
+    "length": "19.59"
+  },
+  {
+    "src": ":J121",
+    "dest": ":J119",
+    "startingEdge": "-E120",
+    "laneIds": "-E120 -E119",
+    "length": "15.53"
+  },
+  {
+    "src": ":J127",
+    "dest": ":J121",
+    "startingEdge": "-E126",
+    "laneIds": "-E126 -E125 -E124 -E123 -E122 -E121",
+    "length": "64.83"
+  },
+  {
+    "src": ":J119",
+    "dest": ":J121",
+    "startingEdge": "E119",
+    "laneIds": "E119 E120",
+    "length": "14.43"
+  },
+  {
+    "src": ":J4",
+    "dest": ":J121",
+    "startingEdge": "E629",
+    "laneIds": "E629 E630",
+    "length": "14.43"
+  },
+  {
+    "src": ":J121",
+    "dest": ":J127",
+    "startingEdge": "E121",
+    "laneIds": "E121 E122 E123 E124 E125 E126",
+    "length": "70.2"
+  },
+  {
+    "src": ":J198",
+    "dest": ":J127",
+    "startingEdge": "-E203",
+    "laneIds": "-E203 -E202 -E201 -E200",
+    "length": "40.87"
+  },
+  {
+    "src": ":J179",
+    "dest": ":J127",
+    "startingEdge": "-E181",
+    "laneIds": "-E181 -E128 -E127",
+    "length": "27.03"
+  },
+  {
+    "src": ":J16",
+    "dest": ":J13",
+    "startingEdge": "-E14",
+    "laneIds": "-E14 -E13 -E12",
+    "length": "27.03"
+  },
+  {
+    "src": ":J4",
+    "dest": ":J13",
+    "startingEdge": "E9",
+    "laneIds": "E9 E10 E11",
+    "length": "31.68"
+  },
+  {
+    "src": ":J214",
+    "dest": ":J13",
+    "startingEdge": "-E578",
+    "laneIds": "-E578 -E577 -E576 -E575",
+    "length": "39.63"
+  },
+  {
+    "src": ":J179",
+    "dest": ":J132",
+    "startingEdge": "E182",
+    "laneIds": "E182 E131 E132",
+    "length": "32.4"
+  },
+  {
+    "src": ":J138",
+    "dest": ":J132",
+    "startingEdge": "-E138",
+    "laneIds": "-E138 -E137 -E136 -E135 -E134 -E133",
+    "length": "70.2"
+  },
+  {
+    "src": ":J198",
+    "dest": ":J132",
+    "startingEdge": "E204",
+    "laneIds": "E204 E205",
+    "length": "19.8"
+  },
+  {
+    "src": ":J140",
+    "dest": ":J138",
+    "startingEdge": "-E140",
+    "laneIds": "-E140 -E139",
+    "length": "14.43"
+  },
+  {
+    "src": ":J32",
+    "dest": ":J138",
+    "startingEdge": "-E620",
+    "laneIds": "-E620 -E619",
+    "length": "15.53"
+  },
+  {
+    "src": ":J132",
+    "dest": ":J138",
+    "startingEdge": "E133",
+    "laneIds": "E133 E134 E135 E136 E137 E138",
+    "length": "69.99"
+  },
+  {
+    "src": ":J146",
+    "dest": ":J140",
+    "startingEdge": "-E146",
+    "laneIds": "-E146 -E145 -E144 -E143 -E142 -E141",
+    "length": "64.83"
+  },
+  {
+    "src": ":J138",
+    "dest": ":J140",
+    "startingEdge": "E139",
+    "laneIds": "E139 E140",
+    "length": "15.53"
+  },
+  {
+    "src": ":J34",
+    "dest": ":J140",
+    "startingEdge": "-E622",
+    "laneIds": "-E622 -E621",
+    "length": "14.43"
+  },
+  {
+    "src": ":J140",
+    "dest": ":J146",
+    "startingEdge": "E141",
+    "laneIds": "E141 E142 E143 E144 E145 E146",
+    "length": "64.83"
+  },
+  {
+    "src": ":J107",
+    "dest": ":J146",
+    "startingEdge": "-E149",
+    "laneIds": "-E149 -E148 -E147",
+    "length": "27.03"
+  },
+  {
+    "src": ":J201",
+    "dest": ":J146",
+    "startingEdge": "-E207",
+    "laneIds": "-E207 -E206",
+    "length": "19.8"
+  },
+  {
+    "src": ":J201",
+    "dest": ":J151",
+    "startingEdge": "E208",
+    "laneIds": "E208 E209 E210 E211",
+    "length": "41.08"
+  },
+  {
+    "src": ":J107",
+    "dest": ":J151",
+    "startingEdge": "E150",
+    "laneIds": "E150 E151 E152",
+    "length": "32.19"
+  },
+  {
+    "src": ":J157",
+    "dest": ":J151",
+    "startingEdge": "-E158",
+    "laneIds": "-E158 -E157 -E156 -E155 -E154 -E153",
+    "length": "69.99"
+  },
+  {
+    "src": ":J56",
+    "dest": ":J157",
+    "startingEdge": "-E634",
+    "laneIds": "-E634 -E633",
+    "length": "19.59"
+  },
+  {
+    "src": ":J161",
+    "dest": ":J157",
+    "startingEdge": "E631",
+    "laneIds": "E631 E632",
+    "length": "14.43"
+  },
+  {
+    "src": ":J151",
+    "dest": ":J157",
+    "startingEdge": "E153",
+    "laneIds": "E153 E154 E155 E156 E157 E158",
+    "length": "70.2"
+  },
+  {
+    "src": ":J13",
+    "dest": ":J16",
+    "startingEdge": "E12",
+    "laneIds": "E12 E13 E14",
+    "length": "32.19"
+  },
+  {
+    "src": ":J24",
+    "dest": ":J16",
+    "startingEdge": "-E22",
+    "laneIds": "-E22 -E21 -E20 -E19 -E18 -E17 -E16 -E15",
+    "length": "87.35"
+  },
+  {
+    "src": ":J217",
+    "dest": ":J16",
+    "startingEdge": "-E574",
+    "laneIds": "-E574 -E573 -E572 -E571",
+    "length": "39.63"
+  },
+  {
+    "src": ":J157",
+    "dest": ":J161",
+    "startingEdge": "-E632",
+    "laneIds": "-E632 -E631",
+    "length": "14.43"
+  },
+  {
+    "src": ":J167",
+    "dest": ":J161",
+    "startingEdge": "-E168",
+    "laneIds": "-E168 -E167 -E166 -E165 -E164 -E163",
+    "length": "70.2"
+  },
+  {
+    "src": ":J58",
+    "dest": ":J161",
+    "startingEdge": "-E636",
+    "laneIds": "-E636 -E635",
+    "length": "19.59"
+  },
+  {
+    "src": ":J208",
+    "dest": ":J167",
+    "startingEdge": "-E215",
+    "laneIds": "-E215 -E214 -E213 -E212",
+    "length": "40.87"
+  },
+  {
+    "src": ":J161",
+    "dest": ":J167",
+    "startingEdge": "E163",
+    "laneIds": "E163 E164 E165 E166 E167 E168",
+    "length": "64.83"
+  },
+  {
+    "src": ":J109",
+    "dest": ":J167",
+    "startingEdge": "-E171",
+    "laneIds": "-E171 -E170 -E169",
+    "length": "27.03"
+  },
+  {
+    "src": ":J208",
+    "dest": ":J172",
+    "startingEdge": "E216",
+    "laneIds": "E216 E217",
+    "length": "19.59"
+  },
+  {
+    "src": ":J109",
+    "dest": ":J172",
+    "startingEdge": "E172",
+    "laneIds": "E172 E173 E174",
+    "length": "28.13"
+  },
+  {
+    "src": ":J178",
+    "dest": ":J172",
+    "startingEdge": "-E180",
+    "laneIds": "-E180 -E179 -E178 -E177 -E176 -E175",
+    "length": "70.2"
+  },
+  {
+    "src": ":J172",
+    "dest": ":J178",
+    "startingEdge": "E175",
+    "laneIds": "E175 E176 E177 E178 E179 E180",
+    "length": "70.2"
+  },
+  {
+    "src": ":J81",
+    "dest": ":J178",
+    "startingEdge": "E625",
+    "laneIds": "E625 E626",
+    "length": "19.8"
+  },
+  {
+    "src": ":J181",
+    "dest": ":J178",
+    "startingEdge": "-E184",
+    "laneIds": "-E184 -E183",
+    "length": "15.53"
+  },
+  {
+    "src": ":J103",
+    "dest": ":J179",
+    "startingEdge": "E4",
+    "laneIds": "E4 E105",
+    "length": "14.43"
+  },
+  {
+    "src": ":J127",
+    "dest": ":J179",
+    "startingEdge": "E127",
+    "laneIds": "E127 E128 E181",
+    "length": "32.19"
+  },
+  {
+    "src": ":J107",
+    "dest": ":J179",
+    "startingEdge": "-E107",
+    "laneIds": "-E107 -E106",
+    "length": "19.8"
+  },
+  {
+    "src": ":J132",
+    "dest": ":J179",
+    "startingEdge": "-E132",
+    "laneIds": "-E132 -E131 -E182",
+    "length": "27.03"
+  },
+  {
+    "src": ":J187",
+    "dest": ":J181",
+    "startingEdge": "-E190",
+    "laneIds": "-E190 -E189 -E188 -E187 -E186 -E185",
+    "length": "64.83"
+  },
+  {
+    "src": ":J178",
+    "dest": ":J181",
+    "startingEdge": "E183",
+    "laneIds": "E183 E184",
+    "length": "15.53"
+  },
+  {
+    "src": ":J83",
+    "dest": ":J181",
+    "startingEdge": "-E624",
+    "laneIds": "-E624 -E623",
+    "length": "19.8"
+  },
+  {
+    "src": ":J181",
+    "dest": ":J187",
+    "startingEdge": "E185",
+    "laneIds": "E185 E186 E187 E188 E189 E190",
+    "length": "64.83"
+  },
+  {
+    "src": ":J103",
+    "dest": ":J187",
+    "startingEdge": "-E193",
+    "laneIds": "-E193 -E192 -E191",
+    "length": "28.13"
+  },
+  {
+    "src": ":J191",
+    "dest": ":J187",
+    "startingEdge": "-E195",
+    "laneIds": "-E195 -E194",
+    "length": "14.43"
+  },
+  {
+    "src": ":J113",
+    "dest": ":J191",
+    "startingEdge": "-E199",
+    "laneIds": "-E199 -E198 -E197 -E196",
+    "length": "45.17"
+  },
+  {
+    "src": ":J91",
+    "dest": ":J191",
+    "startingEdge": "E5",
+    "laneIds": "E5 E6",
+    "length": "19.8"
+  },
+  {
+    "src": ":J187",
+    "dest": ":J191",
+    "startingEdge": "E194",
+    "laneIds": "E194 E195",
+    "length": "15.53"
+  },
+  {
+    "src": ":J24",
+    "dest": ":J198",
+    "startingEdge": "-E8",
+    "laneIds": "-E8 -E7",
+    "length": "14.43"
+  },
+  {
+    "src": ":J132",
+    "dest": ":J198",
+    "startingEdge": "-E205",
+    "laneIds": "-E205 -E204",
+    "length": "14.43"
+  },
+  {
+    "src": ":J127",
+    "dest": ":J198",
+    "startingEdge": "E200",
+    "laneIds": "E200 E201 E202 E203",
+    "length": "38.91"
+  },
+  {
+    "src": ":J119",
+    "dest": ":J2",
+    "startingEdge": "-E628",
+    "laneIds": "-E628 -E627",
+    "length": "14.43"
+  },
+  {
+    "src": ":J102",
+    "dest": ":J2",
+    "startingEdge": "E101",
+    "laneIds": "E101 E0 E1",
+    "length": "28.27"
+  },
+  {
+    "src": ":J4",
+    "dest": ":J2",
+    "startingEdge": "-E3",
+    "laneIds": "-E3 -E2",
+    "length": "15.53"
+  },
+  {
+    "src": ":J294",
+    "dest": ":J2",
+    "startingEdge": "-E301",
+    "laneIds": "-E301 -E300",
+    "length": "15.53"
+  },
+  {
+    "src": ":J146",
+    "dest": ":J201",
+    "startingEdge": "E206",
+    "laneIds": "E206 E207",
+    "length": "14.43"
+  },
+  {
+    "src": ":J42",
+    "dest": ":J201",
+    "startingEdge": "-E104",
+    "laneIds": "-E104 -E103",
+    "length": "19.8"
+  },
+  {
+    "src": ":J151",
+    "dest": ":J201",
+    "startingEdge": "-E211",
+    "laneIds": "-E211 -E210 -E209 -E208",
+    "length": "45.17"
+  },
+  {
+    "src": ":J172",
+    "dest": ":J208",
+    "startingEdge": "-E217",
+    "laneIds": "-E217 -E216",
+    "length": "14.43"
+  },
+  {
+    "src": ":J72",
+    "dest": ":J208",
+    "startingEdge": "E75",
+    "laneIds": "E75 E102",
+    "length": "14.43"
+  },
+  {
+    "src": ":J167",
+    "dest": ":J208",
+    "startingEdge": "E212",
+    "laneIds": "E212 E213 E214 E215",
+    "length": "40.01"
+  },
+  {
+    "src": ":J232",
+    "dest": ":J214",
+    "startingEdge": "E239",
+    "laneIds": "E239 E220",
+    "length": "18.87"
+  },
+  {
+    "src": ":J13",
+    "dest": ":J214",
+    "startingEdge": "E575",
+    "laneIds": "E575 E576 E577 E578",
+    "length": "39.63"
+  },
+  {
+    "src": ":J217",
+    "dest": ":J214",
+    "startingEdge": "-E223",
+    "laneIds": "-E223 -E222 -E221",
+    "length": "32.19"
+  },
+  {
+    "src": ":J220",
+    "dest": ":J217",
+    "startingEdge": "-E226",
+    "laneIds": "-E226 -E225 -E224",
+    "length": "31.47"
+  },
+  {
+    "src": ":J16",
+    "dest": ":J217",
+    "startingEdge": "E571",
+    "laneIds": "E571 E572 E573 E574",
+    "length": "40.73"
+  },
+  {
+    "src": ":J214",
+    "dest": ":J217",
+    "startingEdge": "E221",
+    "laneIds": "E221 E222 E223",
+    "length": "32.4"
+  },
+  {
+    "src": ":J27",
+    "dest": ":J220",
+    "startingEdge": "E615",
+    "laneIds": "E615 E616 E617 E618",
+    "length": "39.63"
+  },
+  {
+    "src": ":J217",
+    "dest": ":J220",
+    "startingEdge": "E224",
+    "laneIds": "E224 E225 E226",
+    "length": "33.64"
+  },
+  {
+    "src": ":J224",
+    "dest": ":J220",
+    "startingEdge": "-E230",
+    "laneIds": "-E230 -E229 -E228 -E227",
+    "length": "40.87"
+  },
+  {
+    "src": ":J351",
+    "dest": ":J224",
+    "startingEdge": "E365",
+    "laneIds": "E365 E366 E367",
+    "length": "32.19"
+  },
+  {
+    "src": ":J227",
+    "dest": ":J224",
+    "startingEdge": "-E233",
+    "laneIds": "-E233 -E232 -E231",
+    "length": "32.4"
+  },
+  {
+    "src": ":J220",
+    "dest": ":J224",
+    "startingEdge": "E227",
+    "laneIds": "E227 E228 E229 E230",
+    "length": "49.44"
+  },
+  {
+    "src": ":J224",
+    "dest": ":J227",
+    "startingEdge": "E231",
+    "laneIds": "E231 E232 E233",
+    "length": "32.4"
+  },
+  {
+    "src": ":J229",
+    "dest": ":J227",
+    "startingEdge": "-E235",
+    "laneIds": "-E235 -E234",
+    "length": "19.08"
+  },
+  {
+    "src": ":J335",
+    "dest": ":J227",
+    "startingEdge": "E353",
+    "laneIds": "E353 E354 E355 E356 E357 E358",
+    "length": "64.83"
+  },
+  {
+    "src": ":J232",
+    "dest": ":J229",
+    "startingEdge": "-E238",
+    "laneIds": "-E238 -E237 -E236",
+    "length": "32.19"
+  },
+  {
+    "src": ":J324",
+    "dest": ":J229",
+    "startingEdge": "E335",
+    "laneIds": "E335 E336",
+    "length": "15.53"
+  },
+  {
+    "src": ":J227",
+    "dest": ":J229",
+    "startingEdge": "E234",
+    "laneIds": "E234 E235",
+    "length": "18.87"
+  },
+  {
+    "src": ":J214",
+    "dest": ":J232",
+    "startingEdge": "-E220",
+    "laneIds": "-E220 -E239",
+    "length": "18.87"
+  },
+  {
+    "src": ":J320",
+    "dest": ":J232",
+    "startingEdge": "E330",
+    "laneIds": "E330 E331",
+    "length": "14.43"
+  },
+  {
+    "src": ":J229",
+    "dest": ":J232",
+    "startingEdge": "E236",
+    "laneIds": "E236 E237 E238",
+    "length": "27.03"
+  },
+  {
+    "src": ":J237",
+    "dest": ":J234",
+    "startingEdge": "-E243",
+    "laneIds": "-E243 -E242 -E241",
+    "length": "32.4"
+  },
+  {
+    "src": ":J251",
+    "dest": ":J234",
+    "startingEdge": "E258",
+    "laneIds": "E258 E259 E240",
+    "length": "36.84"
+  },
+  {
+    "src": ":J50",
+    "dest": ":J234",
+    "startingEdge": "E595",
+    "laneIds": "E595 E596 E597 E598",
+    "length": "39.63"
+  },
+  {
+    "src": ":J239",
+    "dest": ":J237",
+    "startingEdge": "-E245",
+    "laneIds": "-E245 -E244",
+    "length": "18.87"
+  },
+  {
+    "src": ":J53",
+    "dest": ":J237",
+    "startingEdge": "E599",
+    "laneIds": "E599 E600 E601 E602",
+    "length": "39.63"
+  },
+  {
+    "src": ":J234",
+    "dest": ":J237",
+    "startingEdge": "E241",
+    "laneIds": "E241 E242 E243",
+    "length": "32.4"
+  },
+  {
+    "src": ":J237",
+    "dest": ":J239",
+    "startingEdge": "E244",
+    "laneIds": "E244 E245",
+    "length": "24.24"
+  },
+  {
+    "src": ":J405",
+    "dest": ":J239",
+    "startingEdge": "-E423",
+    "laneIds": "-E423 -E422",
+    "length": "15.53"
+  },
+  {
+    "src": ":J242",
+    "dest": ":J239",
+    "startingEdge": "-E248",
+    "laneIds": "-E248 -E247 -E246",
+    "length": "32.19"
+  },
+  {
+    "src": ":J16",
+    "dest": ":J24",
+    "startingEdge": "E15",
+    "laneIds": "E15 E16 E17 E18 E19 E20 E21 E22",
+    "length": "92.72"
+  },
+  {
+    "src": ":J198",
+    "dest": ":J24",
+    "startingEdge": "E7",
+    "laneIds": "E7 E8",
+    "length": "15.53"
+  },
+  {
+    "src": ":J27",
+    "dest": ":J24",
+    "startingEdge": "-E25",
+    "laneIds": "-E25 -E24 -E23",
+    "length": "27.03"
+  },
+  {
+    "src": ":J244",
+    "dest": ":J242",
+    "startingEdge": "-E250",
+    "laneIds": "-E250 -E249",
+    "length": "18.87"
+  },
+  {
+    "src": ":J394",
+    "dest": ":J242",
+    "startingEdge": "-E411",
+    "laneIds": "-E411 -E410",
+    "length": "15.53"
+  },
+  {
+    "src": ":J239",
+    "dest": ":J242",
+    "startingEdge": "E246",
+    "laneIds": "E246 E247 E248",
+    "length": "27.03"
+  },
+  {
+    "src": ":J390",
+    "dest": ":J244",
+    "startingEdge": "-E406",
+    "laneIds": "-E406 -E405 -E404 -E403 -E402 -E401",
+    "length": "65.93"
+  },
+  {
+    "src": ":J247",
+    "dest": ":J244",
+    "startingEdge": "-E253",
+    "laneIds": "-E253 -E252 -E251",
+    "length": "32.4"
+  },
+  {
+    "src": ":J242",
+    "dest": ":J244",
+    "startingEdge": "E249",
+    "laneIds": "E249 E250",
+    "length": "18.87"
+  },
+  {
+    "src": ":J382",
+    "dest": ":J247",
+    "startingEdge": "E398",
+    "laneIds": "E398 E399 E400",
+    "length": "27.03"
+  },
+  {
+    "src": ":J251",
+    "dest": ":J247",
+    "startingEdge": "-E257",
+    "laneIds": "-E257 -E256 -E255 -E254",
+    "length": "44.07"
+  },
+  {
+    "src": ":J244",
+    "dest": ":J247",
+    "startingEdge": "E251",
+    "laneIds": "E251 E252 E253",
+    "length": "32.4"
+  },
+  {
+    "src": ":J39",
+    "dest": ":J251",
+    "startingEdge": "E603",
+    "laneIds": "E603 E604 E605 E606",
+    "length": "39.63"
+  },
+  {
+    "src": ":J234",
+    "dest": ":J251",
+    "startingEdge": "-E240",
+    "laneIds": "-E240 -E259 -E258",
+    "length": "28.48"
+  },
+  {
+    "src": ":J247",
+    "dest": ":J251",
+    "startingEdge": "E254",
+    "laneIds": "E254 E255 E256 E257",
+    "length": "40.87"
+  },
+  {
+    "src": ":J272",
+    "dest": ":J255",
+    "startingEdge": "E279",
+    "laneIds": "E279 E260 E261",
+    "length": "28.27"
+  },
+  {
+    "src": ":J75",
+    "dest": ":J255",
+    "startingEdge": "E607",
+    "laneIds": "E607 E608 E609 E610",
+    "length": "39.63"
+  },
+  {
+    "src": ":J259",
+    "dest": ":J255",
+    "startingEdge": "-E265",
+    "laneIds": "-E265 -E264 -E263 -E262",
+    "length": "40.87"
+  },
+  {
+    "src": ":J255",
+    "dest": ":J259",
+    "startingEdge": "E262",
+    "laneIds": "E262 E263 E264 E265",
+    "length": "44.07"
+  },
+  {
+    "src": ":J501",
+    "dest": ":J259",
+    "startingEdge": "-E529",
+    "laneIds": "-E529 -E528 -E527",
+    "length": "32.19"
+  },
+  {
+    "src": ":J262",
+    "dest": ":J259",
+    "startingEdge": "-E268",
+    "laneIds": "-E268 -E267 -E266",
+    "length": "32.19"
+  },
+  {
+    "src": ":J259",
+    "dest": ":J262",
+    "startingEdge": "E266",
+    "laneIds": "E266 E267 E268",
+    "length": "27.03"
+  },
+  {
+    "src": ":J264",
+    "dest": ":J262",
+    "startingEdge": "-E270",
+    "laneIds": "-E270 -E269",
+    "length": "19.08"
+  },
+  {
+    "src": ":J435",
+    "dest": ":J262",
+    "startingEdge": "-E538",
+    "laneIds": "-E538 -E537 -E536 -E535 -E534 -E533",
+    "length": "65.93"
+  },
+  {
+    "src": ":J267",
+    "dest": ":J264",
+    "startingEdge": "-E273",
+    "laneIds": "-E273 -E272 -E271",
+    "length": "32.19"
+  },
+  {
+    "src": ":J425",
+    "dest": ":J264",
+    "startingEdge": "-E445",
+    "laneIds": "-E445 -E444",
+    "length": "15.53"
+  },
+  {
+    "src": ":J262",
+    "dest": ":J264",
+    "startingEdge": "E269",
+    "laneIds": "E269 E270",
+    "length": "18.87"
+  },
+  {
+    "src": ":J422",
+    "dest": ":J267",
+    "startingEdge": "E442",
+    "laneIds": "E442 E443",
+    "length": "14.43"
+  },
+  {
+    "src": ":J264",
+    "dest": ":J267",
+    "startingEdge": "E271",
+    "laneIds": "E271 E272 E273",
+    "length": "27.03"
+  },
+  {
+    "src": ":J269",
+    "dest": ":J267",
+    "startingEdge": "-E275",
+    "laneIds": "-E275 -E274",
+    "length": "19.08"
+  },
+  {
+    "src": ":J272",
+    "dest": ":J269",
+    "startingEdge": "-E278",
+    "laneIds": "-E278 -E277 -E276",
+    "length": "32.19"
+  },
+  {
+    "src": ":J61",
+    "dest": ":J269",
+    "startingEdge": "-E594",
+    "laneIds": "-E594 -E593 -E592 -E591",
+    "length": "40.73"
+  },
+  {
+    "src": ":J267",
+    "dest": ":J269",
+    "startingEdge": "E274",
+    "laneIds": "E274 E275",
+    "length": "18.87"
+  },
+  {
+    "src": ":J32",
+    "dest": ":J27",
+    "startingEdge": "-E30",
+    "laneIds": "-E30 -E29 -E28 -E27 -E26",
+    "length": "53.47"
+  },
+  {
+    "src": ":J24",
+    "dest": ":J27",
+    "startingEdge": "E23",
+    "laneIds": "E23 E24 E25",
+    "length": "32.4"
+  },
+  {
+    "src": ":J220",
+    "dest": ":J27",
+    "startingEdge": "-E618",
+    "laneIds": "-E618 -E617 -E616 -E615",
+    "length": "39.63"
+  },
+  {
+    "src": ":J255",
+    "dest": ":J272",
+    "startingEdge": "-E261",
+    "laneIds": "-E261 -E260 -E279",
+    "length": "31.68"
+  },
+  {
+    "src": ":J269",
+    "dest": ":J272",
+    "startingEdge": "E276",
+    "laneIds": "E276 E277 E278",
+    "length": "32.4"
+  },
+  {
+    "src": ":J64",
+    "dest": ":J272",
+    "startingEdge": "-E590",
+    "laneIds": "-E590 -E589 -E588 -E587",
+    "length": "40.73"
+  },
+  {
+    "src": ":J291",
+    "dest": ":J274",
+    "startingEdge": "E298",
+    "laneIds": "E298 E299 E280",
+    "length": "31.47"
+  },
+  {
+    "src": ":J277",
+    "dest": ":J274",
+    "startingEdge": "-E283",
+    "laneIds": "-E283 -E282 -E281",
+    "length": "32.19"
+  },
+  {
+    "src": ":J99",
+    "dest": ":J274",
+    "startingEdge": "-E586",
+    "laneIds": "-E586 -E585 -E584 -E583",
+    "length": "39.63"
+  },
+  {
+    "src": ":J274",
+    "dest": ":J277",
+    "startingEdge": "E281",
+    "laneIds": "E281 E282 E283",
+    "length": "32.4"
+  },
+  {
+    "src": ":J279",
+    "dest": ":J277",
+    "startingEdge": "-E285",
+    "laneIds": "-E285 -E284",
+    "length": "18.87"
+  },
+  {
+    "src": ":J102",
+    "dest": ":J277",
+    "startingEdge": "-E582",
+    "laneIds": "-E582 -E581 -E580 -E579",
+    "length": "39.63"
+  },
+  {
+    "src": ":J277",
+    "dest": ":J279",
+    "startingEdge": "E284",
+    "laneIds": "E284 E285",
+    "length": "18.87"
+  },
+  {
+    "src": ":J301",
+    "dest": ":J279",
+    "startingEdge": "E309",
+    "laneIds": "E309 E310",
+    "length": "15.53"
+  },
+  {
+    "src": ":J282",
+    "dest": ":J279",
+    "startingEdge": "-E288",
+    "laneIds": "-E288 -E287 -E286",
+    "length": "32.4"
+  },
+  {
+    "src": ":J279",
+    "dest": ":J282",
+    "startingEdge": "E286",
+    "laneIds": "E286 E287 E288",
+    "length": "32.4"
+  },
+  {
+    "src": ":J305",
+    "dest": ":J282",
+    "startingEdge": "E314",
+    "laneIds": "E314 E315",
+    "length": "15.53"
+  },
+  {
+    "src": ":J284",
+    "dest": ":J282",
+    "startingEdge": "-E290",
+    "laneIds": "-E290 -E289",
+    "length": "19.08"
+  },
+  {
+    "src": ":J282",
+    "dest": ":J284",
+    "startingEdge": "E289",
+    "laneIds": "E289 E290",
+    "length": "24.24"
+  },
+  {
+    "src": ":J457",
+    "dest": ":J284",
+    "startingEdge": "-E520",
+    "laneIds": "-E520 -E519 -E518 -E517 -E516 -E515",
+    "length": "64.83"
+  },
+  {
+    "src": ":J287",
+    "dest": ":J284",
+    "startingEdge": "-E293",
+    "laneIds": "-E293 -E292 -E291",
+    "length": "32.4"
+  },
+  {
+    "src": ":J284",
+    "dest": ":J287",
+    "startingEdge": "E291",
+    "laneIds": "E291 E292 E293",
+    "length": "27.03"
+  },
+  {
+    "src": ":J496",
+    "dest": ":J287",
+    "startingEdge": "-E523",
+    "laneIds": "-E523 -E522 -E521",
+    "length": "32.4"
+  },
+  {
+    "src": ":J291",
+    "dest": ":J287",
+    "startingEdge": "-E297",
+    "laneIds": "-E297 -E296 -E295 -E294",
+    "length": "44.07"
+  },
+  {
+    "src": ":J88",
+    "dest": ":J291",
+    "startingEdge": "E611",
+    "laneIds": "E611 E612 E613 E614",
+    "length": "40.73"
+  },
+  {
+    "src": ":J274",
+    "dest": ":J291",
+    "startingEdge": "-E280",
+    "laneIds": "-E280 -E299 -E298",
+    "length": "28.48"
+  },
+  {
+    "src": ":J287",
+    "dest": ":J291",
+    "startingEdge": "E294",
+    "laneIds": "E294 E295 E296 E297",
+    "length": "46.24"
+  },
+  {
+    "src": ":J301",
+    "dest": ":J294",
+    "startingEdge": "-E308",
+    "laneIds": "-E308 -E307 -E306 -E305 -E304 -E303 -E302",
+    "length": "77.43"
+  },
+  {
+    "src": ":J313",
+    "dest": ":J294",
+    "startingEdge": "-E640",
+    "laneIds": "-E640 -E639",
+    "length": "19.59"
+  },
+  {
+    "src": ":J2",
+    "dest": ":J294",
+    "startingEdge": "E300",
+    "laneIds": "E300 E301",
+    "length": "19.59"
+  },
+  {
+    "src": ":J294",
+    "dest": ":J301",
+    "startingEdge": "E302",
+    "laneIds": "E302 E303 E304 E305 E306 E307 E308",
+    "length": "82.59"
+  },
+  {
+    "src": ":J305",
+    "dest": ":J301",
+    "startingEdge": "-E313",
+    "laneIds": "-E313 -E312 -E311",
+    "length": "27.03"
+  },
+  {
+    "src": ":J279",
+    "dest": ":J301",
+    "startingEdge": "-E310",
+    "laneIds": "-E310 -E309",
+    "length": "14.43"
+  },
+  {
+    "src": ":J282",
+    "dest": ":J305",
+    "startingEdge": "-E315",
+    "laneIds": "-E315 -E314",
+    "length": "14.43"
+  },
+  {
+    "src": ":J457",
+    "dest": ":J305",
+    "startingEdge": "E478",
+    "laneIds": "E478 E479 E480 E481 E482 -E320 -E319 -E318 -E317 -E316",
+    "length": "111.31"
+  },
+  {
+    "src": ":J301",
+    "dest": ":J305",
+    "startingEdge": "E311",
+    "laneIds": "E311 E312 E313",
+    "length": "32.4"
+  },
+  {
+    "src": ":J294",
+    "dest": ":J313",
+    "startingEdge": "E639",
+    "laneIds": "E639 E640",
+    "length": "19.8"
+  },
+  {
+    "src": ":J320",
+    "dest": ":J313",
+    "startingEdge": "-E329",
+    "laneIds": "-E329 -E328 -E327 -E326 -E325 -E324 -E323",
+    "length": "82.8"
+  },
+  {
+    "src": ":J4",
+    "dest": ":J313",
+    "startingEdge": "E321",
+    "laneIds": "E321 E322",
+    "length": "19.8"
+  },
+  {
+    "src": ":J138",
+    "dest": ":J32",
+    "startingEdge": "E619",
+    "laneIds": "E619 E620",
+    "length": "14.43"
+  },
+  {
+    "src": ":J27",
+    "dest": ":J32",
+    "startingEdge": "E26",
+    "laneIds": "E26 E27 E28 E29 E30",
+    "length": "53.47"
+  },
+  {
+    "src": ":J34",
+    "dest": ":J32",
+    "startingEdge": "-E32",
+    "laneIds": "-E32 -E31",
+    "length": "19.8"
+  },
+  {
+    "src": ":J356",
+    "dest": ":J32",
+    "startingEdge": "-E370",
+    "laneIds": "-E370 -E369 -E368",
+    "length": "27.03"
+  },
+  {
+    "src": ":J324",
+    "dest": ":J320",
+    "startingEdge": "-E334",
+    "laneIds": "-E334 -E333 -E332",
+    "length": "32.19"
+  },
+  {
+    "src": ":J313",
+    "dest": ":J320",
+    "startingEdge": "E323",
+    "laneIds": "E323 E324 E325 E326 E327 E328 E329",
+    "length": "82.8"
+  },
+  {
+    "src": ":J232",
+    "dest": ":J320",
+    "startingEdge": "-E331",
+    "laneIds": "-E331 -E330",
+    "length": "14.43"
+  },
+  {
+    "src": ":J335",
+    "dest": ":J324",
+    "startingEdge": "-E346",
+    "laneIds": "-E346 -E345 -E344 -E343 -E342 -E341 -E340 -E339 -E338 -E337",
+    "length": "121.63"
+  },
+  {
+    "src": ":J320",
+    "dest": ":J324",
+    "startingEdge": "E332",
+    "laneIds": "E332 E333 E334",
+    "length": "27.03"
+  },
+  {
+    "src": ":J229",
+    "dest": ":J324",
+    "startingEdge": "-E336",
+    "laneIds": "-E336 -E335",
+    "length": "14.43"
+  },
+  {
+    "src": ":J227",
+    "dest": ":J335",
+    "startingEdge": "-E358",
+    "laneIds": "-E358 -E357 -E356 -E355 -E354 -E353",
+    "length": "64.83"
+  },
+  {
+    "src": ":J348",
+    "dest": ":J335",
+    "startingEdge": "-E361",
+    "laneIds": "-E361 -E360 -E359",
+    "length": "32.19"
+  },
+  {
+    "src": ":J324",
+    "dest": ":J335",
+    "startingEdge": "E337",
+    "laneIds": "E337 E338 E339 E340 E341 E342 E343 E344 E345 E346",
+    "length": "111.31"
+  },
+  {
+    "src": ":J32",
+    "dest": ":J34",
+    "startingEdge": "E31",
+    "laneIds": "E31 E32",
+    "length": "14.43"
+  },
+  {
+    "src": ":J39",
+    "dest": ":J34",
+    "startingEdge": "-E37",
+    "laneIds": "-E37 -E36 -E35 -E34 -E33",
+    "length": "58.84"
+  },
+  {
+    "src": ":J369",
+    "dest": ":J34",
+    "startingEdge": "-E384",
+    "laneIds": "-E384 -E383 -E382",
+    "length": "32.19"
+  },
+  {
+    "src": ":J140",
+    "dest": ":J34",
+    "startingEdge": "E621",
+    "laneIds": "E621 E622",
+    "length": "19.59"
+  },
+  {
+    "src": ":J359",
+    "dest": ":J348",
+    "startingEdge": "E374",
+    "laneIds": "E374 E375 E376 E377 E378 E379 E380",
+    "length": "82.59"
+  },
+  {
+    "src": ":J351",
+    "dest": ":J348",
+    "startingEdge": "-E364",
+    "laneIds": "-E364 -E363 -E362",
+    "length": "27.03"
+  },
+  {
+    "src": ":J335",
+    "dest": ":J348",
+    "startingEdge": "E359",
+    "laneIds": "E359 E360 E361",
+    "length": "27.03"
+  },
+  {
+    "src": ":J356",
+    "dest": ":J351",
+    "startingEdge": "-E545",
+    "laneIds": "-E545 -E544 -E543 -E542 -E541 -E540 -E539",
+    "length": "77.43"
+  },
+  {
+    "src": ":J224",
+    "dest": ":J351",
+    "startingEdge": "-E367",
+    "laneIds": "-E367 -E366 -E365",
+    "length": "28.13"
+  },
+  {
+    "src": ":J348",
+    "dest": ":J351",
+    "startingEdge": "E362",
+    "laneIds": "E362 E363 E364",
+    "length": "27.03"
+  },
+  {
+    "src": ":J32",
+    "dest": ":J356",
+    "startingEdge": "E368",
+    "laneIds": "E368 E369 E370",
+    "length": "27.03"
+  },
+  {
+    "src": ":J351",
+    "dest": ":J356",
+    "startingEdge": "E539",
+    "laneIds": "E539 E540 E541 E542 E543 E544 E545",
+    "length": "77.43"
+  },
+  {
+    "src": ":J359",
+    "dest": ":J356",
+    "startingEdge": "-E373",
+    "laneIds": "-E373 -E372 -E371",
+    "length": "28.13"
+  },
+  {
+    "src": ":J356",
+    "dest": ":J359",
+    "startingEdge": "E371",
+    "laneIds": "E371 E372 E373",
+    "length": "32.19"
+  },
+  {
+    "src": ":J348",
+    "dest": ":J359",
+    "startingEdge": "-E380",
+    "laneIds": "-E380 -E379 -E378 -E377 -E376 -E375 -E374",
+    "length": "77.43"
+  },
+  {
+    "src": ":J372",
+    "dest": ":J359",
+    "startingEdge": "-E505",
+    "laneIds": "-E505 -E504",
+    "length": "19.8"
+  },
+  {
+    "src": ":J34",
+    "dest": ":J369",
+    "startingEdge": "E382",
+    "laneIds": "E382 E383 E384",
+    "length": "27.03"
+  },
+  {
+    "src": ":J372",
+    "dest": ":J369",
+    "startingEdge": "-E387",
+    "laneIds": "-E387 -E386 -E385",
+    "length": "27.03"
+  },
+  {
+    "src": ":J382",
+    "dest": ":J369",
+    "startingEdge": "-E552",
+    "laneIds": "-E552 -E551 -E550 -E549 -E548 -E547 -E546",
+    "length": "78.53"
+  },
+  {
+    "src": ":J369",
+    "dest": ":J372",
+    "startingEdge": "E385",
+    "laneIds": "E385 E386 E387",
+    "length": "27.03"
+  },
+  {
+    "src": ":J359",
+    "dest": ":J372",
+    "startingEdge": "E504",
+    "laneIds": "E504 E505",
+    "length": "19.8"
+  },
+  {
+    "src": ":J379",
+    "dest": ":J372",
+    "startingEdge": "-E394",
+    "laneIds": "-E394 -E393 -E392 -E391 -E390 -E389 -E388",
+    "length": "82.59"
+  },
+  {
+    "src": ":J390",
+    "dest": ":J379",
+    "startingEdge": "E407",
+    "laneIds": "E407 E408 E409",
+    "length": "32.19"
+  },
+  {
+    "src": ":J372",
+    "dest": ":J379",
+    "startingEdge": "E388",
+    "laneIds": "E388 E389 E390 E391 E392 E393 E394",
+    "length": "82.59"
+  },
+  {
+    "src": ":J382",
+    "dest": ":J379",
+    "startingEdge": "-E397",
+    "laneIds": "-E397 -E396 -E395",
+    "length": "32.4"
+  },
+  {
+    "src": ":J247",
+    "dest": ":J382",
+    "startingEdge": "-E400",
+    "laneIds": "-E400 -E399 -E398",
+    "length": "28.13"
+  },
+  {
+    "src": ":J369",
+    "dest": ":J382",
+    "startingEdge": "E546",
+    "laneIds": "E546 E547 E548 E549 E550 E551 E552",
+    "length": "77.43"
+  },
+  {
+    "src": ":J379",
+    "dest": ":J382",
+    "startingEdge": "E395",
+    "laneIds": "E395 E396 E397",
+    "length": "27.03"
+  },
+  {
+    "src": ":J42",
+    "dest": ":J39",
+    "startingEdge": "-E40",
+    "laneIds": "-E40 -E39 -E38",
+    "length": "32.4"
+  },
+  {
+    "src": ":J34",
+    "dest": ":J39",
+    "startingEdge": "E33",
+    "laneIds": "E33 E34 E35 E36 E37",
+    "length": "53.68"
+  },
+  {
+    "src": ":J251",
+    "dest": ":J39",
+    "startingEdge": "-E606",
+    "laneIds": "-E606 -E605 -E604 -E603",
+    "length": "40.73"
+  },
+  {
+    "src": ":J394",
+    "dest": ":J390",
+    "startingEdge": "E412",
+    "laneIds": "E412 E413 E414 E415 E416 E417 E418 E419 E420 E421",
+    "length": "121.84"
+  },
+  {
+    "src": ":J379",
+    "dest": ":J390",
+    "startingEdge": "-E409",
+    "laneIds": "-E409 -E408 -E407",
+    "length": "27.03"
+  },
+  {
+    "src": ":J244",
+    "dest": ":J390",
+    "startingEdge": "E401",
+    "laneIds": "E401 E402 E403 E404 E405 E406",
+    "length": "64.83"
+  },
+  {
+    "src": ":J242",
+    "dest": ":J394",
+    "startingEdge": "E410",
+    "laneIds": "E410 E411",
+    "length": "14.43"
+  },
+  {
+    "src": ":J390",
+    "dest": ":J394",
+    "startingEdge": "-E421",
+    "laneIds": "-E421 -E420 -E419 -E418 -E417 -E416 -E415 -E414 -E413 -E412",
+    "length": "116.68"
+  },
+  {
+    "src": ":J405",
+    "dest": ":J394",
+    "startingEdge": "E512",
+    "laneIds": "E512 E513 E514",
+    "length": "32.4"
+  },
+  {
+    "src": ":J2",
+    "dest": ":J4",
+    "startingEdge": "E2",
+    "laneIds": "E2 E3",
+    "length": "15.53"
+  },
+  {
+    "src": ":J13",
+    "dest": ":J4",
+    "startingEdge": "-E11",
+    "laneIds": "-E11 -E10 -E9",
+    "length": "33.64"
+  },
+  {
+    "src": ":J121",
+    "dest": ":J4",
+    "startingEdge": "-E630",
+    "laneIds": "-E630 -E629",
+    "length": "19.8"
+  },
+  {
+    "src": ":J313",
+    "dest": ":J4",
+    "startingEdge": "-E322",
+    "laneIds": "-E322 -E321",
+    "length": "14.43"
+  },
+  {
+    "src": ":J394",
+    "dest": ":J405",
+    "startingEdge": "-E514",
+    "laneIds": "-E514 -E513 -E512",
+    "length": "32.4"
+  },
+  {
+    "src": ":J239",
+    "dest": ":J405",
+    "startingEdge": "E422",
+    "laneIds": "E422 E423",
+    "length": "15.53"
+  },
+  {
+    "src": ":J412",
+    "dest": ":J405",
+    "startingEdge": "-E430",
+    "laneIds": "-E430 -E429 -E428 -E427 -E426 -E425 -E424",
+    "length": "82.8"
+  },
+  {
+    "src": ":J405",
+    "dest": ":J412",
+    "startingEdge": "E424",
+    "laneIds": "E424 E425 E426 E427 E428 E429 E430",
+    "length": "82.8"
+  },
+  {
+    "src": ":J415",
+    "dest": ":J412",
+    "startingEdge": "E637",
+    "laneIds": "E637 E638",
+    "length": "19.59"
+  },
+  {
+    "src": ":J56",
+    "dest": ":J412",
+    "startingEdge": "-E432",
+    "laneIds": "-E432 -E431",
+    "length": "19.59"
+  },
+  {
+    "src": ":J412",
+    "dest": ":J415",
+    "startingEdge": "-E638",
+    "laneIds": "-E638 -E637",
+    "length": "14.43"
+  },
+  {
+    "src": ":J58",
+    "dest": ":J415",
+    "startingEdge": "E433",
+    "laneIds": "E433 E434",
+    "length": "14.43"
+  },
+  {
+    "src": ":J422",
+    "dest": ":J415",
+    "startingEdge": "-E441",
+    "laneIds": "-E441 -E440 -E439 -E438 -E437 -E436 -E435",
+    "length": "82.8"
+  },
+  {
+    "src": ":J50",
+    "dest": ":J42",
+    "startingEdge": "-E48",
+    "laneIds": "-E48 -E47 -E46 -E45 -E44 -E43 -E42 -E41",
+    "length": "92.72"
+  },
+  {
+    "src": ":J201",
+    "dest": ":J42",
+    "startingEdge": "E103",
+    "laneIds": "E103 E104",
+    "length": "15.53"
+  },
+  {
+    "src": ":J39",
+    "dest": ":J42",
+    "startingEdge": "E38",
+    "laneIds": "E38 E39 E40",
+    "length": "32.19"
+  },
+  {
+    "src": ":J415",
+    "dest": ":J422",
+    "startingEdge": "E435",
+    "laneIds": "E435 E436 E437 E438 E439 E440 E441",
+    "length": "77.43"
+  },
+  {
+    "src": ":J267",
+    "dest": ":J422",
+    "startingEdge": "-E443",
+    "laneIds": "-E443 -E442",
+    "length": "14.43"
+  },
+  {
+    "src": ":J425",
+    "dest": ":J422",
+    "startingEdge": "E509",
+    "laneIds": "E509 E510 E511",
+    "length": "32.4"
+  },
+  {
+    "src": ":J264",
+    "dest": ":J425",
+    "startingEdge": "E444",
+    "laneIds": "E444 E445",
+    "length": "15.53"
+  },
+  {
+    "src": ":J422",
+    "dest": ":J425",
+    "startingEdge": "-E511",
+    "laneIds": "-E511 -E510 -E509",
+    "length": "32.4"
+  },
+  {
+    "src": ":J435",
+    "dest": ":J425",
+    "startingEdge": "-E455",
+    "laneIds": "-E455 -E454 -E453 -E452 -E451 -E450 -E449 -E448 -E447 -E446",
+    "length": "121.84"
+  },
+  {
+    "src": ":J262",
+    "dest": ":J435",
+    "startingEdge": "E533",
+    "laneIds": "E533 E534 E535 E536 E537 E538",
+    "length": "65.93"
+  },
+  {
+    "src": ":J438",
+    "dest": ":J435",
+    "startingEdge": "-E458",
+    "laneIds": "-E458 -E457 -E456",
+    "length": "32.4"
+  },
+  {
+    "src": ":J425",
+    "dest": ":J435",
+    "startingEdge": "E446",
+    "laneIds": "E446 E447 E448 E449 E450 E451 E452 E453 E454 E455",
+    "length": "116.68"
+  },
+  {
+    "src": ":J501",
+    "dest": ":J438",
+    "startingEdge": "E530",
+    "laneIds": "E530 E531 E532",
+    "length": "32.4"
+  },
+  {
+    "src": ":J435",
+    "dest": ":J438",
+    "startingEdge": "E456",
+    "laneIds": "E456 E457 E458",
+    "length": "27.03"
+  },
+  {
+    "src": ":J445",
+    "dest": ":J438",
+    "startingEdge": "-E465",
+    "laneIds": "-E465 -E464 -E463 -E462 -E461 -E460 -E459",
+    "length": "82.8"
+  },
+  {
+    "src": ":J438",
+    "dest": ":J445",
+    "startingEdge": "E459",
+    "laneIds": "E459 E460 E461 E462 E463 E464 E465",
+    "length": "82.8"
+  },
+  {
+    "src": ":J447",
+    "dest": ":J445",
+    "startingEdge": "-E467",
+    "laneIds": "-E467 -E466",
+    "length": "19.8"
+  },
+  {
+    "src": ":J472",
+    "dest": ":J445",
+    "startingEdge": "E495",
+    "laneIds": "E495 E496 E497",
+    "length": "32.19"
+  },
+  {
+    "src": ":J464",
+    "dest": ":J447",
+    "startingEdge": "E486",
+    "laneIds": "E486 E487 E488",
+    "length": "27.03"
+  },
+  {
+    "src": ":J454",
+    "dest": ":J447",
+    "startingEdge": "-E474",
+    "laneIds": "-E474 -E473 -E472 -E471 -E470 -E469 -E468",
+    "length": "82.8"
+  },
+  {
+    "src": ":J445",
+    "dest": ":J447",
+    "startingEdge": "E466",
+    "laneIds": "E466 E467",
+    "length": "19.59"
+  },
+  {
+    "src": ":J496",
+    "dest": ":J454",
+    "startingEdge": "E524",
+    "laneIds": "E524 E525 E526",
+    "length": "32.4"
+  },
+  {
+    "src": ":J457",
+    "dest": ":J454",
+    "startingEdge": "-E477",
+    "laneIds": "-E477 -E476 -E475",
+    "length": "32.4"
+  },
+  {
+    "src": ":J447",
+    "dest": ":J454",
+    "startingEdge": "E468",
+    "laneIds": "E468 E469 E470 E471 E472 E473 E474",
+    "length": "82.59"
+  },
+  {
+    "src": ":J284",
+    "dest": ":J457",
+    "startingEdge": "E515",
+    "laneIds": "E515 E516 E517 E518 E519 E520",
+    "length": "65.93"
+  },
+  {
+    "src": ":J305",
+    "dest": ":J457",
+    "startingEdge": "E316",
+    "laneIds": "E316 E317 E318 E319 E320 -E482 -E481 -E480 -E479 -E478",
+    "length": "121.63"
+  },
+  {
+    "src": ":J454",
+    "dest": ":J457",
+    "startingEdge": "E475",
+    "laneIds": "E475 E476 E477",
+    "length": "32.4"
+  },
+  {
+    "src": ":J447",
+    "dest": ":J464",
+    "startingEdge": "-E488",
+    "laneIds": "-E488 -E487 -E486",
+    "length": "27.03"
+  },
+  {
+    "src": ":J83",
+    "dest": ":J464",
+    "startingEdge": "E483",
+    "laneIds": "E483 E484 E485",
+    "length": "28.13"
+  },
+  {
+    "src": ":J496",
+    "dest": ":J464",
+    "startingEdge": "E553",
+    "laneIds": "E553 E554 E555 E556 E557 E558 E559",
+    "length": "77.43"
+  },
+  {
+    "src": ":J445",
+    "dest": ":J472",
+    "startingEdge": "-E497",
+    "laneIds": "-E497 -E496 -E495",
+    "length": "28.13"
+  },
+  {
+    "src": ":J501",
+    "dest": ":J472",
+    "startingEdge": "-E566",
+    "laneIds": "-E566 -E565 -E564 -E563 -E562 -E561 -E560",
+    "length": "77.43"
+  },
+  {
+    "src": ":J81",
+    "dest": ":J472",
+    "startingEdge": "E492",
+    "laneIds": "E492 E493 E494",
+    "length": "27.03"
+  },
+  {
+    "src": ":J287",
+    "dest": ":J496",
+    "startingEdge": "E521",
+    "laneIds": "E521 E522 E523",
+    "length": "27.03"
+  },
+  {
+    "src": ":J464",
+    "dest": ":J496",
+    "startingEdge": "-E559",
+    "laneIds": "-E559 -E558 -E557 -E556 -E555 -E554 -E553",
+    "length": "78.53"
+  },
+  {
+    "src": ":J454",
+    "dest": ":J496",
+    "startingEdge": "-E526",
+    "laneIds": "-E526 -E525 -E524",
+    "length": "28.13"
+  },
+  {
+    "src": ":J42",
+    "dest": ":J50",
+    "startingEdge": "E41",
+    "laneIds": "E41 E42 E43 E44 E45 E46 E47 E48",
+    "length": "87.35"
+  },
+  {
+    "src": ":J53",
+    "dest": ":J50",
+    "startingEdge": "-E51",
+    "laneIds": "-E51 -E50 -E49",
+    "length": "32.4"
+  },
+  {
+    "src": ":J234",
+    "dest": ":J50",
+    "startingEdge": "-E598",
+    "laneIds": "-E598 -E597 -E596 -E595",
+    "length": "40.73"
+  },
+  {
+    "src": ":J472",
+    "dest": ":J501",
+    "startingEdge": "E560",
+    "laneIds": "E560 E561 E562 E563 E564 E565 E566",
+    "length": "78.53"
+  },
+  {
+    "src": ":J438",
+    "dest": ":J501",
+    "startingEdge": "-E532",
+    "laneIds": "-E532 -E531 -E530",
+    "length": "28.13"
+  },
+  {
+    "src": ":J259",
+    "dest": ":J501",
+    "startingEdge": "E527",
+    "laneIds": "E527 E528 E529",
+    "length": "28.13"
+  },
+  {
+    "src": ":J56",
+    "dest": ":J53",
+    "startingEdge": "-E54",
+    "laneIds": "-E54 -E53 -E52",
+    "length": "32.57"
+  },
+  {
+    "src": ":J237",
+    "dest": ":J53",
+    "startingEdge": "-E602",
+    "laneIds": "-E602 -E601 -E600 -E599",
+    "length": "40.73"
+  },
+  {
+    "src": ":J50",
+    "dest": ":J53",
+    "startingEdge": "E49",
+    "laneIds": "E49 E50 E51",
+    "length": "32.4"
+  },
+  {
+    "src": ":J412",
+    "dest": ":J56",
+    "startingEdge": "E431",
+    "laneIds": "E431 E432",
+    "length": "14.43"
+  },
+  {
+    "src": ":J53",
+    "dest": ":J56",
+    "startingEdge": "E52",
+    "laneIds": "E52 E53 E54",
+    "length": "28.27"
+  },
+  {
+    "src": ":J157",
+    "dest": ":J56",
+    "startingEdge": "E633",
+    "laneIds": "E633 E634",
+    "length": "19.8"
+  },
+  {
+    "src": ":J58",
+    "dest": ":J56",
+    "startingEdge": "-E56",
+    "laneIds": "-E56 -E55",
+    "length": "14.43"
+  },
+  {
+    "src": ":J56",
+    "dest": ":J58",
+    "startingEdge": "E55",
+    "laneIds": "E55 E56",
+    "length": "14.43"
+  },
+  {
+    "src": ":J161",
+    "dest": ":J58",
+    "startingEdge": "E635",
+    "laneIds": "E635 E636",
+    "length": "19.8"
+  },
+  {
+    "src": ":J415",
+    "dest": ":J58",
+    "startingEdge": "-E434",
+    "laneIds": "-E434 -E433",
+    "length": "14.43"
+  },
+  {
+    "src": ":J61",
+    "dest": ":J58",
+    "startingEdge": "-E59",
+    "laneIds": "-E59 -E58 -E57",
+    "length": "33.64"
+  },
+  {
+    "src": ":J64",
+    "dest": ":J61",
+    "startingEdge": "-E62",
+    "laneIds": "-E62 -E61 -E60",
+    "length": "27.03"
+  },
+  {
+    "src": ":J58",
+    "dest": ":J61",
+    "startingEdge": "E57",
+    "laneIds": "E57 E58 E59",
+    "length": "27.41"
+  },
+  {
+    "src": ":J269",
+    "dest": ":J61",
+    "startingEdge": "E591",
+    "laneIds": "E591 E592 E593 E594",
+    "length": "40.73"
+  },
+  {
+    "src": ":J272",
+    "dest": ":J64",
+    "startingEdge": "E587",
+    "laneIds": "E587 E588 E589 E590",
+    "length": "40.73"
+  },
+  {
+    "src": ":J72",
+    "dest": ":J64",
+    "startingEdge": "-E70",
+    "laneIds": "-E70 -E69 -E68 -E67 -E66 -E65 -E64 -E63",
+    "length": "88.45"
+  },
+  {
+    "src": ":J61",
+    "dest": ":J64",
+    "startingEdge": "E60",
+    "laneIds": "E60 E61 E62",
+    "length": "32.19"
+  },
+  {
+    "src": ":J64",
+    "dest": ":J72",
+    "startingEdge": "E63",
+    "laneIds": "E63 E64 E65 E66 E67 E68 E69 E70",
+    "length": "92.51"
+  },
+  {
+    "src": ":J75",
+    "dest": ":J72",
+    "startingEdge": "-E73",
+    "laneIds": "-E73 -E72 -E71",
+    "length": "27.03"
+  },
+  {
+    "src": ":J208",
+    "dest": ":J72",
+    "startingEdge": "-E102",
+    "laneIds": "-E102 -E75",
+    "length": "14.43"
+  },
+  {
+    "src": ":J255",
+    "dest": ":J75",
+    "startingEdge": "-E610",
+    "laneIds": "-E610 -E609 -E608 -E607",
+    "length": "39.63"
+  },
+  {
+    "src": ":J81",
+    "dest": ":J75",
+    "startingEdge": "-E79",
+    "laneIds": "-E79 -E78 -E77 -E76 -E74",
+    "length": "53.47"
+  },
+  {
+    "src": ":J72",
+    "dest": ":J75",
+    "startingEdge": "E71",
+    "laneIds": "E71 E72 E73",
+    "length": "32.4"
+  },
+  {
+    "src": ":J83",
+    "dest": ":J81",
+    "startingEdge": "-E81",
+    "laneIds": "-E81 -E80",
+    "length": "14.43"
+  },
+  {
+    "src": ":J472",
+    "dest": ":J81",
+    "startingEdge": "-E494",
+    "laneIds": "-E494 -E493 -E492",
+    "length": "32.4"
+  },
+  {
+    "src": ":J75",
+    "dest": ":J81",
+    "startingEdge": "E74",
+    "laneIds": "E74 E76 E77 E78 E79",
+    "length": "53.47"
+  },
+  {
+    "src": ":J178",
+    "dest": ":J81",
+    "startingEdge": "-E626",
+    "laneIds": "-E626 -E625",
+    "length": "19.8"
+  },
+  {
+    "src": ":J464",
+    "dest": ":J83",
+    "startingEdge": "-E485",
+    "laneIds": "-E485 -E484 -E483",
+    "length": "32.4"
+  },
+  {
+    "src": ":J81",
+    "dest": ":J83",
+    "startingEdge": "E80",
+    "laneIds": "E80 E81",
+    "length": "19.8"
+  },
+  {
+    "src": ":J88",
+    "dest": ":J83",
+    "startingEdge": "-E86",
+    "laneIds": "-E86 -E85 -E84 -E83 -E82",
+    "length": "58.84"
+  },
+  {
+    "src": ":J181",
+    "dest": ":J83",
+    "startingEdge": "E623",
+    "laneIds": "E623 E624",
+    "length": "19.59"
+  },
+  {
+    "src": ":J83",
+    "dest": ":J88",
+    "startingEdge": "E82",
+    "laneIds": "E82 E83 E84 E85 E86",
+    "length": "48.31"
+  },
+  {
+    "src": ":J291",
+    "dest": ":J88",
+    "startingEdge": "-E614",
+    "laneIds": "-E614 -E613 -E612 -E611",
+    "length": "39.63"
+  },
+  {
+    "src": ":J91",
+    "dest": ":J88",
+    "startingEdge": "-E89",
+    "laneIds": "-E89 -E88 -E87",
+    "length": "32.4"
+  },
+  {
+    "src": ":J88",
+    "dest": ":J91",
+    "startingEdge": "E87",
+    "laneIds": "E87 E88 E89",
+    "length": "32.4"
+  },
+  {
+    "src": ":J99",
+    "dest": ":J91",
+    "startingEdge": "-E97",
+    "laneIds": "-E97 -E96 -E95 -E94 -E93 -E92 -E91 -E90",
+    "length": "87.35"
+  },
+  {
+    "src": ":J191",
+    "dest": ":J91",
+    "startingEdge": "-E6",
+    "laneIds": "-E6 -E5",
+    "length": "14.43"
+  },
+  {
+    "src": ":J274",
+    "dest": ":J99",
+    "startingEdge": "E583",
+    "laneIds": "E583 E584 E585 E586",
+    "length": "40.73"
+  },
+  {
+    "src": ":J102",
+    "dest": ":J99",
+    "startingEdge": "-E100",
+    "laneIds": "-E100 -E99 -E98",
+    "length": "27.03"
+  },
+  {
+    "src": ":J91",
+    "dest": ":J99",
+    "startingEdge": "E90",
+    "laneIds": "E90 E91 E92 E93 E94 E95 E96 E97",
+    "length": "87.35"
+  }
+]
